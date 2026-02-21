@@ -41,6 +41,11 @@
   color: #747474;
 }
 
+.likes-icon-container,
+.comments-icon-container {
+  cursor: pointer;
+}
+
 .post-content {
   white-space: pre-line;
 }

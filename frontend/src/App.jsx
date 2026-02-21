@@ -21,6 +21,7 @@ import 'react-quill-new/dist/quill.snow.css';
 import LoginPage from './pages/loginPage/LoginPage';
 import RegistrationPage from './pages/registrationPage/RegistrationPage';
 import LandingPage from './pages/landingPage/LandingPage';
+import ProtectedRoutes from './middlewares/ProtectedRoutes';
 
 const libraries = ['places'];
 
@@ -39,17 +40,20 @@ const App = () => {
             <Route path="/landing" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registration" element={<RegistrationPage />} />
-            <Route element={<MainLayout />}>
-              <Route index path="/" element={<Homepage />} />
-              <Route path="/booklesson" element={<BookLessonPage />} />
-              <Route path="/teachers/:teacherId" element={<TeacherDetailsPage />} />
-              <Route path="/findtutor" element={<FindTutorPage />} />
-              <Route path="/tutors/:tutorId" element={<TutorDetailsPage />} />
-              <Route path="/community" element={<CommunityPage />} />
-              <Route path="/communityPosts/:postId" element={<PostDetailsPage />} />
-              <Route path="/settings" element={<SettingsPage />} />
-              <Route path="/becometeacher" element={<BecomeTeacherPage />} />
-              <Route path="/postarticle" element={<PostArticlePage />} />
+
+            <Route element={<ProtectedRoutes />}>
+              <Route element={<MainLayout />}>
+                <Route index path="/" element={<Homepage />} />
+                <Route path="/booklesson" element={<BookLessonPage />} />
+                <Route path="/teachers/:teacherId" element={<TeacherDetailsPage />} />
+                <Route path="/findtutor" element={<FindTutorPage />} />
+                <Route path="/tutors/:tutorId" element={<TutorDetailsPage />} />
+                <Route path="/community" element={<CommunityPage />} />
+                <Route path="/communityPosts/:postId" element={<PostDetailsPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/becometeacher" element={<BecomeTeacherPage />} />
+                <Route path="/postarticle" element={<PostArticlePage />} />
+              </Route>
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

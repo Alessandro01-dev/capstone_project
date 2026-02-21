@@ -23,7 +23,7 @@ const PublicCommunityHighlight = ({ onRedirect }) => {
             variant="outline-dark"
             className="rounded-pill px-4"
             onClick={() => {
-              onRedirect('community')
+              onRedirect('registration')
             }}
           >
             Visit the Blog

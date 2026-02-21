@@ -27,9 +27,6 @@ const PublicFooter = () => {
             <div className="d-flex gap-4 justify-content-md-end mb-3">
               <span
                 className={`${classes['footer-custom-link']} fw-bold`}
-                onClick={() => handlePageRedirect('/community')}>Blog</span>
-              <span
-                className={`${classes['footer-custom-link']} fw-bold`}
                 onClick={() => handlePageRedirect('/registration')}>Register</span>
               <span
                 className={`${classes['footer-custom-link']} fw-bold`}

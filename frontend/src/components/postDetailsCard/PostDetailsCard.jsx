@@ -4,21 +4,40 @@ import CommentsIcon from '../../assets/CommentsIcon'
 import LikesIcon from '../../assets/LikesIcon'
 import CommentArea from "./commentArea/CommentArea"
 import useCommunityPosts from "../../hooks/useCommunityPosts"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { Alert, Spinner } from "react-bootstrap"
+import { formatDate } from "../../utils/formatDate"
+import { useAuth } from "../../contexts/AuthContext"
 
 const PostDetailsCard = () => {
 
   const params = useParams()
   const { postId } = params
 
-  const { getPostById, postsData, postsIsLoading, postsError } = useCommunityPosts()
+  const { authData } = useAuth()
+
+  const { getPostById, toggleLikePost, postsData, postsIsLoading, postsError } = useCommunityPosts()
+
+  const commentSectionRef = useRef(null)
 
   useEffect(() => {
     if (postId) {
       getPostById(postId)
     }
   }, [postId])
+
+  const isLikedByLoggedUser = postsData?.likes?.includes(authData?._id)
+
+  const handleLike = async () => {
+    if (postId) {
+      await toggleLikePost(postId)
+    }
+  }
+
+  const scrollToComments = () => {
+    commentSectionRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
 
   return (
     <div
@@ -57,7 +76,7 @@ const PostDetailsCard = () => {
               className={classes["card-profile-img-container"]}
             >
               <img
-                className="w-100 d-block object-fit-cover"
+                className="w-100 h-100 d-block object-fit-cover"
                 src={postsData.user.avatar}
                 alt="author card profile picture"
               />
@@ -90,22 +109,26 @@ const PostDetailsCard = () => {
             >
               <p className="m-0">{postsData.readTime.value} {postsData.readTime.unit}</p>
               <p className="m-0">&#8226;</p>
-              <p className="m-0">26 feb 2026</p>
+              <p className="m-0">{formatDate(postsData.createdAt)}</p>
             </div>
             <div
               className='d-flex gap-4'
             >
               <div
-                className='d-flex gap-1'
+                className={`${classes['comments-icon-container']} d-flex gap-1`}
+                onClick={scrollToComments}
               >
                 <CommentsIcon />
-                <p className='m-0'>4</p>
+                <p className='m-0'>{postsData.comments.length}</p>
               </div>
               <div
-                className='d-flex gap-1'
+                className={`${classes['likes-icon-container']} d-flex gap-1`}
+                onClick={handleLike}
               >
-                <LikesIcon />
-                <p className='m-0'>24</p>
+                <LikesIcon
+                  isLiked={isLikedByLoggedUser}
+                />
+                <p className='m-0'>{postsData.likes?.length}</p>
               </div>
             </div>
           </div>
@@ -114,9 +137,12 @@ const PostDetailsCard = () => {
           >
             {postsData.content}
           </p>
-          <CommentArea
-            comments={postsData.comments}
-          />
+          <div ref={commentSectionRef}>
+            <CommentArea
+              comments={postsData.comments}
+              updatePost={() => getPostById(postId)}
+            />
+          </div>
         </>
       )}
     </div>

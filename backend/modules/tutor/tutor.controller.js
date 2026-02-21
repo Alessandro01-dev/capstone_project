@@ -12,7 +12,7 @@ const getTutors = async (req, res, next) => {
       tutors,
       totalPages,
       totalTutors,
-      currentPage
+      currentPage,
     });
   } catch (error) {
     next(error)

@@ -1,15 +1,30 @@
 import { Alert, Row, Spinner } from 'react-bootstrap'
 import CommunityPostCard from './communityPostCard/CommunityPostCard'
 import useCommunityPosts from '../../hooks/useCommunityPosts'
-import { useEffect } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 
 const CommunityPostsList = () => {
 
   const { getPosts, postsData, postsIsLoading, postsError } = useCommunityPosts()
+  const [page, setPage] = useState(1)
+  const observer = useRef()
+
+  const lastPostRef = useCallback(node => {
+    if (postsIsLoading) return
+    if (observer.current) observer.current.disconnect()
+
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && postsData?.currentPage < postsData?.totalPages) {
+        setPage(prev => prev + 1)
+      }
+    })
+
+    if (node) observer.current.observe(node)
+  }, [postsIsLoading, postsData])
 
   useEffect(() => {
-    getPosts(1, 10)
-  }, [])
+    getPosts(page, 10)
+  }, [page])
 
   const posts = postsData?.blogPosts || []
 
@@ -25,24 +40,27 @@ const CommunityPostsList = () => {
           {postsError}
         </Alert>
       )}
+      {posts.map(post => (
+        <CommunityPostCard
+          key={post._id}
+          post={post}
+        />
+      ))}
 
-      {postsIsLoading && posts.length === 0 ? (
+      <div ref={lastPostRef} style={{ height: '20px' }} />
+
+      {posts.length === 0 && !postsIsLoading && (
+        <p
+          className="text-center"
+        >
+          No community posts found.
+        </p>
+      )}
+
+      {postsIsLoading && (
         <Spinner
           className="mx-auto"
         />
-      ) : (
-        <>
-          {posts.length > 0 ? (
-            posts.map(post => (
-              <CommunityPostCard
-                key={post._id}
-                post={post}
-              />
-            ))
-          ) : (
-            !postsIsLoading && <p className="text-center">No community posts found.</p>
-          )}
-        </>
       )}
     </Row>
   )

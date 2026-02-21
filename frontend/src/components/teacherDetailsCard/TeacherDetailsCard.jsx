@@ -36,7 +36,7 @@ const TeacherDetailsCard = () => {
             <div
               className={classes["details-card-profile-picture-container"]}>
               <img
-                className="w-100 d-block object-fit-cover"
+                className="w-100 h-100 d-block object-fit-cover"
                 src={tutorsData.user?.avatar}
                 alt="teacher details picture"
               />

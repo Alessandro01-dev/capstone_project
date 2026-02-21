@@ -23,8 +23,12 @@ const useTutors = () => {
       }
 
       const data = await response.json()
-      
-      setTutorsData(data)
+
+      setTutorsData(prev => ({
+        ...data,
+        tutors: page === 1 ? data.tutors : [...(prev?.tutors || []), ...data.tutors]
+      }));
+
       return data
     } catch (error) {
       setTutorsError(error.message)

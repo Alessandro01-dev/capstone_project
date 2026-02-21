@@ -28,7 +28,7 @@ const AccountSettings = () => {
 
     if (field === 'avatar' && typeof value !== 'string') {
       const url = `${import.meta.env.VITE_BASE_SERVER_URL}/users/${authData._id}/avatar`;
-      const result = await uploadFile(url, value, 'avatar');
+      const result = await uploadFile(url, value, 'avatar', 'PATCH');
       success = result.success;
     } else {
       success = await updateUser(authData._id, { [field]: value });

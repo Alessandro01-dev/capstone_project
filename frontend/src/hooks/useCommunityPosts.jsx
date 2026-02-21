@@ -18,13 +18,18 @@ const useCommunityPosts = () => {
         }
       })
 
+      const data = await response.json()
+
       if (!response.ok) {
         const errorResponse = await response.json()
         throw new Error(errorResponse.message)
       }
 
-      const data = await response.json()
-      setPostsData(data)
+      setPostsData(prev => ({
+        ...data,
+        blogPosts: page === 1 ? data.blogPosts : [...(prev?.blogPosts || []), ...data.blogPosts]
+      }));
+
       return data
     } catch (error) {
       setPostsError(error.message)
@@ -50,6 +55,7 @@ const useCommunityPosts = () => {
       }
 
       const data = await response.json()
+
       setPostsData(data.blogPost)
       return data.blogPost
     } catch (error) {
@@ -70,12 +76,13 @@ const useCommunityPosts = () => {
         }
       })
 
+      const data = await response.json()
+
       if (!response.ok) {
         const errorResponse = await response.json()
         throw new Error(errorResponse.message)
       }
 
-      const data = await response.json()
       setPostsData(data)
       return data
     } catch (error) {
@@ -85,10 +92,67 @@ const useCommunityPosts = () => {
     }
   }
 
+  const createPost = async (newPost) => {
+    setPostsIsLoading(true)
+    setPostsError(null)
+    try {
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/blogPosts`, {
+        method: 'POST',
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newPost)
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Errore nella creazione del post')
+      }
+
+      return data
+    } catch (error) {
+      setPostsError(error.message)
+    } finally {
+      setPostsIsLoading(false)
+    }
+  }
+
+  const toggleLikePost = async (postId) => {
+    try {
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/blogPosts/${postId}/like`, {
+        method: 'PATCH',
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.message)
+      }
+
+      setPostsData(data.updatedPost)
+
+      return data
+    } catch (error) {
+      setPostsError(error.message)
+    }
+  }
+
+
   return {
     getPosts,
     getPostById,
     searchPostsByTitle,
+    createPost,
+    toggleLikePost,
     postsIsLoading,
     postsData,
     postsError

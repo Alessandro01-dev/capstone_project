@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-
 import { languagesMock } from '../../components/settings/languagesSettings/languagesMock';
 import classes from './PublicLanguagesCarousel.module.css';
 

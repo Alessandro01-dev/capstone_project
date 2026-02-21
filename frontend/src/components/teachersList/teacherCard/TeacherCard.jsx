@@ -23,7 +23,7 @@ const TeacherCard = ({ isActive, onHover, tutor }) => {
         <div className={classes["teacher-profile-card"]}>
           <div className={classes["teacher-card-profile-picture-container"]}>
             <img
-              className="d-block w-100 object-fit-cover"
+              className="d-block w-100 h-100 object-fit-cover"
               src={tutor.user?.avatar}
               alt="teacher profile picture"
             />

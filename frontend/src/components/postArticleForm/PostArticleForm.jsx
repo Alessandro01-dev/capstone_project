@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Spinner, Alert } from "react-bootstrap"
 import classes from './PostArticleForm.module.css'
 import { useState } from "react"
 import CoverSection from "./coverSection/CoverSection"
@@ -6,6 +6,9 @@ import ContentSection from "./contentSection/ContentSection"
 import TitleSection from "./titleSection/TitleSection"
 import CategorySection from "./categorySection/CategorySection"
 import ReadTimeSection from "./readTimeSection/ReadTimeSection"
+import useCommunityPosts from "../../hooks/useCommunityPosts"
+import { useAuth } from "../../contexts/AuthContext"
+import useUpload from "../../hooks/useUpload"
 
 const PostArticleForm = () => {
 
@@ -14,18 +17,49 @@ const PostArticleForm = () => {
   const [readTime, setReadTime] = useState({ value: 0, unit: 'min' });
   const [cover, setCover] = useState(null);
   const [content, setContent] = useState('');
+  const URL = import.meta.env.VITE_BASE_SERVER_URL;
 
-  const handleSubmit = (e) => {
+  const { createPost, postsIsLoading, postsError } = useCommunityPosts()
+  const { uploadFile, isUploading: isFileUploading } = useUpload();
+
+  const { authData } = useAuth()
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const finalData = {
-      title,
-      category,
-      readTime,
-      cover,
-      content
-    };
-    console.log("Data to send:", finalData);
+    try {
+      let finalCoverUrl = cover;
+
+      if (cover instanceof File) {
+
+        const uploadResult = await uploadFile(`${URL}/blogPosts/upload`, cover, 'cover');
+
+        if (!uploadResult.success) {
+          throw new Error("Caricamento immagine fallito");
+        }
+
+        finalCoverUrl = uploadResult.data.cover;
+      }
+
+      const finalData = {
+        title,
+        category,
+        readTime: {
+          value: Number(readTime.value),
+          unit: readTime.unit
+        },
+        cover: finalCoverUrl,
+        content,
+        user: authData?._id
+      };
+
+      const response = await createPost(finalData);
+      if (response) {
+        alert("Articolo creato con successo!");
+      }
+    } catch (err) {
+      console.error("Errore nel processo di creazione:", err);
+    }
   };
 
   return (
@@ -33,6 +67,15 @@ const PostArticleForm = () => {
       className={classes['post-article-form-main-container']}
       onSubmit={handleSubmit}
     >
+
+      {postsError && (
+        <Alert
+          variant="danger"
+          className="text-center"
+        >
+          {postsError}
+        </Alert>
+      )}
 
       <TitleSection
         title={title}
@@ -44,7 +87,7 @@ const PostArticleForm = () => {
         setCategory={setCategory}
       />
 
-      <ReadTimeSection 
+      <ReadTimeSection
         readTime={readTime}
         setReadTime={setReadTime}
       />
@@ -70,8 +113,14 @@ const PostArticleForm = () => {
           type="submit"
           variant="success"
           className="px-3 py-2 shadow-sm"
+          disabled={postsIsLoading}
         >
-          Submit Article
+          {(postsIsLoading || isFileUploading) ? (
+            <Spinner
+              size="sm"
+              className="mx-auto"
+            />
+          ) : "Submit Article"}
         </Button>
       </div>
     </Form>

@@ -6,7 +6,7 @@ const getBlogPostComments = async (page, pageSize, blogPostId) => {
   const comments = await CommentSchema.find({ blogPost: blogPostId })
     .limit(pageSize)
     .skip((page - 1) * pageSize)
-    .populate("user", "name surname avatar")
+    .populate("user", "name surname avatar nationality isTutor")
   const totalComments = await CommentSchema.countDocuments({ blogPost: blogPostId })
   const totalPages = Math.ceil(totalComments / pageSize)
   return {
@@ -27,7 +27,7 @@ const getBlogPostCommentById = async (blogPostId, commentId) => {
 
 const createBlogPostComment = async (body) => {
   const blogPostId = body.blogPost
-  const userId = body.author
+  const userId = body.user
   const newComment = new CommentSchema(body)
   const savedComment = await newComment.save()
 
@@ -53,15 +53,17 @@ const deleteBlogPostComment = async (blogPostId, commentId) => {
     blogPost: blogPostId
   })
 
-  await BlogPostSchema.updateOne(
-    { _id: blogPostId },
-    { $pull: { comments: commentId } }
-  )
+  if (deletedComment) {
+    await BlogPostSchema.updateOne(
+      { _id: blogPostId },
+      { $pull: { comments: commentId } }
+    )
 
-  await UserSchema.updateOne(
-    { _id: deletedComment.author },
-    { $pull: { comments: commentId } }
-  )
+    await UserSchema.updateOne(
+      { _id: deletedComment.user },
+      { $pull: { comments: commentId } }
+    )
+  }
 
   return deletedComment
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import classes from './LoginForm.module.css'
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -8,8 +8,12 @@ const LoginForm = () => {
 
   const [form, setForm] = useState({});
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const { loginAndGetToken, getProfile, authIsLoading } = useAuth()
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -26,7 +30,7 @@ const LoginForm = () => {
 
     if (data && data.token) {
       await getProfile();
-      navigate('/');
+      navigate(from, { replace: true });
     }
   };
 

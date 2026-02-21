@@ -3,6 +3,7 @@ import classes from './CommunityPostCard.module.css'
 import CommentsIcon from '../../../assets/CommentsIcon'
 import LikesIcon from '../../../assets/LikesIcon'
 import { useNavigate } from 'react-router-dom'
+import { formatDate } from '../../../utils/formatDate'
 
 const CommunityPostCard = ({ post }) => {
 
@@ -33,7 +34,7 @@ const CommunityPostCard = ({ post }) => {
                 className={classes["card-profile-img-container"]}
               >
                 <img
-                  className="w-100 d-block object-fit-cover"
+                  className="w-100 h-100 d-block object-fit-cover"
                   src={post.user.avatar}
                   alt="author card profile picture"
                 />
@@ -90,7 +91,7 @@ const CommunityPostCard = ({ post }) => {
           <p
             className='m-0'
           >
-            4th feb 2026
+            {formatDate(post.createdAt)}
           </p>
           <div
             className='d-flex gap-4'
@@ -99,13 +100,13 @@ const CommunityPostCard = ({ post }) => {
               className='d-flex gap-1'
             >
               <CommentsIcon />
-              <p className='m-0'>4</p>
+              <p className='m-0'>{post.comments.length}</p>
             </div>
             <div
               className='d-flex gap-1'
             >
               <LikesIcon />
-              <p className='m-0'>24</p>
+              <p className='m-0'>{post.likes.length}</p>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ const useUpload = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState(null);
 
-  const uploadFile = async (url, file, fieldName = 'avatar') => {
+  const uploadFile = async (url, file, fieldName, method = 'POST') => {
     setIsUploading(true);
     setUploadError(null);
     
@@ -14,7 +14,7 @@ const useUpload = () => {
 
     try {
       const response = await fetch(url, {
-        method: "PATCH",
+        method: method,
         headers: { 
           "Authorization": `Bearer ${token}`
         },
