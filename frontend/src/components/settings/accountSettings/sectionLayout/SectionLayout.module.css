@@ -1,0 +1,12 @@
+.account-settings-section-main-container {
+  min-height: 140px;
+  border-bottom: 1px solid #ccc;
+}
+
+.edit-icon {
+  cursor: pointer;
+}
+
+.section-layout-footer {
+  min-height: 40px;
+}

@@ -1,0 +1,13 @@
+.custom-input:focus {
+  border-color: green !important;
+  box-shadow: none !important;
+}
+
+.custom-input:global(.is-invalid) {
+  border-color: #dc3545 !important;
+  box-shadow: none !important;
+}
+
+.surname-content {
+  color: #555
+}

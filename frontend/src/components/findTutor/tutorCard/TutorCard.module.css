@@ -1,0 +1,57 @@
+.tutor-card-container {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.tutor-card-container:hover {
+  transform: scale(1.008);
+}
+
+.card-profile-img-container {
+  width: 54px;
+  height: 54px;
+  position: relative
+}
+
+.tutor-card-profile-flag-picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 18px;
+  width: 18px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
+}
+
+.card-profile-img-container img {
+  border-radius: 50%;
+}
+
+.tutor-card-job-title {
+  font-weight: 400;
+  color: #747474;
+}
+
+.tutor-card-languages-section-title,
+.tutor-card-interests-section-title {
+  font-weight: 400;
+  color: #747474;
+}
+
+.tutor-card-interests-section-title {
+  line-height: 0.8;
+}
+
+.tutor-card-interest-badge {
+  background-color: #ccc !important;
+  color: rgb(50, 50, 50);
+}

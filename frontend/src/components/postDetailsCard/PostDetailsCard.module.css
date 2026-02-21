@@ -1,0 +1,46 @@
+.details-card-main-container {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 32px;
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.details-card-cover-post-container {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-profile-img-container {
+  width: 54px;
+  height: 54px;
+  position: relative
+}
+
+.author-card-profile-flag-picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 18px;
+  width: 18px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
+}
+
+.card-profile-img-container img {
+  border-radius: 50%;
+}
+
+.author-card-job-title {
+  font-weight: 400;
+  color: #747474;
+}
+
+.post-content {
+  white-space: pre-line;
+}

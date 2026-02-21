@@ -1,0 +1,20 @@
+.sidebar {
+  width: 323px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  transition: width 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  border-bottom: 1px solid #dee2e6;
+}

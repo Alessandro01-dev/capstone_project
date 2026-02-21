@@ -1,0 +1,9 @@
+.service-img-container {
+  width: 100%;
+  width: 140px;
+  height: 140px;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 50%;
+}

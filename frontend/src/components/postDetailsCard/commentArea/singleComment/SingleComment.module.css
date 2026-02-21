@@ -1,0 +1,34 @@
+.single-comment-main-container {
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-profile-img-container {
+  width: 48px;
+  height: 48px;
+  position: relative
+}
+
+.author-card-profile-flag-picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 16px;
+  width: 16px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
+}
+
+.card-profile-img-container img {
+  border-radius: 50%;
+}
+
+.author-card-job-title {
+  font-weight: 400;
+  color: #747474;
+}

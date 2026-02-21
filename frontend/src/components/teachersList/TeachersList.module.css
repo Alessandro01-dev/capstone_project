@@ -1,0 +1,50 @@
+.teachers-page-layout {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  padding: 40px 0px;
+  position: relative;
+}
+
+.teachers-list-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.teacher-popover-sidebar {
+  display: none;
+  flex: 0 0 400px;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .teacher-popover-sidebar {
+    display: block;
+  }
+}
+
+.custom-popover {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #ccc;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  transform: translateY(var(--popover-offset, 0));
+  transition: transform 0.3s ease-in-out;
+}
+
+.popover-description {
+  white-space: pre-line;
+  margin: 0;
+}
+
+
+
+
+

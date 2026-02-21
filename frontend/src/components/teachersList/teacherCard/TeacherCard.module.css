@@ -1,0 +1,97 @@
+.teacher-card-main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 24px;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.teacher-card-main-container.active {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.teacher-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.teacher-profile-card p:nth-of-type(1) {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.teacher-card-profile-job-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.teacher-card-profile-job-title p {
+  font-size: 14px !important;
+  font-weight: 500;
+  color: #747474;
+}
+
+.teacher-card-profile-picture-container {
+  width: 64px;
+  height: 64px;
+  position: relative;
+}
+
+.teacher-card-profile-picture-container img {
+  border-radius: 50%;
+}
+
+.teacher-card-profile-flag-picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 22px;
+  width: 22px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
+}
+
+.teacher-profile-card-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.teacher-profile-card-rating-container p {
+  color: #FFC400;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.teacher-card-languages-container {
+  display: flex;
+  gap: 12px;
+}
+
+.teacher-card-languages-section-title {
+  font-weight: 400;
+  color: #747474;
+}
+
+.teacher-card-taught-languages-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.teacher-card-description {
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: pre-line;
+}

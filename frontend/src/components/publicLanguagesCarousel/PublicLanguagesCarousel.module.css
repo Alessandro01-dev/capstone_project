@@ -1,0 +1,14 @@
+.swiper-wrapper-linear :global(.swiper-wrapper) {
+  transition-timing-function: ease-in-out !important;
+}
+
+
+.swiper-wrapper-linear :global(.swiper-slide) {
+  width: auto !important;
+}
+
+.flag-picture-container {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}

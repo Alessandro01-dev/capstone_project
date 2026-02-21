@@ -1,0 +1,96 @@
+.community-post-card-main-container {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.community-post-card-main-container:hover {
+  transform: scale(1.008);
+}
+
+.community-post-card-top-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.community-post-card-left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  min-width: 0;
+}
+
+.community-post-card-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.community-post-card-cover-container {
+  width: 160px;
+  height: 160px;
+}
+
+.community-post-card-cover-container img {
+  border-radius: 8px;
+}
+
+.card-profile-img-container {
+  width: 54px;
+  height: 54px;
+  position: relative
+}
+
+.author-card-profile-flag-picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 18px;
+  width: 18px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
+}
+
+.card-profile-img-container img {
+  border-radius: 50%;
+}
+
+.author-card-job-title {
+  font-weight: 400;
+  color: #747474;
+}
+
+.post-content {
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+.community-post-card-bottom-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  color: #747474;
+}

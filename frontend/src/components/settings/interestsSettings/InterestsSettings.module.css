@@ -1,0 +1,95 @@
+.no-interests-paragraph {
+  color: #ccc;
+}
+
+.single-hobby-tag {
+  background-color: rgba(0, 128, 0, 0.1);
+  color: black;
+  padding: 2px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(0, 128, 0, 0.2)
+}
+
+.confirmed-hobbies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  min-height: 50px;
+}
+
+.remove-tag-close-button {
+  color: #ccc;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.remove-tag-close-button:hover {
+  color: black;
+}
+
+:global(.react-select__control) {
+  border-color: #ccc !important;
+  box-shadow: none !important;
+  min-height: 45px !important;
+  max-height: 45px !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+}
+
+:global(.react-select__control:hover) {
+  border-color: green !important;
+}
+
+:global(.react-select__placeholder) {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+:global(.react-select__value-container) {
+  max-height: 45px !important;
+  overflow-y: auto !important;
+  padding: 6px !important;
+  scrollbar-width: none;
+}
+
+:global(.react-select__value-container)::-webkit-scrollbar {
+  display: none;
+}
+
+:global(.react-select__multi-value) {
+  background-color: rgba(0, 128, 0, 0.1) !important;
+  border-radius: 6px !important;
+}
+
+:global(.react-select__multi-value__label) {
+  color: green !important;
+}
+
+:global(.react-select__multi-value__remove:hover) {
+  background-color: green !important;
+  color: white !important;
+}
+
+:global(.react-select__option--is-focused) {
+  background-color: rgba(0, 128, 0, 0.1) !important;
+  color: green !important;
+  cursor: pointer;
+}
+
+:global(.react-select__option--is-selected) {
+  background-color: green !important;
+  color: white !important;
+}
+
+:global(.react-select__option:active) {
+  color: white !important;
+  background-color: #009700 !important;
+}

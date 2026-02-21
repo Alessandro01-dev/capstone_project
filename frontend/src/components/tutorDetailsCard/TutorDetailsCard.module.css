@@ -1,0 +1,65 @@
+.details-card-main-container {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.details-card-profile-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.details-card-profile-picture-container {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.details-card-profile-picture-container img {
+  border-radius: 50%;
+}
+
+.details-card-profile-flag {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 26px;
+  width: 26px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
+}
+
+.details-card-profile-container div h3 {
+  font-size: 32px;
+}
+
+.details-card-profile-container div p {
+  font-weight: 500;
+  color: #747474;
+}
+
+.details-bio {
+  white-space: pre-line;
+}
+
+.info-details-section-title {
+  font-weight: 400;
+  color: #747474;
+}
+
+.info-interests-section-title {
+  font-weight: 400;
+  color: #747474;
+  line-height: 0.8;
+}
+
+.interest-badge {
+  background-color: #ccc !important;
+  color: rgb(50, 50, 50);
+}

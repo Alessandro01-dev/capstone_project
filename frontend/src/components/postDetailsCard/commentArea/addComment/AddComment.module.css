@@ -1,0 +1,45 @@
+.add-comment-main-container {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 0;
+  margin: 24px 0;
+}
+
+.card-profile-img-container {
+  width: 48px;
+  height: 48px;
+  position: relative
+}
+
+.author-card-profile-flag-picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 16px;
+  width: 16px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
+}
+
+.card-profile-img-container img {
+  border-radius: 50%;
+}
+
+.author-card-job-title {
+  font-weight: 400;
+  color: #747474;
+}
+
+.add-comment-text-area {
+  min-height: 240px !important;
+}
+
+.add-comment-text-area:focus {
+  border-color: black;
+  box-shadow: none;
+  outline: 0 none;
+}

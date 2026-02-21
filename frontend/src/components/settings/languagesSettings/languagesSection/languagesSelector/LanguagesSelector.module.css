@@ -1,0 +1,19 @@
+.level-option-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.level-option-label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.level-option-description {
+  font-size: 12px;
+  color: #666;
+}
+
+:global(.react-select__option:active) .level-option-description,
+:global(.react-select__option--is-selected) .level-option-description {
+  color: black !important;
+}

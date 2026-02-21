@@ -1,0 +1,40 @@
+.profile-settings-main-container {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.tab-title {
+  text-align: center;
+  width: 25%;
+  padding: 10px;
+  cursor: pointer;
+  color: #747474;
+  position: relative;
+}
+
+.tab-title:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.tab-title.active {
+  color: green;
+}
+
+.tab-title.active::after {
+  content: '';
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: green;
+  height: 2px;
+  position: absolute;
+}
