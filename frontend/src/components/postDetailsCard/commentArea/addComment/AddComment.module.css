@@ -11,7 +11,8 @@
 .card-profile-img-container {
   width: 48px;
   height: 48px;
-  position: relative
+  position: relative;
+  flex-shrink: 0;
 }
 
 .author-card-profile-flag-picture {

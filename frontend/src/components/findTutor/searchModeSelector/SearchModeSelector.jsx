@@ -32,15 +32,32 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
       return;
     }
 
+    console.log("Opzione selezionata nel dropdown:", selectedOption);
+
     const geocoder = new window.google.maps.Geocoder();
     geocoder.geocode({ placeId: selectedOption.value }, (results, status) => {
       if (status === "OK" && results[0]) {
+        console.log("Risultato Geocoder per questo PlaceID:", results[0]);
         const location = results[0].geometry.location;
-        setCity({ lat: location.lat(), lng: location.lng() });
+
+        const addressComponents = results[0].address_components;
+        const cityComponent = addressComponents.find(c =>
+          c.types.includes("locality") ||
+          c.types.includes("administrative_area_level_3")
+        );
+        const cityName = cityComponent ? cityComponent.long_name : "";
+
+        setCity({
+          lat: location.lat(),
+          lng: location.lng(),
+          cityName: cityName,
+          placeId: selectedOption.value
+        });
         setSelectedValue(selectedOption);
       }
     });
   };
+
 
   return (
     <div className={`${classes['search-mode-selector-main-container']} mb-5`}>
@@ -58,7 +75,7 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
 
         <div
           className={`${classes['single-mode-selector-container']} bg-white w-50 rounded gap-2 p-3 d-flex flex-column flex-lg-row align-items-center ${searchMode === 'city' ? classes.active : ''}`}
-          onClick={() => setSearchMode('city')}
+          onClick={() => { setSearchMode('city'); setCity(null); setSelectedValue(null); }}
         >
           <div className='p-4 d-flex justify-content-center align-items-center order-lg-0 order-2'><CityIcon /></div>
           <div className='d-flex justify-content-between align-items-center w-100'>
@@ -79,8 +96,9 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
         {searchMode === 'city' && (
           <div className={classes['input-main-container']}>
             <AsyncSelect
+              key={searchMode}
               classNamePrefix="react-select"
-              cacheOptions
+              cacheOptions={false}
               loadOptions={loadLocationOptions}
               value={selectedValue}
               onChange={handleSelect}

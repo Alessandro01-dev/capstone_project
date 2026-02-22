@@ -49,7 +49,7 @@ const useUsers = () => {
 
       const data = await response.json();
       setUsersData(data.user);
-      return data; 
+      return data;
     } catch (error) {
       setUsersError(error.message);
     } finally {
@@ -57,18 +57,26 @@ const useUsers = () => {
     }
   };
 
-  const getUsersNear = async (lat, lng, distance = 50) => {
+  const getUsersNear = async (lat, lng, distance = 60, city = null, placeId = null) => {
     setUsersIsLoading(true);
-
+    setUsersData([]);
     try {
       const token = localStorage.getItem('token');
 
-      const params = new URLSearchParams({ lat, lng, distance });
+      const params = new URLSearchParams();
+
+      if (placeId) {
+        params.append('placeId', placeId);
+      } else if (lat && lng) {
+        params.append('lat', lat);
+        params.append('lng', lng);
+        params.append('distance', distance);
+      } else if (city) {
+        params.append('city', city);
+      }
 
       const response = await fetch(`${URL}/users/near?${params}`, {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
+        headers: { "Authorization": `Bearer ${token}` }
       });
 
       if (!response.ok) {

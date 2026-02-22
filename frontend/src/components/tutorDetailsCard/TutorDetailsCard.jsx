@@ -39,14 +39,15 @@ const TutorDetailsCard = () => {
                 src={usersData.avatar}
                 alt="tutor details picture"
               />
-              <div
+              {usersData.nationality && (<div
                 className={classes["details-card-profile-flag"]}
               >
                 <img
                   className="w-100 h-100 object-fit-cover d-block"
-                  src={`https://flagcdn.com/w640/${usersData.nationality?.code.toLowerCase()}.png`}
+                  src={`https://flagcdn.com/w640/${usersData.nationality.code.toLowerCase()}.png`}
                   alt="teacher details nationality flag picture" />
               </div>
+            )}
             </div>
             <div
               className="d-flex flex-column"
@@ -149,11 +150,29 @@ const TutorDetailsCard = () => {
           >
             About me
           </h5>
-          <p
-            className={`${classes["details-bio"]} "m-0"`}
-          >
-            {usersData.bio}
-          </p>
+          {usersData.bio ? (
+            <p
+              className={`${classes["details-bio"]} "m-0"`}
+            >
+              {usersData.bio}
+            </p>
+          ) : (
+            <div
+              className="d-flex flex-column align-items-center justify-content-between"
+            >
+              <div
+                className="w-25"
+              >
+                <img
+                  className="w-100 d-block object-fit-cover"
+                  src="https://secure.meetupstatic.com/next/images/illustrations/sleepmask-purple.webp?w=384"
+                  alt="no bio found" />
+              </div>
+              <p
+                className="m-0 text-muted"
+              >No description found</p>
+            </div>
+          )}
         </>
       )}
     </div>

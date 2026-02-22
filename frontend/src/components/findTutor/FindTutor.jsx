@@ -11,7 +11,7 @@ const FindTutor = () => {
 
   const [userLocation, setUserLocation] = useState(null);
   const [viewMode, setViewMode] = useState('list');
-  const [city, setCity] = useState(null);
+  const [selectedPlace, setSelectedPlace] = useState(null);
   const [searchMode, setSearchMode] = useState('location');
   const [distance, setDistance] = useState(60)
 
@@ -19,6 +19,7 @@ const FindTutor = () => {
 
   useEffect(() => {
     if (searchMode === 'location' && !userLocation && navigator.geolocation) {
+      setSelectedPlace(null);
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setUserLocation({
@@ -35,26 +36,22 @@ const FindTutor = () => {
 
   useEffect(() => {
     const fetchTutors = async () => {
-      let referencePoint = null;
 
-      if (searchMode === 'city' && city) {
-        referencePoint = city;
+      if (searchMode === 'city' && selectedPlace?.placeId) {
+
+        await getUsersNear(null, null, null, selectedPlace.cityName, selectedPlace.placeId);
+        return;
       }
 
       if (searchMode === 'location' && userLocation) {
-        referencePoint = userLocation;
-      }
 
-      if (referencePoint) {
-
-        await getUsersNear(referencePoint.lat, referencePoint.lng, distance);
+        await getUsersNear(userLocation.lat, userLocation.lng, distance, null, null);
       }
     };
 
     fetchTutors();
+  }, [searchMode, selectedPlace?.placeId, userLocation, distance]);
 
-
-  }, [userLocation, city, searchMode, distance]);
 
   const handleToggleView = () => {
     setViewMode(viewMode === 'list' ? 'map' : 'list');
@@ -65,7 +62,7 @@ const FindTutor = () => {
       <SearchModeSelector
         searchMode={searchMode}
         setSearchMode={setSearchMode}
-        setCity={setCity}
+        setCity={setSelectedPlace}
         distance={distance}
         setDistance={setDistance}
       />
@@ -123,11 +120,10 @@ const FindTutor = () => {
         </Container>
       )}
 
-      {viewMode === 'map' && (userLocation || city) && (
+      {viewMode === 'map' && (userLocation || selectedPlace) && (
         <TutorMap
           tutors={usersData}
-          center={city || userLocation}
-          searchMode={searchMode}
+          center={searchMode === 'city' ? selectedPlace : userLocation}
         />
       )}
     </>

@@ -32,13 +32,13 @@ const TutorCard = ({ tutor }) => {
               src={tutor?.avatar}
               alt="tutor card profile picture"
             />
-            <div className={classes["tutor-card-profile-flag-picture"]}>
+            {tutor.nationality && (<div className={classes["tutor-card-profile-flag-picture"]}>
               <img
                 className="w-100 h-100 d-block object-fit-cover"
-                src={`https://flagcdn.com/w640/${tutor.nationality?.code?.toLowerCase()}.png`}
+                src={`https://flagcdn.com/w640/${tutor.nationality.code.toLowerCase()}.png`}
                 alt="tutor card flag picture"
               />
-            </div>
+            </div>)}
           </div>
           <div>
             <h5
@@ -56,50 +56,53 @@ const TutorCard = ({ tutor }) => {
         <div
           className='d-flex gap-2'
         >
-          <p
-            className={`${classes['tutor-card-languages-section-title']} m-0`}>
-            Languages
-          </p>
-          <div
-            className='d-flex flex-wrap gap-2'
-          >
-            {tutor.languages?.native?.map(language => (
-              <div
-                key={`${tutor._id} ${language.code}`}
-                className='d-flex align-items-center gap-1'
-              >
-                <p
-                  className="m-0"
+          {(tutor.languages?.native?.length > 0 || tutor.languages?.spoken?.length > 0) && (<>
+            <p
+              className={`${classes['tutor-card-languages-section-title']} m-0`}>
+              Languages
+            </p>
+            <div
+              className='d-flex flex-wrap gap-2'
+            >
+              {tutor.languages?.native?.map(language => (
+                <div
+                  key={`${tutor._id} ${language.code}`}
+                  className='d-flex align-items-center gap-1'
                 >
-                  {getLanguageName(language.code)}
-                </p>
-                <Badge
-                  bg="danger"
-                  className="rounded-pill"
+                  <p
+                    className="m-0"
+                  >
+                    {getLanguageName(language.code)}
+                  </p>
+                  <Badge
+                    bg="danger"
+                    className="rounded-pill"
+                  >
+                    Native
+                  </Badge>
+                </div>
+              ))}
+              {tutor.languages?.spoken?.map(language => (
+                <div
+                  key={`${tutor._id} ${language.code}`}
+                  className='d-flex align-items-center gap-1'
                 >
-                  Native
-                </Badge>
-              </div>
-            ))}
-            {tutor.languages?.spoken?.map(language => (
-              <div
-                key={`${tutor._id} ${language.code}`}
-                className='d-flex align-items-center gap-1'
-              >
-                <p
-                  key={language.code}
-                  className="m-0"
-                >
-                  {getLanguageName(language.code)}
-                </p>
-                <p
-                  className='m-0'
-                >
-                  ({language.level})
-                </p>
-              </div>
-            ))}
-          </div>
+                  <p
+                    key={language.code}
+                    className="m-0"
+                  >
+                    {getLanguageName(language.code)}
+                  </p>
+                  <p
+                    className='m-0'
+                  >
+                    ({language.level})
+                  </p>
+                </div>
+              ))}
+            </div>
+          </>
+          )}
         </div>
         {tutor.interests?.length > 0 && (
           <div

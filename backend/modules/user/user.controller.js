@@ -20,16 +20,31 @@ const getUserById = async (req, res, next) => {
 
 const getUsersNear = async (req, res, next) => {
   try {
-    const { lat, lng, distance = 50 } = req.query;
+    const { lat, lng, distance = 60, city, placeId } = req.query;
 
-    if (!lat || !lng) {
+    console.log("--- NUOVA RICHIESTA ---");
+    console.log("Dati RAW della Query:", req.query)
+
+    const searchParams = {
+      lat,
+      lng,
+      distance,
+      city,
+      placeId
+    };
+
+    console.log("Parametri inviati al Service:", searchParams);
+
+    if (!city && !placeId && (!lat || !lng)) {
       return res.status(400).send({
         statusCode: 400,
-        message: "Latitude and longitude are required"
+        message: "Provide a city name, a place ID or enable location services."
       });
     }
 
-    const users = await userService.searchUsersNear(lng, lat, distance);
+    const users = await userService.searchUsersNear(searchParams);
+
+    console.log("Utenti trovati nel DB:", users?.length || 0);
 
     res.status(200).send({
       statusCode: 200,
@@ -37,6 +52,7 @@ const getUsersNear = async (req, res, next) => {
       users
     });
   } catch (error) {
+    console.error("ERRORE NEL CONTROLLER:", error);
     next(error);
   }
 };
@@ -91,13 +107,38 @@ const updateUser = async (req, res, next) => {
         message: 'Invalid params provided: user id not defined'
       })
     }
-    const updatedUser = await userService.updateUser(userId, body)
+
+    const allowedUpdates = {
+      name: body.name,
+      surname: body.surname,
+      bio: body.bio,
+      interests: body.interests,
+      languages: body.languages,
+      location: body.location,
+      avatar: body.avatar
+    };
+
+    if (allowedUpdates.location && allowedUpdates.location.geo) {
+      const coords = allowedUpdates.location.geo.coordinates;
+
+      if (!Array.isArray(coords) || coords.length !== 2) {
+
+        allowedUpdates.location.geo = undefined;
+      }
+    }
+
+    Object.keys(allowedUpdates).forEach(key =>
+      allowedUpdates[key] === undefined && delete allowedUpdates[key]
+    );
+
+    const updatedUser = await userService.updateUser(userId, allowedUpdates)
     res.status(200).send({
       statusCode: 200,
       message: 'User updated successfully',
       updatedUser
     })
   } catch (error) {
+    console.error("ERRORE UPDATE USER:", error);
     next(error)
   }
 }

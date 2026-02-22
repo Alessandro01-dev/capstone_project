@@ -55,7 +55,7 @@ const PostArticleForm = () => {
 
       const response = await createPost(finalData);
       if (response) {
-        alert("Articolo creato con successo!");
+        alert("Post created successfully!");
       }
     } catch (err) {
       console.error("Errore nel processo di creazione:", err);

@@ -9,58 +9,116 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
   const [location, setLocation] = useState(initialLocation || {});
   const [selectedValue, setSelectedValue] = useState(null);
   const [isLocating, setIsLocating] = useState(false);
+  const isValid = !!(location?.city && location.city.trim() !== "");
+
+  const hasChanged =
+  location?.address !== initialLocation?.address ||
+  location?.city !== initialLocation?.city ||
+  (location?.geo?.coordinates?.length !== initialLocation?.geo?.coordinates?.length) ||
+  (location?.geo?.coordinates?.[0] !== initialLocation?.geo?.coordinates?.[0]);
+
 
   useEffect(() => {
     if (initialLocation) {
       setLocation(initialLocation);
-      if (initialLocation.city) {
-        setSelectedValue({ label: `${initialLocation.city}, ${initialLocation.country || ''}` });
-      }
+      const label = initialLocation.address ||
+        (initialLocation.city ? `${initialLocation.city}${initialLocation.country ? `, ${initialLocation.country}` : ''}` : '');
+      if (label) setSelectedValue({ label });
     }
   }, [initialLocation]);
 
   const handleGPSLocation = () => {
-    if (!navigator.geolocation) return alert("Il tuo browser non supporta la geolocalizzazione");
-
+    if (!navigator.geolocation) return alert("Your browser does not support geolocation");
     setIsLocating(true);
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        const geocoder = new window.google.maps.Geocoder();
 
-        geocoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
-          setIsLocating(false);
-          if (status === "OK" && results[0]) {
-            const place = results[0];
-            const city = place.address_components.find(c => c.types.includes("locality"))?.long_name;
-            const country = place.address_components.find(c => c.types.includes("country"))?.long_name;
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      const geocoder = new window.google.maps.Geocoder();
 
-            const preciseLocation = {
-              type: "Point",
-              coordinates: [longitude, latitude], // Ordine GeoJSON: [lng, lat]
-              city: city || "Posizione rilevata",
-              country: country || "",
-              address: place.formatted_address
-            };
-
-            setLocation(preciseLocation);
-            setSelectedValue({ label: place.formatted_address });
-          }
-        });
-      },
-      (error) => {
+      geocoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
         setIsLocating(false);
-        alert("Unable to get location. Check your browser permissions.");
-      }
-    );
+        if (status === "OK" && results[0]) {
+          const place = results[0];
+          const isLocality = place.types.includes("locality");
+          const cityComp = place.address_components.find(c =>
+            c.types.includes("locality") || c.types.includes("administrative_area_level_3")
+          );
+
+          const countryComp = place.address_components.find(c => c.types.includes("country"));
+
+          geocoder.geocode({ address: `${cityComp?.long_name}, ${countryComp?.long_name || 'Italy'}` }, (cityResults, cityStatus) => {
+            const cityPlaceId = (cityStatus === "OK" && cityResults[0]) ? cityResults[0].place_id : "";
+
+            setLocation({
+              city: cityComp?.long_name || "Position detected",
+              country: countryComp?.long_name || "",
+              address: isLocality ? "" : place.formatted_address,
+              placeId: cityPlaceId,
+              geo: {
+                type: "Point",
+                coordinates: isLocality ? [] : [place.geometry.location.lng(), place.geometry.location.lat()]
+              }
+            });
+            setSelectedValue({ label: place.formatted_address });
+          });
+        }
+      });
+    }, () => setIsLocating(false));
   };
+
+
+  const handleSelect = (selectedOption) => {
+
+    if (!selectedOption) {
+      setLocation({
+        city: "",
+        country: "",
+        address: "",
+        geo: { type: "Point", coordinates: [] }
+      });
+      setSelectedValue(null);
+      return;
+    }
+
+    const geocoder = new window.google.maps.Geocoder();
+    geocoder.geocode({ placeId: selectedOption.value }, (results, status) => {
+      if (status === "OK" && results[0]) {
+        const place = results[0];
+        const isLocality = place.types.includes("locality");
+
+        const cityComp = place.address_components.find(c =>
+          c.types.includes("locality") || c.types.includes("administrative_area_level_3")
+        );
+        const countryComp = place.address_components.find(c => c.types.includes("country"));
+
+        geocoder.geocode({ address: `${cityComp?.long_name}, ${countryComp?.long_name || 'Italy'}` }, (cityResults, cityStatus) => {
+          const cityPlaceId = (cityStatus === "OK" && cityResults[0])
+            ? cityResults[0].place_id
+            : selectedOption.value;
+
+          const newLocation = {
+            city: cityComp ? cityComp.long_name : selectedOption.label.split(',')[0],
+            country: countryComp ? countryComp.long_name : "",
+            address: isLocality ? "" : place.formatted_address,
+            placeId: cityPlaceId,
+            geo: {
+              type: "Point",
+              coordinates: isLocality ? [] : [place.geometry.location.lng(), place.geometry.location.lat()]
+            }
+          };
+          setLocation(newLocation);
+        });
+        setSelectedValue(selectedOption);
+      }
+    });
+  };
+
 
   const loadLocationOptions = (inputValue, callback) => {
     if (!window.google?.maps || inputValue.length < 3) return callback([]);
     const service = new window.google.maps.places.AutocompleteService();
-
     service.getPlacePredictions(
-      { input: inputValue, types: ['address'] },
+      { input: inputValue },
       (predictions) => {
         const options = (predictions || []).map(p => ({
           value: p.place_id,
@@ -71,38 +129,20 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
     );
   };
 
-  const handleSelect = (selectedOption) => {
-    if (!selectedOption) return;
-    const geocoder = new window.google.maps.Geocoder();
-    geocoder.geocode({ placeId: selectedOption.value }, (results, status) => {
-      if (status === "OK" && results[0]) {
-        const place = results[0];
-        const city = place.address_components.find(c => c.types.includes("locality"))?.long_name;
-        const country = place.address_components.find(c => c.types.includes("country"))?.long_name;
-
-        setLocation({
-          type: "Point",
-          coordinates: [place.geometry.location.lng(), place.geometry.location.lat()],
-          city: city || selectedOption.label.split(',')[0],
-          country: country || "",
-          address: place.formatted_address
-        });
-        setSelectedValue(selectedOption);
-      }
-    });
-  };
-
   return (
     <SectionLayout
       title="Location"
-      currentValue={location?.city}
-      initialValue={initialLocation?.city}
+      currentValue={location?.address}
+      initialValue={initialLocation?.address}
       onSave={() => onSave(location)}
       onCancel={() => {
         setLocation(initialLocation);
-        setSelectedValue(initialLocation?.city ? { label: initialLocation.city } : null);
+        const label = initialLocation?.address ||
+          (initialLocation?.city ? `${initialLocation.city}${initialLocation.country ? `, ${initialLocation.country}` : ''}` : '');
+        setSelectedValue(label ? { label } : null);
       }}
       isLoading={isLoading}
+      customDisabled={!hasChanged || !isValid}
     >
       {(isEditing) => (
         isEditing ? (
@@ -122,27 +162,30 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
                 variant="outline-secondary"
                 onClick={handleGPSLocation}
                 disabled={isLocating}
-                title="Usa la mia posizione attuale"
               >
-                {isLocating ? (
-                  <Spinner size="sm" />
-                ) : (
-                  <div
-                    className='d-flex align-items-center gap-1'
-                  >
-                    <LocationPin />
-                    <span>Use my location</span>
-                  </div>
-                )}
+                {isLocating ? <Spinner size="sm" /> : <div className='d-flex align-items-center gap-1'><LocationPin /><span>Use my location</span></div>}
               </Button>
             </InputGroup>
+            {!isValid && (
+              <small className="text-danger mt-1">
+                City is required. Please select a valid location.
+              </small>
+            )}
             <small className="text-muted">
-              A precise location helps you get information from tutors near you.
+              Enable location to discover tutors near you and get more precise search results.
             </small>
           </div>
         ) : (
           <p className={`${classes['location-content']} m-0`}>
-            {location?.city ? `${location.city}, ${location.country}` : "Position not set"}
+            {location?.city ? (
+              <>
+                {location.address
+                  ? location.address
+                  : `${location.city}${location.country ? `, ${location.country}` : ''}`}
+              </>
+            ) : (
+              "Position not set"
+            )}
           </p>
         )
       )}

@@ -83,22 +83,31 @@ const User = new mongoose.Schema(
       }
     },
     location: {
-      type: {
+      address: {
         type: String,
-        enum: ["Point"],
-      },
-      coordinates: {
-        type: [Number],
-        required: false,
+        required: false
       },
       city: {
-        type: String
+        type: String,
+        required: true,
       },
       country: {
         type: String
       },
-      address: {
-        type: String
+      placeId: {
+        type: String,
+        required: false
+      },
+      geo: {
+        type: {
+          type: String,
+          enum: ["Point"],
+          required: false
+        },
+        coordinates: {
+          type: [Number],
+          required: false
+        }
       }
     }
   },
@@ -137,6 +146,6 @@ User.pre("findOneAndUpdate", async function () {
   this.setUpdate(update);
 })
 
-User.index({ location: "2dsphere" })
+User.index({ "location.geo": "2dsphere" })
 
 module.exports = mongoose.model("user", User, "users");

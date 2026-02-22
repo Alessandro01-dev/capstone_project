@@ -53,7 +53,7 @@ const AddComment = ({ onAdd }) => {
           <div className={classes["author-card-profile-flag-picture"]}>
             <img
               className="w-100 h-100 d-block object-fit-cover"
-              src={`https://flagcdn.com/w640/${authData?.nationality.code.toLowerCase()}.png`}
+              src={`https://flagcdn.com/w640/${authData?.nationality?.code?.toLowerCase()}.png`}
               alt="author card flag picture"
             />
           </div>

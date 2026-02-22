@@ -8,28 +8,38 @@ const getUserById = async (userId) => {
   return await UserSchema.findById(userId)
 }
 
-const searchUsersNear = async (lng, lat, maxDistanceKm) => {
-  return await UserSchema.aggregate([
-    {
-      $geoNear: {
-        near: {
-          type: "Point",
-          coordinates: [parseFloat(lng), parseFloat(lat)]
-        },
-        distanceField: "distanceKm",
-        maxDistance: parseInt(maxDistanceKm) * 1000,
-        query: { isTutor: true },
-        spherical: true,
-        distanceMultiplier: 0.001
-      }
-    },
-    {
-      $project: {
-        password: 0,
-        __v: 0
-      }
-    }
-  ]);
+const searchUsersNear = async ({ placeId, lng, lat, distance, city }) => {
+
+  if (placeId && placeId !== 'undefined' && placeId !== 'null') {
+    return await UserSchema.find({ "location.placeId": placeId }).select("-password");
+  }
+
+  if (lat && lng && lat !== 'undefined' && lng !== 'undefined') {
+    const longitude = parseFloat(lng);
+    const latitude = parseFloat(lat);
+
+    if (isNaN(longitude) || isNaN(latitude)) return [];
+
+    return await UserSchema.aggregate([
+      {
+        $geoNear: {
+          near: { type: "Point", coordinates: [longitude, latitude] },
+          distanceField: "distanceKm",
+          maxDistance: parseInt(distance) * 1000,
+          spherical: true,
+          key: "location.geo",
+          distanceMultiplier: 0.001
+        }
+      },
+      { $project: { password: 0, __v: 0 } }
+    ]);
+  }
+
+  if (city && city !== 'undefined' && city !== 'null') {
+    return await UserSchema.find({
+      "location.city": { $regex: new RegExp(city, "i") }
+    }).select("-password -__v");
+  }
 };
 
 const createUser = async (body) => {
