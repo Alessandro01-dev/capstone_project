@@ -1,10 +1,11 @@
-import { Button, Form } from "react-bootstrap"
+import { Button, Form, Spinner } from "react-bootstrap"
 import classes from './AddComment.module.css'
 import { useState } from "react"
 import { useAuth } from "../../../../contexts/AuthContext"
 import { Rating } from "@mantine/core"
 import useComments from "../../../../hooks/useComments"
 import { useParams } from "react-router-dom"
+import toast from "react-hot-toast"
 
 const AddComment = ({ onAdd }) => {
 
@@ -30,10 +31,14 @@ const AddComment = ({ onAdd }) => {
     if (newComment) {
       setFormData({ content: "", rating: 0 })
       onAdd()
+      toast.success("Comment added successfully!");
     }
 
     console.log("Payload pronto per il post:", payload)
   }
+
+  const isCommentValid = formData.content.trim().length > 0 && formData.rating > 0;
+
 
   return (
     <div
@@ -50,13 +55,13 @@ const AddComment = ({ onAdd }) => {
             src={authData?.avatar}
             alt="author card profile picture"
           />
-          <div className={classes["author-card-profile-flag-picture"]}>
+          {authData?.nationality?.code && (<div className={classes["author-card-profile-flag-picture"]}>
             <img
               className="w-100 h-100 d-block object-fit-cover"
               src={`https://flagcdn.com/w640/${authData?.nationality?.code?.toLowerCase()}.png`}
               alt="author card flag picture"
             />
-          </div>
+          </div>)}
         </div>
         <div
           className="d-flex align-items-center justify-content-between w-100"
@@ -115,8 +120,14 @@ const AddComment = ({ onAdd }) => {
           variant="dark"
           size="sm"
           type="submit"
+          disabled={commentsIsLoading || !isCommentValid}
         >
-          Send
+          {commentsIsLoading ? (
+            <Spinner
+              className="mx-auto"
+              size="sm"
+            />
+          ) : "Send"}
         </Button>
       </Form>
     </div>

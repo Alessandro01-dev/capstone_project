@@ -1,5 +1,6 @@
 const UserSchema = require('../user/user.schema')
 const TutorSchema = require('./tutor.schema')
+const UserNotFoundException = require('../../exceptions/user/UserNotFoundException')
 
 const getTutors = async (page, pageSize) => {
   const tutors = await TutorSchema.find()
@@ -19,19 +20,27 @@ const getTutors = async (page, pageSize) => {
 
 const getTutorById = async (tutorId) => {
   return await TutorSchema.findById(tutorId)
-    .populate('user', 'name surname avatar nationality')
+    .populate('user', 'name surname avatar nationality bio languages')
 }
 
 const createTutor = async (body) => {
   const userId = body.user
+  if (!userId) throw new Error('User ID is required');
   const user = await UserSchema.findById(userId)
   if (!user) {
-    throw new Error('User not found')
+    throw new UserNotFoundException()
   }
+
+  if (user.isTutor) throw new Error('User is already a tutor');
+
   const existingTutor = await TutorSchema.findOne({ user: userId })
+
   if (existingTutor) {
-    throw new Error('User is already a tutor')
+    user.isTutor = true;
+    await user.save();
+    throw new Error('User record already exists');
   }
+
   const newTutor = await TutorSchema.create(body)
   user.isTutor = true
   await user.save()

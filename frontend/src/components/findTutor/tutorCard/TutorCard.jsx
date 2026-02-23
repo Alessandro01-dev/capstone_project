@@ -2,6 +2,7 @@ import { Badge, Col } from 'react-bootstrap'
 import { getLanguageName } from '../../../utils/getLanguageName'
 import classes from './TutorCard.module.css'
 import { useNavigate } from 'react-router-dom'
+import { getInterestLabel } from '../../../utils/getInterestLabel'
 
 const TutorCard = ({ tutor }) => {
 
@@ -113,12 +114,12 @@ const TutorCard = ({ tutor }) => {
             </p>
 
             <div className='d-flex flex-wrap gap-2'>
-              {tutor.interests?.map((interest) => (
+              {tutor.interests?.map(interest => (
                 <Badge
                   key={`${tutor._id} ${interest}`}
                   className={`${classes['tutor-card-interest-badge']} rounded-pill`}
                 >
-                  {interest}
+                  {getInterestLabel(interest)}
                 </Badge>
               ))}
             </div>
@@ -126,6 +127,15 @@ const TutorCard = ({ tutor }) => {
         )}
         <div>
           {tutor.bio}
+        </div>
+        <div className="d-flex align-items-center gap-1 mt-1">
+          <small className="text-success fw-bold">
+            {tutor.distanceKm ? (
+              <>Distance: {tutor.distanceKm.toFixed(1)} km away</>
+            ) : (
+              <>Location: {tutor.location?.city}, {" "}{tutor.location?.country}</>
+            )}
+          </small>
         </div>
       </div>
     </Col>

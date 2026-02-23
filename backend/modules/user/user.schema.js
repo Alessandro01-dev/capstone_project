@@ -59,7 +59,7 @@ const User = new mongoose.Schema(
           code: { type: String, required: false },
           level: {
             type: String,
-            enum: ["A1", "A2", "B1", "B2", "C1", "C2"],
+            enum: ["B1", "B2", "C1", "C2"],
             required: false
           }
         }
@@ -69,7 +69,7 @@ const User = new mongoose.Schema(
           code: String,
           level: {
             type: String,
-            enum: ["A1", "A2", "B1", "B2", "C1"]
+            enum: ["A1", "A2", "B1", "B2"]
           }
         }
       ]

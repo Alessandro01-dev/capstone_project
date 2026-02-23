@@ -13,12 +13,25 @@ const cloudStorage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "Talk Mate",
-    format: async (req, file) => 'jpg',
-    public_id: (req, file) => file.name
+    resource_type: "auto",
+    public_id: (req, file) => `${Date.now()}-${file.originalname.replace(/\s+/g, '_')}`
+  }
+});
+
+const cloudUpload = multer({
+  storage: cloudStorage,
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype === "application/pdf" ||
+      file.mimetype.startsWith("image/")
+    ) {
+      cb(null, true);
+    } else {
+      cb(new Error('This file format is not supported. Upload only PDFs or images.'), false);
+    }
   }
 })
-
-const cloudUpload = multer({ storage: cloudStorage })
 
 module.exports = {
   cloudUpload

@@ -113,7 +113,7 @@ const useUsers = () => {
         throw new Error(errorResponse.message);
       }
 
-      const data = response.json();
+      const data = await response.json();
 
       return data
     } catch (error) {
@@ -152,6 +152,7 @@ const useUsers = () => {
   return {
     usersIsLoading,
     usersData,
+    setUsersData,
     usersError,
     getUsers,
     getUserById,

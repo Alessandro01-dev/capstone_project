@@ -6,7 +6,7 @@
   padding-top: 64px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 
 .details-card-cover-post-container {
@@ -47,5 +47,13 @@
 }
 
 .post-content {
-  white-space: pre-line;
+  line-height: 1.6;
+  color: #333;
+  word-wrap: break-word;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }

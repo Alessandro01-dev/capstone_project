@@ -1,6 +1,6 @@
 export const languagesMock = [
-  { value: 'gb', label: 'English (UK)' },
-  { value: 'us', label: 'English (US)' },
+  { value: 'en-gb', label: 'English (UK)' },
+  { value: 'en-us', label: 'English (US)' },
   { value: 'es', label: 'Spanish' },
   { value: 'fr', label: 'French' },
   { value: 'de', label: 'German' },

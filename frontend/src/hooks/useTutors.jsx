@@ -64,6 +64,7 @@ const useTutors = () => {
 
   const createTutor = async (newTutor) => {
     setTutorsIsLoading(true)
+    setTutorsError(null)
     try {
       const token = localStorage.getItem('token')
       const response = await fetch(`${URL}/tutors`, {
@@ -142,6 +143,7 @@ const useTutors = () => {
     tutorsIsLoading,
     tutorsData,
     tutorsError,
+    setTutorsError,
     getTutors,
     getTutorById,
     createTutor,

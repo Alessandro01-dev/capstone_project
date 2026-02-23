@@ -22,6 +22,7 @@ import LoginPage from './pages/loginPage/LoginPage';
 import RegistrationPage from './pages/registrationPage/RegistrationPage';
 import LandingPage from './pages/landingPage/LandingPage';
 import ProtectedRoutes from './middlewares/ProtectedRoutes';
+import { Toaster } from 'react-hot-toast';
 
 const libraries = ['places'];
 
@@ -35,6 +36,7 @@ const App = () => {
         language="en"
         id="google-map-script"
       >
+        <Toaster position="top-center" reverseOrder={false} />
         <Router>
           <Routes>
             <Route path="/landing" element={<LandingPage />} />

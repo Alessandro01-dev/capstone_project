@@ -79,7 +79,7 @@ const TeacherDetailsCard = () => {
                 <p
                   className={`${classes["info-details-section-title"]} m-0`}
                 >
-                  teaches:
+                  I teach:
                 </p>
                 {tutorsData.languagesTaught?.natives?.map(language => (
                   <div
@@ -118,16 +118,16 @@ const TeacherDetailsCard = () => {
                 ))}
               </div>
             )}
-            {tutorsData.languages?.spoken?.length > 0 && (
+            {tutorsData.user?.languages?.spoken?.length > 0 && (
               <div
                 className="d-flex gap-2"
               >
                 <p
                   className={`${classes["info-details-section-title"]} m-0`}
                 >
-                  speaks:
+                  I speak:
                 </p>
-                {tutorsData.languages?.spoken?.map(language => (
+                {tutorsData.user?.languages?.spoken?.map(language => (
                   <div
                     className="d-flex gap-1"
                     key={language.code}
@@ -146,16 +146,16 @@ const TeacherDetailsCard = () => {
                 ))}
               </div>
             )}
-            {tutorsData.languages?.learning?.length > 0 && (
+            {tutorsData.user?.languages?.learning?.length > 0 && (
               <div
                 className="d-flex gap-2"
               >
                 <p
                   className={`${classes["info-details-section-title"]} m-0`}
                 >
-                  learns:
+                  I'm learning:
                 </p>
-                {tutorsData.languages?.learning?.map(language => (
+                {tutorsData.user.languages?.learning?.map(language => (
                   <div
                     className="d-flex gap-1"
                     key={language.code}
@@ -178,7 +178,7 @@ const TeacherDetailsCard = () => {
           <h5
             className="m-0"
           >
-            About me
+            About me as a teacher
           </h5>
           <p
             className={`${classes["details-bio"]} "m-0"`}

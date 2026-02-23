@@ -1,62 +1,94 @@
 import { useState } from "react";
-import { languageLevels } from "../languagesMock";
-import LanguagesSelector from "./languagesSelector/LanguagesSelector"
-import LanguageTagsContainer from "./languageTagsContainer/LanguageTagsContainer"
-import SaveButtons from "./saveButtons/SaveButtons"
+import { useAuth } from "../../../../contexts/AuthContext";
+import useUsers from "../../../../hooks/useUsers";
+import LanguagesSelector from "./languagesSelector/LanguagesSelector";
+import LanguageTagsContainer from "./languageTagsContainer/LanguageTagsContainer";
+import SaveButtons from "./saveButtons/SaveButtons";
+import toast from "react-hot-toast";
 
-const LanguagesSection = ({ title, isNative }) => {
+const LanguagesSection = ({ title, isNative, subFieldName, confirmedLanguages, setConfirmedLanguages }) => {
+  const { authData, getProfile } = useAuth();
+  const { updateUser, usersIsLoading } = useUsers();
 
   const [temporaryLanguage, setTemporaryLanguage] = useState(null);
-  const [temporaryLevel, setTemporaryLevel] = useState(languageLevels[0]);
-  const [confirmedLanguages, setConfirmedLanguages] = useState([]);
+  const [temporaryLevel, setTemporaryLevel] = useState(null);
 
-  const handleAddLanguage = () => {
-    if (!temporaryLanguage || !temporaryLevel) return;
+  const handleAddLanguages = () => {
+    if (!temporaryLanguage || (!isNative && !temporaryLevel)) return;
 
-    if (confirmedLanguages.find(l => l.code === temporaryLanguage.value)) {
-      alert("Language already added!");
-      return;
+    if (confirmedLanguages.some(lang => lang.code === temporaryLanguage.value)) {
+      return toast.error("Language already added");
     }
 
-    const languageObject = {
+    const newLang = {
       code: temporaryLanguage.value,
       label: temporaryLanguage.label,
       ...(isNative ? {} : { level: temporaryLevel.value })
     };
 
-    const updatedLanguages = [...confirmedLanguages, languageObject];
-    updatedLanguages.sort((a, b) => a.label.localeCompare(b.label));
-
-    setConfirmedLanguages(updatedLanguages);
+    setConfirmedLanguages([...confirmedLanguages, newLang]);
     setTemporaryLanguage(null);
-    setTemporaryLevel(languageLevels[0]);
+    setTemporaryLevel(null);
   };
 
-  return (
-    <div className='d-flex flex-column gap-3'>
-      <h4>{title}</h4>
+  const handleSave = async () => {
+    try {
+      const sanitized = confirmedLanguages.map(lang => ({
+        code: lang.code,
+        ...(lang.level ? { level: lang.level } : {})
+      }));
 
+      const updatedLanguages = {
+        ...authData.languages,
+        [subFieldName]: sanitized
+      };
+
+      await updateUser(authData._id, { languages: updatedLanguages });
+      await getProfile();
+      toast.success(`${title} saved!`);
+    } catch (error) {
+      toast.error("Error saving changes");
+    }
+  };
+
+  const handleCancel = () => {
+    setConfirmedLanguages(authData?.languages?.[subFieldName] || []);
+  };
+
+  const sanitize = (arr) => arr.map(lang => ({
+    code: lang.code,
+    ...(lang.level ? { level: lang.level } : {})
+  }));
+
+  const hasChanges = JSON.stringify(sanitize(confirmedLanguages)) !==
+    JSON.stringify(sanitize(authData?.languages?.[subFieldName] || []));
+
+
+  return (
+    <div className='d-flex flex-column gap-3 border p-4 rounded-4 bg-white'>
+      <h4>{title}</h4>
       <LanguagesSelector
         isNative={isNative}
         temporaryLanguage={temporaryLanguage}
         setTemporaryLanguage={setTemporaryLanguage}
         temporaryLevel={temporaryLevel}
         setTemporaryLevel={setTemporaryLevel}
-        onAdd={handleAddLanguage}
+        onAdd={handleAddLanguages}
+        title={title}
       />
-
       <LanguageTagsContainer
         isNative={isNative}
         confirmedLanguages={confirmedLanguages}
         setConfirmedLanguages={setConfirmedLanguages}
       />
-
       <SaveButtons
-        onCancel={() => setConfirmedLanguages([])}
-        isDisabled={confirmedLanguages.length === 0}
+        onCancel={handleCancel}
+        onSave={handleSave}
+        isDisabled={!hasChanges || usersIsLoading}
+        isLoading={usersIsLoading}
       />
     </div>
-  )
-}
+  );
+};
 
 export default LanguagesSection

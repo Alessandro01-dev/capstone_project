@@ -5,8 +5,12 @@ import UploadFileIcon from "../../../assets/UploadFileIcon";
 import PdfIcon from '../../../assets/PdfIcon';
 import classes from './CertificationsSection.module.css'
 import { YearPickerInput } from '@mantine/dates';
+import { useAuth } from '../../../contexts/AuthContext';
+import toast from 'react-hot-toast';
 
 const CertificationsSection = ({ certificationsList, setCertificationsList }) => {
+
+  const { authData } = useAuth();
 
   const [temporaryCertification, setTemporaryCertification] = useState({
     name: '',
@@ -47,31 +51,51 @@ const CertificationsSection = ({ certificationsList, setCertificationsList }) =>
     multiple: false
   });
 
-  const handleAddCertificationToList = () => {
+  const handleAddCertificationToList = async () => {
     const { name, institution, file, year } = temporaryCertification;
 
+    if (!authData?._id) {
+      return toast.error("User data not loaded. Please wait.");
+    }
+
     if (name && institution && file && year) {
-      const yearValue = new Date(year).getFullYear();
+      try {
+        toast.loading("Uploading certificate...");
 
-      setCertificationsList([
-        ...certificationsList,
-        {
-          id: crypto.randomUUID(),
-          name,
-          institution,
-          file,
-          year: yearValue,
-        }
-      ]);
+        const formData = new FormData();
+        formData.append('certification', file);
 
-      setTemporaryCertification({
-        name: '',
-        institution: '',
-        year: null,
-        file: null
-      });
+        const response = await fetch(`${import.meta.env.VITE_BASE_SERVER_URL}/tutors/${authData._id}/certification`, {
+          method: 'PATCH',
+          headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` },
+          body: formData
+        });
+
+        const data = await response.json();
+        if (!response.ok) throw new Error("Upload failed");
+
+        const yearValue = new Date(year).getFullYear();
+        setCertificationsList([
+          ...certificationsList,
+          {
+            id: crypto.randomUUID(),
+            name,
+            institution,
+            year: yearValue,
+            file: data.pdfUrl
+          }
+        ]);
+
+        toast.dismiss();
+        toast.success("Certificate uploaded!");
+
+        setTemporaryCertification({ name: '', institution: '', year: null, file: null });
+      } catch (error) {
+        toast.dismiss();
+        toast.error("Error uploading file");
+      }
     } else {
-      alert("Please fill all fields, including the year and the file.");
+      alert("Please fill all fields.");
     }
   };
 

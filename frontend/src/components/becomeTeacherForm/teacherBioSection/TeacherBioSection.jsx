@@ -7,8 +7,11 @@ const TeacherBioSection = ({ biography = "", setBiography }) => {
     setBiography(e.target.value);
   }
 
+  const minLength = 50;
   const maxLength = 1000;
+  const isTooShort = biography.length > 0 && biography.length < minLength;
   const isOverLimit = biography.length > maxLength;
+  const isInvalid = isTooShort || isOverLimit;
 
   return (
     <div className="d-flex flex-column gap-3">
@@ -21,10 +24,10 @@ const TeacherBioSection = ({ biography = "", setBiography }) => {
         placeholder="Describe your teaching style and background..."
         value={biography}
         onChange={handleInputChange}
-        isInvalid={isOverLimit}
+        isInvalid={isInvalid}
       />
       <div className="d-flex justify-content-end mt-1">
-        <small className={isOverLimit ? "text-danger fw-bold" : "text-muted"}>
+        <small className={isInvalid ? "text-danger fw-bold" : "text-muted"}>
           {biography.length} / {maxLength}
         </small>
       </div>

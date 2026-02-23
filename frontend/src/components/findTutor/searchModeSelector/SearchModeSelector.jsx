@@ -27,7 +27,6 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
 
   const handleSelect = (selectedOption) => {
     if (!selectedOption) {
-      setCity(null);
       setSelectedValue(null);
       return;
     }
@@ -64,7 +63,7 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
       <div className="d-flex justify-content-between gap-3">
         <div
           className={`${classes['single-mode-selector-container']} bg-white w-50 rounded gap-2 p-3 d-flex flex-column flex-lg-row align-items-center ${searchMode === 'location' ? classes.active : ''}`}
-          onClick={() => { setSearchMode('location'); setCity(null); setSelectedValue(null); }}
+          onClick={() => { setSearchMode('location'); setSelectedValue(null); }}
         >
           <div className='p-4 d-flex justify-content-center align-items-center order-lg-0 order-2'><LocationIcon /></div>
           <div className='d-flex justify-content-between align-items-center w-100'>
@@ -75,7 +74,7 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
 
         <div
           className={`${classes['single-mode-selector-container']} bg-white w-50 rounded gap-2 p-3 d-flex flex-column flex-lg-row align-items-center ${searchMode === 'city' ? classes.active : ''}`}
-          onClick={() => { setSearchMode('city'); setCity(null); setSelectedValue(null); }}
+          onClick={() => { setSearchMode('city'); setSelectedValue(null); }}
         >
           <div className='p-4 d-flex justify-content-center align-items-center order-lg-0 order-2'><CityIcon /></div>
           <div className='d-flex justify-content-between align-items-center w-100'>

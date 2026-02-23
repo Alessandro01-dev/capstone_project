@@ -21,15 +21,16 @@
 
 .community-post-card-top-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
+  width: 100%;
 }
 
 .community-post-card-left-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   flex: 1;
   min-width: 0;
 }
@@ -44,6 +45,7 @@
 .community-post-card-cover-container {
   width: 160px;
   height: 160px;
+  flex-shrink: 0;
 }
 
 .community-post-card-cover-container img {
@@ -83,7 +85,8 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  white-space: pre-line;
+  word-break: break-word;
+  color: #4a4a4a;
 }
 
 .community-post-card-bottom-container {

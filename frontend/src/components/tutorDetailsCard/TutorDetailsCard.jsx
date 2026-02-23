@@ -5,6 +5,7 @@ import classes from './TutorDetailsCard.module.css'
 import { Badge, Spinner } from "react-bootstrap"
 import useUsers from "../../hooks/useUsers"
 import { useEffect } from "react"
+import { getInterestLabel } from "../../utils/getInterestLabel"
 
 const TutorDetailsCard = () => {
 
@@ -16,6 +17,8 @@ const TutorDetailsCard = () => {
   useEffect(() => {
     getUserById(tutorId)
   }, [tutorId])
+
+  console.log(usersData?.interests)
 
   return (
     <div
@@ -47,7 +50,7 @@ const TutorDetailsCard = () => {
                   src={`https://flagcdn.com/w640/${usersData.nationality.code.toLowerCase()}.png`}
                   alt="teacher details nationality flag picture" />
               </div>
-            )}
+              )}
             </div>
             <div
               className="d-flex flex-column"
@@ -72,14 +75,43 @@ const TutorDetailsCard = () => {
           <div
             className="d-flex flex-column"
           >
+            {usersData.languages?.native?.length > 0 && (
+              <div
+                className="d-flex gap-2 mb-3"
+              >
+                <p
+                  className={`${classes["info-details-section-title"]} m-0`}
+                >
+                  My language{usersData.languages?.native?.length === 1 ? "" : "s"}:
+                </p>
+                {usersData.languages?.native?.map(language => (
+                  <div
+                    className="d-flex align-items-center gap-1"
+                    key={language.code}
+                  >
+                    <p
+                      className="m-0"
+                    >
+                      {getLanguageName(language.code)}
+                    </p>
+                    <Badge
+                      bg="danger"
+                      className="rounded-pill"
+                    >
+                      Native
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+            )}
             {usersData.languages?.spoken?.length > 0 && (
               <div
                 className="d-flex gap-2"
               >
                 <p
-                  className={`${classes["info-details-section-title"]} "m-0"`}
+                  className={`${classes["info-details-section-title"]} m-0`}
                 >
-                  speaks:
+                  I speak:
                 </p>
                 {usersData.languages?.spoken?.map(language => (
                   <div
@@ -105,7 +137,7 @@ const TutorDetailsCard = () => {
                 <p
                   className={`${classes["info-details-section-title"]} "m-0"`}
                 >
-                  learns:
+                  I'm learning:
                 </p>
                 {usersData.languages?.learning?.map(language => (
                   <div
@@ -126,10 +158,10 @@ const TutorDetailsCard = () => {
             )}
             {usersData.interests?.length > 0 && (
               <div
-                className='d-flex align-items-start gap-2'
+                className='d-flex align-items-start gap-2 mt-2'
               >
                 <p className={`${classes['info-interests-section-title']} m-0`}>
-                  interests:
+                  My interests:
                 </p>
 
                 <div className='d-flex flex-wrap gap-2'>
@@ -138,7 +170,7 @@ const TutorDetailsCard = () => {
                       key={`${usersData._id} ${interest}`}
                       className={`${classes['interest-badge']} rounded-pill`}
                     >
-                      {interest}
+                      {getInterestLabel(interest)}
                     </Badge>
                   ))}
                 </div>

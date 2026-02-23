@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import classes from './RegistrationForm.module.css'
 import useUsers from "../../hooks/useUsers";
 import AsyncSelect from "react-select/async";
+import toast from "react-hot-toast";
 
 const RegistrationForm = () => {
 
@@ -95,6 +96,7 @@ const RegistrationForm = () => {
 
     if (success) {
       navigate('/login');
+      toast.success("User created successfully!")
     }
   }
 

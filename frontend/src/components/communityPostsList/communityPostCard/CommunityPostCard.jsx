@@ -35,24 +35,24 @@ const CommunityPostCard = ({ post }) => {
               >
                 <img
                   className="w-100 h-100 d-block object-fit-cover"
-                  src={post.user.avatar}
+                  src={post?.user?.avatar}
                   alt="author card profile picture"
                 />
-                <div className={classes["author-card-profile-flag-picture"]}>
+                {post?.user?.nationality?.code && (<div className={classes["author-card-profile-flag-picture"]}>
                   <img
                     className="w-100 h-100 d-block object-fit-cover"
-                    src={`https://flagcdn.com/w640/${post.user.nationality.code}.png`}
+                    src={`https://flagcdn.com/w640/${post?.user?.nationality?.code}.png`}
                     alt="author card flag picture"
                   />
-                </div>
+                </div>)}
               </div>
               <div>
                 <h5
                   className='m-0'
                 >
-                  {post.user.name} {" "} {post.user.surname}
+                  {post?.user?.name} {" "} {post?.user?.surname}
                 </h5>
-                {post.user.isTutor && <p
+                {post?.user?.isTutor && <p
                   className={`${classes['author-card-job-title']} m-0`}
                 >
                   Community Tutor
@@ -60,11 +60,10 @@ const CommunityPostCard = ({ post }) => {
               </div>
             </div>
             <h5>{post.title}</h5>
-            <p
+            <div
               className={classes["post-content"]}
-            >
-              {post.content}
-            </p>
+              dangerouslySetInnerHTML={{ __html: post?.content }}
+            />
           </div>
           <div
             className={classes['community-post-card-right-container']}
@@ -72,14 +71,14 @@ const CommunityPostCard = ({ post }) => {
             <Badge
               className='align-self-end bg-secondary'
             >
-              {post.category}
+              {post?.category}
             </Badge>
             <div
               className={classes['community-post-card-cover-container']}
             >
               <img
                 className='d-block w-100 object-fit-cover'
-                src={post.cover}
+                src={post?.cover}
                 alt="community post cover"
               />
             </div>
@@ -91,7 +90,7 @@ const CommunityPostCard = ({ post }) => {
           <p
             className='m-0'
           >
-            {formatDate(post.createdAt)}
+            {formatDate(post?.createdAt)}
           </p>
           <div
             className='d-flex gap-4'
@@ -100,13 +99,13 @@ const CommunityPostCard = ({ post }) => {
               className='d-flex gap-1'
             >
               <CommentsIcon />
-              <p className='m-0'>{post.comments.length}</p>
+              <p className='m-0'>{post?.comments.length}</p>
             </div>
             <div
               className='d-flex gap-1'
             >
               <LikesIcon />
-              <p className='m-0'>{post.likes.length}</p>
+              <p className='m-0'>{post?.likes?.length}</p>
             </div>
           </div>
         </div>

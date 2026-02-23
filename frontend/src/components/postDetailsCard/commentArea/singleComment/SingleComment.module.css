@@ -32,3 +32,13 @@
   font-weight: 400;
   color: #747474;
 }
+
+.delete-comment-icon {
+  cursor: pointer;
+  color: #747474;
+}
+
+.delete-comment-icon:hover {
+  cursor: pointer;
+  color: red;
+}

@@ -1,15 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Select from 'react-select';
 import { hobbiesMock } from './hobbiesMock';
 import { Button } from 'react-bootstrap';
 import classes from './InterestsSettings.module.css'
+import SaveButtons from '../languagesSettings/languagesSection/saveButtons/SaveButtons';
+import { useAuth } from '../../../contexts/AuthContext';
+import useUsers from '../../../hooks/useUsers';
+import toast from 'react-hot-toast';
 
 const InterestsSettings = () => {
+  const { authData, getProfile } = useAuth();
+  const { updateUser, usersIsLoading } = useUsers();
 
   const [temporarySelection, setTemporarySelection] = useState([]);
   const [confirmedHobbies, setConfirmedHobbies] = useState([]);
 
+  useEffect(() => {
+    if (authData?.interests) {
+      const initialHobbies = authData.interests.map(interest => {
+        const found = hobbiesMock.find(h => h.value === interest);
+        return found ? found : { value: interest, label: interest };
+      });
+      setConfirmedHobbies(initialHobbies);
+    }
+  }, [authData]);
+
   const handleAddHobbies = () => {
+    if (temporarySelection.length === 0) return;
+
     const newHobbies = temporarySelection.filter(
       (item) => !confirmedHobbies.find((hobby) => hobby.value === item.value)
     );
@@ -22,10 +40,34 @@ const InterestsSettings = () => {
     setTemporarySelection([]);
   };
 
-
   const removeHobby = (hobbyValue) => {
     setConfirmedHobbies(confirmedHobbies.filter(hobby => hobby.value !== hobbyValue));
   };
+
+  const handleSave = async () => {
+    try {
+      const interestsData = confirmedHobbies.map(h => h.value);
+      await updateUser(authData._id, { interests: interestsData });
+      await getProfile();
+      toast.success("Interests updated!");
+    } catch (error) {
+      toast.error("Error saving interests");
+    }
+  };
+
+  const handleCancel = () => {
+    const original = authData?.interests?.map(interest => {
+      const found = hobbiesMock.find(h => h.value === interest);
+      return found ? found : { value: interest, label: interest };
+    }) || [];
+    setConfirmedHobbies(original);
+  };
+
+  const hasChanges = useMemo(() => {
+    const currentValues = confirmedHobbies.map(h => h.value).sort();
+    const originalValues = (authData?.interests || []).slice().sort();
+    return JSON.stringify(currentValues) !== JSON.stringify(originalValues);
+  }, [confirmedHobbies, authData?.interests]);
 
   return (
     <div
@@ -90,22 +132,12 @@ const InterestsSettings = () => {
       <div
         className='d-flex align-items-center align-self-end gap-2'
       >
-        <Button
-          variant='outline-dark'
-          className='px-4'
-          onClick={() => {
-            setConfirmedHobbies([])
-          }}
-        >
-          Cancel
-        </Button>
-        <Button
-          variant='success'
-          className='px-4'
-          disabled={confirmedHobbies.length === 0}
-        >
-          Save Changes
-        </Button>
+        <SaveButtons
+          onCancel={handleCancel}
+          onSave={handleSave}
+          isDisabled={!hasChanges || usersIsLoading}
+          isLoading={usersIsLoading}
+        />
       </div>
     </div>
   );

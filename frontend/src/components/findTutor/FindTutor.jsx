@@ -3,25 +3,37 @@ import ToggleListOrMap from './toggleListOrMap/ToggleListOrMap';
 import SearchModeSelector from './searchModeSelector/SearchModeSelector';
 import TutorMap from './tutorMap/TutorMap';
 import TutorCard from './tutorCard/TutorCard';
-import { Container, Row, Spinner } from 'react-bootstrap';
+import { Alert, Button, Container, Row, Spinner } from 'react-bootstrap';
 import NoTutorFoundIcon from '../../assets/NoTutorFoundIcon';
 import useUsers from '../../hooks/useUsers';
+import { getZoomByDistance } from '../../utils/getZoomByDistance';
 
 const FindTutor = () => {
 
   const [userLocation, setUserLocation] = useState(null);
+  const [locationError, setLocationError] = useState(false);
   const [viewMode, setViewMode] = useState('list');
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [searchMode, setSearchMode] = useState('location');
   const [distance, setDistance] = useState(60)
 
-  const { getUsersNear, usersData, usersIsLoading } = useUsers()
+  const { getUsersNear, usersData, setUsersData, usersIsLoading } = useUsers()
+
+  useEffect(() => {
+
+    setUsersData(null);
+
+    if (searchMode === 'location') {
+      setLocationError(false);
+    }
+  }, [searchMode, setUsersData]);
 
   useEffect(() => {
     if (searchMode === 'location' && !userLocation && navigator.geolocation) {
       setSelectedPlace(null);
       navigator.geolocation.getCurrentPosition(
         (position) => {
+          setLocationError(false);
           setUserLocation({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
@@ -29,10 +41,13 @@ const FindTutor = () => {
         },
         (error) => {
           console.error(error);
+          setLocationError(true)
         }
       );
     }
-  }, [searchMode]);
+  }, [searchMode, userLocation]);
+
+  const isLocationDisabled = searchMode === 'location' && locationError;
 
   useEffect(() => {
     const fetchTutors = async () => {
@@ -57,6 +72,10 @@ const FindTutor = () => {
     setViewMode(viewMode === 'list' ? 'map' : 'list');
   };
 
+  const mapZoom = searchMode === 'city'
+    ? 12
+    : getZoomByDistance(distance);
+
   return (
     <>
       <SearchModeSelector
@@ -73,14 +92,41 @@ const FindTutor = () => {
         <h2
           className='m-0'
         >
-          {usersIsLoading ? "Searching..." : `${usersData?.length} ${usersData?.length === 1 ? 'mate' : 'mates'} found`}
-
+          {isLocationDisabled
+            ? "Location required"
+            : usersIsLoading
+              ? "Searching..."
+              : (usersData && (userLocation || selectedPlace))
+                ? `${usersData.length || 0} mates found`
+                : "Find your tutor"}
         </h2>
         <ToggleListOrMap
           viewMode={viewMode}
           onToggle={handleToggleView}
         />
       </div>
+
+      {isLocationDisabled && (
+        <Container className="mb-4">
+          <Alert variant="warning" className="text-center rounded-4 border-0 shadow-sm">
+            <Alert.Heading>Location services are disabled</Alert.Heading>
+            <p>
+              To find tutors near you, please enable location permissions in your browser or
+              <b> switch to "Search by City"</b> mode.
+            </p>
+            <Button
+              variant="warning"
+              size="sm"
+              onClick={() => {
+                setSearchMode('city')
+                setLocationError(false);
+              }}
+            >
+              Switch to Search by City
+            </Button>
+          </Alert>
+        </Container>
+      )}
 
       {viewMode === 'list' && (
         <Container
@@ -91,27 +137,17 @@ const FindTutor = () => {
           >
             {usersIsLoading ? (
               <div className="d-flex justify-content-center my-5">
-                <Spinner
-                  className='mx-auto'
-                />
+                <Spinner className='mx-auto' />
               </div>
             ) : usersData?.length > 0 ? (
-              usersData?.map((tutor) => (
-                <TutorCard
-                  key={tutor._id}
-                  tutor={tutor}
-                />
-
-              ))
+              usersData.map((tutor) => <TutorCard key={tutor._id} tutor={tutor} />)
+            ) : usersData === null ? (
+              <div className="d-flex justify-content-center my-5">
+                <p className="text-muted">Select a city or enable GPS to see mates...</p>
+              </div>
             ) : (
-              <div
-                className='d-flex flex-column align-items-center gap-3'
-              >
-                <h5
-                  className='m-0 mx-auto'
-                >
-                  No tutor for this position
-                </h5>
+              <div className='d-flex flex-column align-items-center gap-3'>
+                <h5 className='m-0 mx-auto'>No tutor for this position</h5>
                 <NoTutorFoundIcon />
               </div>
             )}
@@ -120,11 +156,24 @@ const FindTutor = () => {
         </Container>
       )}
 
-      {viewMode === 'map' && (userLocation || selectedPlace) && (
-        <TutorMap
-          tutors={usersData}
-          center={searchMode === 'city' ? selectedPlace : userLocation}
-        />
+      {viewMode === 'map' && (
+        <div className="h-100">
+          {isLocationDisabled ? (
+            <div className="h-50 d-flex align-items-center justify-content-center bg-light rounded-5">
+              <p className="text-muted">Map unavailable without location permissions</p>
+            </div>
+          ) : (userLocation || selectedPlace) ? (
+            <TutorMap
+              tutors={usersData}
+              center={searchMode === 'city' ? selectedPlace : userLocation}
+              zoom={mapZoom}
+            />
+          ) : (
+            <div className="d-flex justify-content-center my-5">
+              <p className="text-muted">Select a city to see mates...</p>
+            </div>
+          )}
+        </div>
       )}
     </>
   );

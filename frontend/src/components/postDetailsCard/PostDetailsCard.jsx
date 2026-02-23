@@ -64,7 +64,7 @@ const PostDetailsCard = () => {
             className={classes["details-card-cover-post-container"]}
           >
             <img
-              className="w-100 object-fit-cover d-block"
+              className="w-100 h-100 object-fit-cover d-block"
               src={postsData.cover}
               alt="post cover"
             />
@@ -77,24 +77,24 @@ const PostDetailsCard = () => {
             >
               <img
                 className="w-100 h-100 d-block object-fit-cover"
-                src={postsData.user.avatar}
+                src={postsData.user?.avatar}
                 alt="author card profile picture"
               />
-              <div className={classes["author-card-profile-flag-picture"]}>
+              {postsData.user?.nationality?.code && (<div className={classes["author-card-profile-flag-picture"]}>
                 <img
                   className="w-100 h-100 d-block object-fit-cover"
-                  src={`https://flagcdn.com/w640/${postsData.user.nationality.code.toLowerCase()}.png`}
+                  src={`https://flagcdn.com/w640/${postsData.user?.nationality?.code?.toLowerCase()}.png`}
                   alt="author card flag picture"
                 />
-              </div>
+              </div>)}
             </div>
             <div>
               <h5
                 className='m-0'
               >
-                {postsData.user.name} {" "} {postsData.user.surname}
+                {postsData.user?.name} {" "} {postsData.user?.surname}
               </h5>
-              {postsData.user.isTutor && <p
+              {postsData.user?.isTutor && <p
                 className={`${classes['author-card-job-title']} m-0`}
               >
                 Community Tutor
@@ -107,7 +107,7 @@ const PostDetailsCard = () => {
             <div
               className="d-flex align-items-center align-self-start justify-content-center gap-2 text-secondary small"
             >
-              <p className="m-0">{postsData.readTime.value} {postsData.readTime.unit}</p>
+              <p className="m-0">{postsData.readTime?.value} {postsData.readTime?.unit}</p>
               <p className="m-0">&#8226;</p>
               <p className="m-0">{formatDate(postsData.createdAt)}</p>
             </div>
@@ -119,7 +119,7 @@ const PostDetailsCard = () => {
                 onClick={scrollToComments}
               >
                 <CommentsIcon />
-                <p className='m-0'>{postsData.comments.length}</p>
+                <p className='m-0'>{postsData.comments?.length}</p>
               </div>
               <div
                 className={`${classes['likes-icon-container']} d-flex gap-1`}
@@ -132,11 +132,10 @@ const PostDetailsCard = () => {
               </div>
             </div>
           </div>
-          <p
+          <div
             className={`${classes['post-content']} m-0`}
-          >
-            {postsData.content}
-          </p>
+            dangerouslySetInnerHTML={{ __html: postsData?.content }}
+          />
           <div ref={commentSectionRef}>
             <CommentArea
               comments={postsData.comments}

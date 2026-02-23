@@ -1,6 +1,6 @@
-import { Button } from "react-bootstrap"
+import { Button, Spinner } from "react-bootstrap"
 
-const SaveButtons = ({onCancel, isDisabled}) => {
+const SaveButtons = ({ onCancel, isDisabled, onSave, isLoading }) => {
   return (
     <div
       className='d-flex align-items-center align-self-end gap-2'
@@ -8,16 +8,25 @@ const SaveButtons = ({onCancel, isDisabled}) => {
       <Button
         variant='outline-dark'
         className='px-4'
+        disabled={isDisabled || isLoading}
         onClick={onCancel}
       >
         Cancel
       </Button>
       <Button
         variant='success'
-        className='px-4'
-        disabled={isDisabled}
+        className='px-4 d-flex align-items-center gap-2'
+        disabled={isDisabled || isLoading}
+        onClick={onSave}
       >
-        Save Changes
+        {isLoading ? (
+          <Spinner
+            className="mx-auto"
+            size="sm"
+          />
+        ) : (
+          "Save Changes"
+        )}
       </Button>
     </div>
   )

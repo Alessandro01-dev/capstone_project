@@ -2,6 +2,23 @@ const HttpException = require('../../exceptions')
 const mongoose = require('mongoose')
 
 const errorHandler = (err, req, res, next) => {
+
+  if (err.code === 11000) {
+    return res.status(409).json({
+      statusCode: 409,
+      message: 'User is already a tutor (Duplicate Record)',
+      error: 'CONFLICT_ERROR'
+    })
+  }
+
+  if (err.message === 'User is already a tutor' || err.message === 'User record already exists') {
+    return res.status(409).json({
+      statusCode: 409,
+      message: err.message,
+      error: 'CONFLICT_ERROR'
+    })
+  }
+
   if (err instanceof HttpException) {
     return res.status(err.statusCode).json({
       statusCode: err.statusCode,
@@ -31,6 +48,22 @@ const errorHandler = (err, req, res, next) => {
       statusCode: 404,
       message: "Mongoose error: Document not found",
       error: err.error,
+    })
+  }
+
+  if (err.code?.startsWith('LIMIT_')) {
+    return res.status(400).json({
+      statusCode: 400,
+      message: 'File upload error: file too large (max 5MB)',
+      error: err.code
+    })
+  }
+
+  if (err.message.includes('This file format is not supported. Upload only PDFs or images.')) {
+    return res.status(400).json({
+      statusCode: 400,
+      message: err.message,
+      error: 'UNSUPPORTED_FORMAT'
     })
   }
 

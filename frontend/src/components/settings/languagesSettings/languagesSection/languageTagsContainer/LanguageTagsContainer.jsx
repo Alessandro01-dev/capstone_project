@@ -1,6 +1,15 @@
 import classes from './LanguageTagsContainer.module.css'
+import { languagesMock } from '../../languagesMock'
 
 const LanguageTagsContainer = ({ isNative, confirmedLanguages, setConfirmedLanguages }) => {
+
+  const getLanguageLabel = (lang) => {
+    if (lang.label) return lang.label;
+
+    const found = languagesMock.find(l => l.value === lang.code);
+    return found ? found.label : lang.code;
+  };
+
   return (
     <div className={classes['confirmed-languages-container']}>
       {confirmedLanguages.length === 0 && (
@@ -10,12 +19,13 @@ const LanguageTagsContainer = ({ isNative, confirmedLanguages, setConfirmedLangu
       {confirmedLanguages.map((language) => (
         <div key={language.code} className={classes['single-language-tag']}>
           <div className='d-flex align-items-center gap-2'>
-            <p
-              className='m-0'
-            >{language.label}</p>
+
+            <p className='m-0'>
+              {getLanguageLabel(language)}
+            </p>
+
             {!isNative && (
-              <p className={`${classes['single-language-tag-level']} m-0`}
-              >
+              <p className={`${classes['single-language-tag-level']} m-0`}>
                 {language.level}
               </p>
             )}

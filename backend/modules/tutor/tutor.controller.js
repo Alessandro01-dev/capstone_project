@@ -38,6 +38,21 @@ const getTutorById = async (req, res, next) => {
   }
 }
 
+const uploadFileOnCloud = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
+    const pdfUrl = req.file.path;
+    res.status(200).json({
+      message: 'Certification uploaded successfully',
+      pdfUrl,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
 const createTutor = async (req, res, next) => {
   const { body } = req
   try {
@@ -95,6 +110,7 @@ const deleteTutor = async (req, res, next) => {
 module.exports = {
   getTutors,
   getTutorById,
+  uploadFileOnCloud,
   createTutor,
   updateTutor,
   deleteTutor

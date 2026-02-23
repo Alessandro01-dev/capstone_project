@@ -32,7 +32,7 @@ const userData = [
       "learning": [
         {
           "code": "fr",
-          "level": "A2"
+          "level": "A1"
         }
       ]
     },
@@ -86,7 +86,7 @@ const userData = [
       "learning": [
         {
           "code": "de",
-          "level": "B1"
+          "level": "A1"
         }
       ]
     },
@@ -193,7 +193,7 @@ const userData = [
       "learning": [
         {
           "code": "pt",
-          "level": "A2"
+          "level": "A1"
         }
       ]
     },
@@ -950,7 +950,7 @@ const userData = [
       "learning": [
         {
           "code": "es",
-          "level": "A2"
+          "level": "A1"
         }
       ]
     },
@@ -1814,7 +1814,7 @@ const userData = [
       "learning": [
         {
           "code": "es",
-          "level": "A2"
+          "level": "A1"
         }
       ]
     },
@@ -2047,8 +2047,8 @@ const userData = [
       "geo": {
         "type": "Point",
         "coordinates": [
-          13.34987,
-          38.13264
+          13.36422,
+          38.11689
         ]
       }
     }
@@ -4497,7 +4497,7 @@ const userData = [
         },
         {
           "code": "es",
-          "level": "A2"
+          "level": "B1"
         }
       ],
       "learning": []
@@ -4817,7 +4817,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "C1"
+          "level": "A1"
         }
       ]
     },
@@ -4923,13 +4923,13 @@ const userData = [
         },
         {
           "code": "it",
-          "level": "A2"
+          "level": "B2"
         }
       ],
       "learning": [
         {
           "code": "it",
-          "level": "B1"
+          "level": "A1"
         }
       ]
     },
@@ -4987,7 +4987,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B2"
+          "level": "A2"
         }
       ]
     },
@@ -5103,7 +5103,7 @@ const userData = [
       "learning": [
         {
           "code": "es",
-          "level": "B1"
+          "level": "A1"
         }
       ]
     },
@@ -5161,7 +5161,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B2"
+          "level": "A2"
         }
       ]
     },
@@ -5213,13 +5213,13 @@ const userData = [
         },
         {
           "code": "it",
-          "level": "A2"
+          "level": "B1"
         }
       ],
       "learning": [
         {
           "code": "it",
-          "level": "B1"
+          "level": "A1"
         }
       ]
     },
@@ -5335,7 +5335,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B2"
+          "level": "A2"
         }
       ]
     },
@@ -5387,13 +5387,13 @@ const userData = [
         },
         {
           "code": "it",
-          "level": "A2"
+          "level": "B2"
         }
       ],
       "learning": [
         {
           "code": "it",
-          "level": "B1"
+          "level": "A1"
         }
       ]
     },
@@ -5451,7 +5451,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B2"
+          "level": "A2"
         }
       ]
     },
@@ -5509,7 +5509,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B1"
+          "level": "A1"
         }
       ]
     },
@@ -5567,7 +5567,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B1"
+          "level": "A1"
         }
       ]
     },
@@ -5621,7 +5621,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B2"
+          "level": "A2"
         }
       ]
     },
@@ -5679,7 +5679,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B2"
+          "level": "A2"
         }
       ]
     },
@@ -5787,7 +5787,7 @@ const userData = [
       "learning": [
         {
           "code": "it",
-          "level": "B2"
+          "level": "A2"
         }
       ]
     },
@@ -5897,13 +5897,13 @@ const userData = [
         },
         {
           "code": "it",
-          "level": "B1"
+          "level": "B2"
         }
       ],
       "learning": [
         {
           "code": "it",
-          "level": "B2"
+          "level": "A1"
         }
       ]
     },

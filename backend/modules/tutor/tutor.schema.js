@@ -10,12 +10,14 @@ const Tutor = new mongoose.Schema(
     },
     bio: {
       type: String,
+      required: true,
+      minlength: 50,
       max: 1000,
     },
     languagesTaught: {
       natives: [
         {
-          code: { type: String, required: true }
+          code: { type: String, required: true },
         }
       ],
       others: [
@@ -30,7 +32,9 @@ const Tutor = new mongoose.Schema(
       ]
     },
     experience: {
-      type: Number
+      type: Number,
+      required: true,
+      min: 0
     },
     certifications: [
       {
@@ -57,10 +61,13 @@ const Tutor = new mongoose.Schema(
       }
     ],
     hourlyRate: {
-      type: Number
+      type: Number,
+      required: true,
+      min: 20
     },
     availability: {
-      type: String
+      type: String,
+      required: true
     },
     rating: {
       type: Number,
