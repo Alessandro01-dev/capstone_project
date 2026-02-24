@@ -32,7 +32,7 @@ const PublicFooter = () => {
                 className={`${classes['footer-custom-link']} fw-bold`}
                 onClick={() => handlePageRedirect('/login')}>Login</span>
             </div>
-            <p className="text-muted small">© 2024 Talk Mate. All rights reserved.</p>
+            <p className="text-muted small">© 2026 Talk Mate. All rights reserved.</p>
           </Col>
         </Row>
       </Container>

@@ -2,15 +2,18 @@ import { useParams } from "react-router-dom"
 import classes from './TeacherDetailsCard.module.css'
 import { getLanguageName } from "../../utils/getLanguageName"
 import VerifiedIcon from "../../assets/VerifiedIcon"
-import { Badge, Spinner } from "react-bootstrap"
+import { Badge, Spinner, Button } from "react-bootstrap"
 import useTutors from "../../hooks/useTutors"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import ConnectionRequestModal from "../connectionRequestModal/ConnectionRequestModal"
 
 const TeacherDetailsCard = () => {
 
   const { teacherId } = useParams()
 
   const { getTutorById, tutorsIsLoading, tutorsData, tutorsError } = useTutors()
+
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
 
@@ -40,14 +43,14 @@ const TeacherDetailsCard = () => {
                 src={tutorsData.user?.avatar}
                 alt="teacher details picture"
               />
-              <div
+              {tutorsData.user?.nationality?.code && (<div
                 className={classes["details-card-profile-flag"]}
               >
                 <img
                   className="w-100 h-100 object-fit-cover d-block"
                   src={`https://flagcdn.com/w640/${tutorsData.user?.nationality?.code.toLowerCase()}.png`}
                   alt="teacher details nationality flag picture" />
-              </div>
+              </div>)}
             </div>
             <div
               className="d-flex flex-column"
@@ -232,6 +235,24 @@ const TeacherDetailsCard = () => {
               </p>
             </>
           )}
+        </>
+      )}
+      {tutorsData && (
+        <>
+          <Button
+            variant="success"
+            className="align-self-end"
+            onClick={() => setShowModal(true)}
+          >
+            Book a lesson with {tutorsData.user?.name}
+          </Button>
+
+          <ConnectionRequestModal
+            show={showModal}
+            handleClose={() => setShowModal(false)}
+            targetUser={tutorsData.user}
+            type="tutoring"
+          />
         </>
       )}
     </div>

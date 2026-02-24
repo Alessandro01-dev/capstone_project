@@ -2,12 +2,15 @@ import { useParams } from "react-router-dom"
 import VerifiedIcon from '../../assets/VerifiedIcon'
 import { getLanguageName } from '../../utils/getLanguageName'
 import classes from './TutorDetailsCard.module.css'
-import { Badge, Spinner } from "react-bootstrap"
+import { Alert, Badge, Button, Spinner } from "react-bootstrap"
 import useUsers from "../../hooks/useUsers"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getInterestLabel } from "../../utils/getInterestLabel"
+import ConnectionRequestModal from "../connectionRequestModal/ConnectionRequestModal"
 
 const TutorDetailsCard = () => {
+
+  const [showModal, setShowModal] = useState()
 
   const params = useParams()
   const { tutorId } = params
@@ -30,6 +33,16 @@ const TutorDetailsCard = () => {
           size="sm"
         />
       )}
+
+      {usersError && (
+        <Alert
+          className="text-center"
+          variant="danger"
+        >
+          {usersError}
+        </Alert>
+      )}
+
       {!usersIsLoading && usersData && (
         <>
           <div
@@ -205,6 +218,24 @@ const TutorDetailsCard = () => {
               >No description found</p>
             </div>
           )}
+        </>
+      )}
+      {usersData && (
+        <>
+          <Button
+            variant="success"
+            className="align-self-end"
+            onClick={() => setShowModal(true)}
+          >
+            Contact {usersData?.name}
+          </Button>
+
+          <ConnectionRequestModal
+            show={showModal}
+            handleClose={() => setShowModal(false)}
+            targetUser={usersData}
+            type="practice"
+          />
         </>
       )}
     </div>

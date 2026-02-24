@@ -33,8 +33,6 @@ const AddComment = ({ onAdd }) => {
       onAdd()
       toast.success("Comment added successfully!");
     }
-
-    console.log("Payload pronto per il post:", payload)
   }
 
   const isCommentValid = formData.content.trim().length > 0 && formData.rating > 0;

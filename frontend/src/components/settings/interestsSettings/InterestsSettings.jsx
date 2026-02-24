@@ -18,7 +18,7 @@ const InterestsSettings = () => {
   useEffect(() => {
     if (authData?.interests) {
       const initialHobbies = authData.interests.map(interest => {
-        const found = hobbiesMock.find(h => h.value === interest);
+        const found = hobbiesMock.find(hobby => hobby.value === interest);
         return found ? found : { value: interest, label: interest };
       });
       setConfirmedHobbies(initialHobbies);
@@ -57,14 +57,14 @@ const InterestsSettings = () => {
 
   const handleCancel = () => {
     const original = authData?.interests?.map(interest => {
-      const found = hobbiesMock.find(h => h.value === interest);
+      const found = hobbiesMock.find(hobby => hobby.value === interest);
       return found ? found : { value: interest, label: interest };
     }) || [];
     setConfirmedHobbies(original);
   };
 
   const hasChanges = useMemo(() => {
-    const currentValues = confirmedHobbies.map(h => h.value).sort();
+    const currentValues = confirmedHobbies.map(hobby => hobby.value).sort();
     const originalValues = (authData?.interests || []).slice().sort();
     return JSON.stringify(currentValues) !== JSON.stringify(originalValues);
   }, [confirmedHobbies, authData?.interests]);

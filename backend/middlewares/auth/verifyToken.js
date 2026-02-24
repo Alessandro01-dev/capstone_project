@@ -2,7 +2,9 @@ const jwt = require('jsonwebtoken')
 const InvalidOrMissingTokenException = require('../../exceptions/auth/InvalidOrMissingTokenException')
 
 const excludedRoutes = [
-  '/login'
+  '/login',
+  '/registration',
+  '/landing'
 ]
 
 const verifyToken = (req, res, next) => {

@@ -140,7 +140,7 @@ const FindTutor = () => {
                 <Spinner className='mx-auto' />
               </div>
             ) : usersData?.length > 0 ? (
-              usersData.map((tutor) => <TutorCard key={tutor._id} tutor={tutor} />)
+              usersData.map(tutor => <TutorCard key={tutor._id} tutor={tutor} />)
             ) : usersData === null ? (
               <div className="d-flex justify-content-center my-5">
                 <p className="text-muted">Select a city or enable GPS to see mates...</p>

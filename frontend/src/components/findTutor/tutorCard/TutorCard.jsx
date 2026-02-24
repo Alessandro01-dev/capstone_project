@@ -125,7 +125,9 @@ const TutorCard = ({ tutor }) => {
             </div>
           </div>
         )}
-        <div>
+        <div
+          className={classes['tutor-card-bio']}
+        >
           {tutor.bio}
         </div>
         <div className="d-flex align-items-center gap-1 mt-1">

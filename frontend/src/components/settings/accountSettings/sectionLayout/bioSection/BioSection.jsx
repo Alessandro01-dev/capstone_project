@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import SectionLayout from '../SectionLayout';
 import classes from './BioSection.module.css'
@@ -7,8 +7,15 @@ const BioSection = ({ initialBio, onSave, isLoading }) => {
 
   const [bio, setBio] = useState(initialBio || "")
 
+  useEffect(() => {
+    setBio(initialBio || "");
+  }, [initialBio]);
+
+  const minLength = 50;
   const maxLength = 1000;
+  const isTooShort = bio.length > 0 && bio.length < minLength;
   const isOverLimit = bio.length > maxLength;
+  const isInvalid = isTooShort || isOverLimit;
 
   const handleCancel = () => {
     setBio(initialBio || "")
@@ -24,7 +31,7 @@ const BioSection = ({ initialBio, onSave, isLoading }) => {
       currentValue={bio}
       initialValue={initialBio}
       onCancel={handleCancel}
-      customDisable={isOverLimit}
+      customDisabled={isInvalid}
       onSave={handleSave}
       isLoading={isLoading}
     >
@@ -37,12 +44,12 @@ const BioSection = ({ initialBio, onSave, isLoading }) => {
               rows={6}
               value={bio}
               onChange={(e) => setBio(e.target.value)}
-              isInvalid={isOverLimit}
+              isInvalid={isInvalid}
               placeholder="Describe yourself..."
               autoFocus
             />
             <div className="d-flex justify-content-end mt-1">
-              <small className={isOverLimit ? "text-danger fw-bold" : "text-muted"}>
+              <small className={isInvalid ? "text-danger fw-bold" : "text-muted"}>
                 {bio.length} / {maxLength}
               </small>
             </div>
@@ -51,7 +58,7 @@ const BioSection = ({ initialBio, onSave, isLoading }) => {
           <p
             className={`${classes['bio-content']} m-0`}
           >
-            {bio}
+            {bio || "No biography specified"}
           </p>
         )
       )}

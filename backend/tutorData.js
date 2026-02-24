@@ -88,7 +88,7 @@ const tutorData = [
         isVerified: false
       }
     ],
-    hourlyRate: 18,
+    hourlyRate: 20,
     availability: "Weekends and Wednesday evenings",
     rating: 4.5,
     isVerified: false
@@ -273,7 +273,7 @@ const tutorData = [
         isVerified: false
       }
     ],
-    hourlyRate: 18,
+    hourlyRate: 20,
     availability: "Weekends 10:00 - 15:00",
     rating: 4.6,
     isVerified: false
@@ -515,7 +515,7 @@ const tutorData = [
         isVerified: false
       }
     ],
-    hourlyRate: 19,
+    hourlyRate: 20,
     availability: "Flexible weekdays, 16:00 - 21:00",
     rating: 4.7,
     isVerified: false
@@ -581,7 +581,7 @@ const tutorData = [
         isVerified: false
       }
     ],
-    hourlyRate: 18,
+    hourlyRate: 21,
     availability: "Weekends and Tuesday evenings",
     rating: 4.7,
     isVerified: false
@@ -1065,7 +1065,7 @@ const tutorData = [
         isVerified: false
       }
     ],
-    hourlyRate: 19,
+    hourlyRate: 21,
     availability: "Daily after 4 PM",
     rating: 4.6,
     isVerified: false
@@ -1395,7 +1395,7 @@ const tutorData = [
         isVerified: true
       }
     ],
-    hourlyRate: 18,
+    hourlyRate: 20,
     availability: "Evenings and weekends",
     rating: 4.8,
     isVerified: true
@@ -1615,7 +1615,7 @@ const tutorData = [
         isVerified: true
       }
     ],
-    hourlyRate: 18,
+    hourlyRate: 22,
     availability: "Weekends and Wednesday evenings",
     rating: 4.8,
     isVerified: true
@@ -1791,7 +1791,7 @@ const tutorData = [
         isVerified: true
       }
     ],
-    hourlyRate: 18,
+    hourlyRate: 21,
     availability: "Weekends and Wednesday nights",
     rating: 4.6,
     isVerified: true

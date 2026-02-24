@@ -5,6 +5,7 @@ import MenuSidebar from './menuSidebar/MenuSidebar'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import MenuCanvas from './menuCanvas/MenuCanvas'
 import LoggedProfileDropdown from './loggedProfileDropdown/LoggedProfileDropdown'
+import NotificationsDropdown from './notificationsDropdown/NotificationsDropdown'
 import ShowCanvasIcon from '../../assets/ShowCanvasIcon'
 import BookLessonIcon from '../../assets/BookLessonIcon'
 import FindTutorIcon from '../../assets/FindTutorIcon'
@@ -87,8 +88,9 @@ const MainLayout = () => {
               <Col
                 xs={12}
                 md={10}
-                className="d-flex justify-content-end mx-auto"
+                className="d-flex justify-content-end align-items-center gap-2 mx-auto"
               >
+                <NotificationsDropdown />
                 <LoggedProfileDropdown />
               </Col>
             </Row>

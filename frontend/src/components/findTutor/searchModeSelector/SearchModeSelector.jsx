@@ -6,6 +6,7 @@ import CityIcon from '../../../assets/CityIcon';
 import classes from './SearchModeSelector.module.css';
 
 const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setDistance }) => {
+
   const [selectedValue, setSelectedValue] = useState(null);
 
   const loadLocationOptions = (inputValue, callback) => {
@@ -16,9 +17,9 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
       { input: inputValue, types: ['(cities)'] },
       (predictions) => {
         if (!predictions) return callback([]);
-        const options = predictions.map(p => ({
-          value: p.place_id,
-          label: p.description
+        const options = predictions.map(prediction => ({
+          value: prediction.place_id,
+          label: prediction.description
         }));
         callback(options);
       }
@@ -40,9 +41,9 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
         const location = results[0].geometry.location;
 
         const addressComponents = results[0].address_components;
-        const cityComponent = addressComponents.find(c =>
-          c.types.includes("locality") ||
-          c.types.includes("administrative_area_level_3")
+        const cityComponent = addressComponents.find(component =>
+          component.types.includes("locality") ||
+          component.types.includes("administrative_area_level_3")
         );
         const cityName = cityComponent ? cityComponent.long_name : "";
 

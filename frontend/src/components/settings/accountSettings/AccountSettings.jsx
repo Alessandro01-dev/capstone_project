@@ -3,11 +3,13 @@ import BioSection from './sectionLayout/bioSection/BioSection'
 import ProfilePictureSection from './sectionLayout/profilePictureSection/ProfilePictureSection';
 import NameSection from './sectionLayout/nameSection/NameSection';
 import SurnameSection from './sectionLayout/surnameSection/SurnameSection';
+import NationalitySection from './sectionLayout/nationalitySection/NationalitySection'
 import useUsers from '../../../hooks/useUsers';
 import { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import useUpload from '../../../hooks/useUpload';
 import { useAuth } from '../../../contexts/AuthContext';
+import toast from 'react-hot-toast';
 
 const AccountSettings = () => {
 
@@ -22,19 +24,31 @@ const AccountSettings = () => {
   }, []);
 
   const handleUpdate = async (field, value) => {
+
+    console.log(`Updating ${field} with:`, value);
+
     if (!authData?._id) return;
 
-    let success = false;
+    const dataToSave = field === 'nationality' ? { ...value } : value;
 
-    if (field === 'avatar' && typeof value !== 'string') {
-      const url = `${import.meta.env.VITE_BASE_SERVER_URL}/users/${authData._id}/avatar`;
-      const result = await uploadFile(url, value, 'avatar', 'PATCH');
-      success = result.success;
-    } else {
-      success = await updateUser(authData._id, { [field]: value });
-    }
-    if (success) {
-      await getProfile();
+    let success = false;
+    try {
+      if (field === 'avatar' && typeof value !== 'string') {
+        const url = `${import.meta.env.VITE_BASE_SERVER_URL}/users/${authData._id}/avatar`;
+        const result = await uploadFile(url, value, 'avatar', 'PATCH');
+        success = result.success;
+      } else {
+        success = await updateUser(authData._id, { [field]: dataToSave });
+      }
+      if (success) {
+        await getProfile();
+
+        toast.success(`${field.charAt(0).toUpperCase() + field.slice(1)} updated successfully!`);
+      } else {
+        toast.error(`Failed to update ${field}.`);
+      }
+    } catch (error) {
+      toast.error("An unexpected error occurred");
     }
   };
 
@@ -66,6 +80,12 @@ const AccountSettings = () => {
           <SurnameSection
             initialSurname={authData.surname}
             onSave={(newSurname) => handleUpdate('surname', newSurname)}
+            isLoading={usersIsLoading || authIsLoading}
+          />
+
+          <NationalitySection
+            initialNationality={authData.nationality}
+            onSave={(newNationality) => handleUpdate('nationality', newNationality)}
             isLoading={usersIsLoading || authIsLoading}
           />
 

@@ -1,7 +1,7 @@
 import { useMemo, useState, useCallback, useRef } from 'react';
 import { GoogleMap, Marker, MarkerClusterer, OverlayView } from '@react-google-maps/api';
 import classes from './TutorMap.module.css';
-import { Popover } from 'react-bootstrap';
+import { Button, Popover } from 'react-bootstrap';
 import CloseIcon from '../../../assets/CloseIcon';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ const TutorMap = ({ tutors, center, zoom }) => {
     const JITTER_AMOUNT = 0.00015;
 
     return safeTutors
-      .filter(t => t.location?.geo?.coordinates?.length === 2)
+      .filter(tutor => tutor.location?.geo?.coordinates?.length === 2)
       .map(tutor => {
         const lng = tutor.location.geo.coordinates[0];
         const lat = tutor.location.geo.coordinates[1];
@@ -149,14 +149,25 @@ const TutorMap = ({ tutors, center, zoom }) => {
                             className='pt-0'
                           >
                             {tutor.bio?.slice(0, 80)}...
-                            <br />
-                            <small className="text-success fw-bold">
-                              {tutor.distanceKm ? (
-                                <>Distance: {tutor.distanceKm.toFixed(1)} km away</>
-                              ) : (
-                                <>Location: {tutor.location.city}, {" "}{tutor.location.country}</>
-                              )}
-                            </small>
+                            <div
+                              className='d-flex align-items-center justify-content-between mt-2'
+                            >
+                              <small className="text-success fw-bold">
+                                {tutor.distanceKm ? (
+                                  <>Distance: {tutor.distanceKm.toFixed(1)} km away</>
+                                ) : (
+                                  <>Location: {tutor.location.city}, {" "}{tutor.location.country}</>
+                                )}
+                              </small>
+                              <Button
+                                className={classes['view-profile-btn']}
+                                variant="dark"
+                                size="sm"
+                                onClick={() => navigate(`/tutors/${tutor._id}`)}
+                              >
+                                View profile
+                              </Button>
+                            </div>
                           </Popover.Body>
                         </Popover>
                       )}

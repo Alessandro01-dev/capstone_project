@@ -3,6 +3,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import LanguagesSection from "./languagesSection/LanguagesSection";
 
 const LanguagesSettings = () => {
+  
   const { authData } = useAuth();
   const hasLoadedInitialData = useRef(false);
 

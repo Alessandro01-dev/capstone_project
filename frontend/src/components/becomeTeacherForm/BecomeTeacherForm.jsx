@@ -55,8 +55,8 @@ const BecomeTeacherForm = () => {
       experience: professionalDetails.experience,
       hourlyRate: professionalDetails.hourlyRate,
       languagesTaught: {
-        natives: taughtNativeLanguages.map(lang => ({ code: lang.code })),
-        others: taughtOtherLanguages.map(lang => ({ code: lang.code, level: lang.level }))
+        natives: taughtNativeLanguages.map(language => ({ code: language.code })),
+        others: taughtOtherLanguages.map(language => ({ code: language.code, level: language.level }))
       },
       certifications: certificationsList.map(certification => ({
         name: certification.name,

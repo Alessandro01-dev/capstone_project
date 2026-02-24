@@ -3,11 +3,11 @@ import { languagesMock } from '../../languagesMock'
 
 const LanguageTagsContainer = ({ isNative, confirmedLanguages, setConfirmedLanguages }) => {
 
-  const getLanguageLabel = (lang) => {
-    if (lang.label) return lang.label;
+  const getLanguageLabel = (language) => {
+    if (language.label) return language.label;
 
-    const found = languagesMock.find(l => l.value === lang.code);
-    return found ? found.label : lang.code;
+    const found = languagesMock.find(lang => lang.value === language.code);
+    return found ? found.label : language.code;
   };
 
   return (

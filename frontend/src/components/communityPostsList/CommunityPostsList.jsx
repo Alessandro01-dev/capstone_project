@@ -2,6 +2,7 @@ import { Alert, Row, Spinner } from 'react-bootstrap'
 import CommunityPostCard from './communityPostCard/CommunityPostCard'
 import useCommunityPosts from '../../hooks/useCommunityPosts'
 import { useEffect, useState, useRef, useCallback } from 'react'
+import classes from './CommunityPostsList.module.css'
 
 const CommunityPostsList = () => {
 
@@ -47,7 +48,10 @@ const CommunityPostsList = () => {
         />
       ))}
 
-      <div ref={lastPostRef} style={{ height: '20px' }} />
+      <div
+        ref={lastPostRef}
+        className={classes['infinite-scroll-trigger']}
+      />
 
       {posts.length === 0 && !postsIsLoading && (
         <p

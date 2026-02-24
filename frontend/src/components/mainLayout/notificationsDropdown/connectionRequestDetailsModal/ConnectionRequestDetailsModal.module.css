@@ -1,0 +1,71 @@
+.modal-body-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.request-from-avatar-container {
+    position: relative;
+    min-width: 36px;
+    min-height: 36px;
+    width: 64px;
+    height: 64px;
+}
+
+.request-from-avatar-container img {
+    border-radius: 50%;
+}
+
+.request-from-flag-picture {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid white;
+    background: white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-info img {
+    width: 60px;
+    height: 60px;
+}
+
+.message-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.message-box {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 12px;
+    font-style: italic;
+    color: #6c757d;
+    border: 1px solid #e9ecef;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    max-height: 250px;
+    overflow-y: auto;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.message-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message-box::-webkit-scrollbar-thumb {
+    background-color: #dee2e6;
+    border-radius: 10px;
+}

@@ -15,7 +15,7 @@ const CategorySection = ({ category, setCategory }) => {
         classNamePrefix="react-select"
         options={categoriesMock}
         placeholder="Select category..."
-        value={categoriesMock.find(obj => obj.value === category) || null}
+        value={categoriesMock.find(object => object.value === category) || null}
         onChange={(selectedOption) => {
           setCategory(selectedOption ? selectedOption.value : '');
         }}

@@ -4,6 +4,7 @@ const AuthContext = createContext();
 const URL = import.meta.env.VITE_BASE_SERVER_URL;
 
 export const AuthProvider = ({ children }) => {
+  
   const [authIsLoading, setAuthIsLoading] = useState(false);
   const [authData, setAuthData] = useState(null);
   const [authError, setAuthError] = useState(null);

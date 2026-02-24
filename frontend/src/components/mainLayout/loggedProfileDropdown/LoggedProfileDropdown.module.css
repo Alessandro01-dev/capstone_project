@@ -13,10 +13,22 @@
 .logged-profile-avatar-container {
   width: 48px;
   height: 48px;
+  position: relative;
 }
 
 .logged-profile-avatar-container img {
   display: block;
+  border-radius: 50%;
+}
+
+.logged-profile-flag-picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 18px;
+  width: 18px;
+  border: 2px solid white;
+  background: white;
   border-radius: 50%;
 }
 

@@ -115,6 +115,7 @@ const updateUser = async (req, res, next) => {
       interests: body.interests,
       languages: body.languages,
       location: body.location,
+      nationality: body.nationality,
       avatar: body.avatar
     };
 

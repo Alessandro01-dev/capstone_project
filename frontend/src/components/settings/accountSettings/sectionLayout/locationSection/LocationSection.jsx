@@ -6,10 +6,12 @@ import classes from './LocationSection.module.css';
 import LocationPin from '../../../../../assets/LocationPin';
 
 const LocationSection = ({ initialLocation, onSave, isLoading }) => {
+  
   const [location, setLocation] = useState(initialLocation || {});
   const [selectedValue, setSelectedValue] = useState(null);
   const [isLocating, setIsLocating] = useState(false);
-  const isValid = !!(location?.city && location.city.trim() !== "");
+  const isValid = location?.city?.trim()?.length > 0;
+
 
   const hasChanged =
   location?.address !== initialLocation?.address ||
@@ -40,18 +42,18 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
         if (status === "OK" && results[0]) {
           const place = results[0];
           const isLocality = place.types.includes("locality");
-          const cityComp = place.address_components.find(c =>
-            c.types.includes("locality") || c.types.includes("administrative_area_level_3")
+          const cityComponent = place.address_components.find(component =>
+            component.types.includes("locality") || component.types.includes("administrative_area_level_3")
           );
 
-          const countryComp = place.address_components.find(c => c.types.includes("country"));
+          const countryComponent = place.address_components.find(component => component.types.includes("country"));
 
-          geocoder.geocode({ address: `${cityComp?.long_name}, ${countryComp?.long_name || 'Italy'}` }, (cityResults, cityStatus) => {
+          geocoder.geocode({ address: `${cityComponent?.long_name}, ${countryComponent?.long_name || 'Italy'}` }, (cityResults, cityStatus) => {
             const cityPlaceId = (cityStatus === "OK" && cityResults[0]) ? cityResults[0].place_id : "";
 
             setLocation({
-              city: cityComp?.long_name || "Position detected",
-              country: countryComp?.long_name || "",
+              city: cityComponent?.long_name || "Position detected",
+              country: countryComponent?.long_name || "",
               address: isLocality ? "" : place.formatted_address,
               placeId: cityPlaceId,
               geo: {
@@ -86,19 +88,19 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
         const place = results[0];
         const isLocality = place.types.includes("locality");
 
-        const cityComp = place.address_components.find(c =>
-          c.types.includes("locality") || c.types.includes("administrative_area_level_3")
+        const cityComponent = place.address_components.find(component =>
+          component.types.includes("locality") || component.types.includes("administrative_area_level_3")
         );
-        const countryComp = place.address_components.find(c => c.types.includes("country"));
+        const countryComponent = place.address_components.find(component => component.types.includes("country"));
 
-        geocoder.geocode({ address: `${cityComp?.long_name}, ${countryComp?.long_name || 'Italy'}` }, (cityResults, cityStatus) => {
+        geocoder.geocode({ address: `${cityComponent?.long_name}, ${countryComponent?.long_name || 'Italy'}` }, (cityResults, cityStatus) => {
           const cityPlaceId = (cityStatus === "OK" && cityResults[0])
             ? cityResults[0].place_id
             : selectedOption.value;
 
           const newLocation = {
-            city: cityComp ? cityComp.long_name : selectedOption.label.split(',')[0],
-            country: countryComp ? countryComp.long_name : "",
+            city: cityComponent ? cityComponent.long_name : selectedOption.label.split(',')[0],
+            country: countryComponent ? countryComponent.long_name : "",
             address: isLocality ? "" : place.formatted_address,
             placeId: cityPlaceId,
             geo: {
@@ -120,9 +122,9 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
     service.getPlacePredictions(
       { input: inputValue },
       (predictions) => {
-        const options = (predictions || []).map(p => ({
-          value: p.place_id,
-          label: p.description
+        const options = (predictions || []).map(prediction => ({
+          value: prediction.place_id,
+          label: prediction.description
         }));
         callback(options);
       }

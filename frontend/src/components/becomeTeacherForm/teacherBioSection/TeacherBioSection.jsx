@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap";
 import classes from './TeacherBioSection.module.css'
 
-const TeacherBioSection = ({ biography = "", setBiography }) => {
+const TeacherBioSection = ({ biography, setBiography }) => {
 
   const handleInputChange = (e) => {
     setBiography(e.target.value);

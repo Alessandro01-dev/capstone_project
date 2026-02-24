@@ -59,6 +59,15 @@ const LoggedProfileDropdown = () => {
               src={authData.avatar}
               alt="logged user profile picture"
             />
+            {authData.nationality && (
+              <div className={classes["logged-profile-flag-picture"]}>
+              <img
+                className="w-100 h-100 d-block object-fit-cover"
+                src={`https://flagcdn.com/w640/${authData?.nationality?.code?.toLowerCase()}.png`}
+                alt="teacher card flag picture"
+              />
+            </div>
+          )}
           </div>
         </>
       )}

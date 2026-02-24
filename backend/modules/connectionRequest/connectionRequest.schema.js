@@ -15,16 +15,23 @@ const ConnectionRequest = new mongoose.Schema(
     type: {
       type: String,
       enum: ["practice", "tutoring"],
-      default: "tutoring",
       required: true
     },
     language: {
-      type: String,
-      required: true
+      code: {
+        type: String,
+        required: true
+      },
+      level: {
+        type: String,
+        enum: ["A1", "A2", "B1", "B2", "C1", "C2"],
+        required: true
+      }
     },
     message: {
       type: String,
-      max: 1000
+      max: 1000,
+      required: true,
     },
     status: {
       type: String,

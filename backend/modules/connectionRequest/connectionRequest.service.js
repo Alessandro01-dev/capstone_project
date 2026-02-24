@@ -42,13 +42,13 @@ const createConnectionRequest = async (fromUserId, body) => {
 
 const getSentRequests = async (userId) => {
   return await ConnectionRequestSchema.find({ from: userId })
-    .populate('from to', 'name surname avatar')
+    .populate('from to', 'name surname avatar nationality isTutor')
     .sort({ createdAt: -1 })
 }
 
 const getReceivedRequests = async (userId) => {
   return await ConnectionRequestSchema.find({ to: userId })
-    .populate('from to', 'name surname avatar')
+    .populate('from to', 'name surname avatar nationality isTutor')
     .sort({ createdAt: -1 })
 }
 

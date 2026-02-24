@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form, Spinner } from "react-bootstrap";
+import { Button, Form, Spinner, Alert } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import classes from './LoginForm.module.css'
 import { useAuth } from "../../contexts/AuthContext";
@@ -12,7 +12,7 @@ const LoginForm = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const { loginAndGetToken, getProfile, authIsLoading } = useAuth()
+  const { loginAndGetToken, getProfile, authIsLoading, authError } = useAuth()
 
 
   const handleInputChange = (e) => {
@@ -65,6 +65,14 @@ const LoginForm = () => {
             required
           />
         </Form.Group>
+
+        {authError && (
+          <Alert
+            variant="danger"
+            className="py-2 text-center">
+            {authError}
+          </Alert>
+        )}
 
         <Button
           className="w-100 mb-3"

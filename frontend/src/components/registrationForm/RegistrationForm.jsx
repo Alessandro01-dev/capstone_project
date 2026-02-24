@@ -23,9 +23,9 @@ const RegistrationForm = () => {
       { input: inputValue, types: ['(cities)'] },
       (predictions) => {
         if (!predictions) return callback([]);
-        const options = predictions.map(p => ({
-          value: p.place_id,
-          label: p.description
+        const options = predictions.map(prediction => ({
+          value: prediction.place_id,
+          label: prediction.description
         }));
         callback(options);
       }
@@ -43,13 +43,13 @@ const RegistrationForm = () => {
       if (status === "OK" && results[0]) {
         const addressComponents = results[0].address_components;
 
-        const cityComponent = addressComponents.find(c =>
-          c.types.includes("locality") ||
-          c.types.includes("administrative_area_level_3")
+        const cityComponent = addressComponents.find(component =>
+          component.types.includes("locality") ||
+          component.types.includes("administrative_area_level_3")
         );
 
-        const countryComponent = addressComponents.find(c =>
-          c.types.includes("country")
+        const countryComponent = addressComponents.find(component =>
+          component.types.includes("country")
         );
 
         setSelectedCity({

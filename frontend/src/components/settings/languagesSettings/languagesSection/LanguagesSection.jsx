@@ -7,6 +7,7 @@ import SaveButtons from "./saveButtons/SaveButtons";
 import toast from "react-hot-toast";
 
 const LanguagesSection = ({ title, isNative, subFieldName, confirmedLanguages, setConfirmedLanguages }) => {
+
   const { authData, getProfile } = useAuth();
   const { updateUser, usersIsLoading } = useUsers();
 
@@ -16,7 +17,7 @@ const LanguagesSection = ({ title, isNative, subFieldName, confirmedLanguages, s
   const handleAddLanguages = () => {
     if (!temporaryLanguage || (!isNative && !temporaryLevel)) return;
 
-    if (confirmedLanguages.some(lang => lang.code === temporaryLanguage.value)) {
+    if (confirmedLanguages.some(language => language.code === temporaryLanguage.value)) {
       return toast.error("Language already added");
     }
 
@@ -33,9 +34,9 @@ const LanguagesSection = ({ title, isNative, subFieldName, confirmedLanguages, s
 
   const handleSave = async () => {
     try {
-      const sanitized = confirmedLanguages.map(lang => ({
-        code: lang.code,
-        ...(lang.level ? { level: lang.level } : {})
+      const sanitized = confirmedLanguages.map(language => ({
+        code: language.code,
+        ...(language.level ? { level: language.level } : {})
       }));
 
       const updatedLanguages = {
@@ -55,9 +56,9 @@ const LanguagesSection = ({ title, isNative, subFieldName, confirmedLanguages, s
     setConfirmedLanguages(authData?.languages?.[subFieldName] || []);
   };
 
-  const sanitize = (arr) => arr.map(lang => ({
-    code: lang.code,
-    ...(lang.level ? { level: lang.level } : {})
+  const sanitize = (arr) => arr.map(language => ({
+    code: language.code,
+    ...(language.level ? { level: language.level } : {})
   }));
 
   const hasChanges = JSON.stringify(sanitize(confirmedLanguages)) !==

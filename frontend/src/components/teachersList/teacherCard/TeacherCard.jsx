@@ -27,13 +27,13 @@ const TeacherCard = ({ isActive, onHover, tutor }) => {
               src={tutor.user?.avatar}
               alt="teacher profile picture"
             />
-            <div className={classes["teacher-card-profile-flag-picture"]}>
+            {tutor.user?.nationality?.code && (<div className={classes["teacher-card-profile-flag-picture"]}>
               <img
                 className="w-100 h-100 d-block object-fit-cover"
                 src={`https://flagcdn.com/w640/${tutor.user?.nationality?.code?.toLowerCase()}.png`}
                 alt="teacher card flag picture"
               />
-            </div>
+            </div>)}
           </div>
           <div className="d-flex flex-column">
             <p className="m-0">{tutor.user?.name} {tutor.user?.surname}</p>
