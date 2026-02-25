@@ -4,6 +4,7 @@ import useConnections from '../../../hooks/useConnections'
 import NotificationsIcon from '../../../assets/NotificationsIcon';
 import classes from './NotificationsDropdown.module.css';
 import ConnectionRequestDetailsModal from './connectionRequestDetailsModal/ConnectionRequestDetailsModal';
+import nopendingrequests from '../../../assets/no_pending_requests.webp'
 
 const NotificationsDropdown = () => {
 
@@ -45,7 +46,23 @@ const NotificationsDropdown = () => {
           {connectionsIsLoading ? (
             <div className="text-center py-3"><Spinner size="sm" /></div>
           ) : pendingRequests.length === 0 ? (
-            <div className="px-3 py-3 text-muted small text-center">No pending requests</div>
+            <div className="px-3 py-3 text-muted small text-center">
+              <div
+                className="d-flex flex-column align-items-center justify-content-between gap-2"
+              >
+                <p
+                  className={`${classes['no-requests-found-msg']} m-0 text-muted text-center`}
+                >This space is feeling a little... empty</p>
+                <div
+                  className={classes['no-requests-found-img-container']}
+                >
+                  <img
+                    className="w-100 d-block object-fit-cover"
+                    src={nopendingrequests}
+                    alt="no requests found" />
+                </div>
+              </div>
+            </div>
           ) : (
             pendingRequests.map(request => (
               <Dropdown.Item

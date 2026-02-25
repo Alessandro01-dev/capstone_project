@@ -82,6 +82,12 @@ const User = new mongoose.Schema(
         type: String
       }
     },
+    meetings: [{
+      title: { type: String },
+      location: { type: String },
+      time: { type: String },
+      fullDate: { type: Date },
+    }],
     location: {
       address: {
         type: String,

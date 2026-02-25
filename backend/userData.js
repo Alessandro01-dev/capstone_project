@@ -21,7 +21,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -55,7 +55,27 @@ const userData = [
           45.46512
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "18:00",
+        "fullDate": "2026-03-20T23:50:41.002Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Campus Cafe",
+        "time": "16:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Campus Cafe",
+        "time": "20:00",
+        "fullDate": "2026-03-01T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Lorenzo",
@@ -79,7 +99,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -109,7 +129,27 @@ const userData = [
           45.07245
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Starbucks",
+        "time": "19:00",
+        "fullDate": "2026-03-12T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Online - Zoom",
+        "time": "18:00",
+        "fullDate": "2026-03-22T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Online - Zoom",
+        "time": "20:00",
+        "fullDate": "2026-03-12T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Martina",
@@ -137,7 +177,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -162,7 +202,21 @@ const userData = [
           41.89987
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "11:00",
+        "fullDate": "2026-03-01T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "12:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Alessandro",
@@ -216,7 +270,15 @@ const userData = [
           43.77521
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "15:00",
+        "fullDate": "2026-03-17T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Sofía",
@@ -244,7 +306,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -269,7 +331,21 @@ const userData = [
           44.49812
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "18:00",
+        "fullDate": "2026-03-16T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Campus Cafe",
+        "time": "18:00",
+        "fullDate": "2026-03-23T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Lucas",
@@ -297,7 +373,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -322,7 +398,21 @@ const userData = [
           45.45974
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "9:00",
+        "fullDate": "2026-03-10T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "11:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Hannah",
@@ -350,7 +440,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -375,7 +465,27 @@ const userData = [
           43.76854
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "11:00",
+        "fullDate": "2026-03-22T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "13:00",
+        "fullDate": "2026-03-13T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Starbucks",
+        "time": "11:00",
+        "fullDate": "2026-03-10T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "João",
@@ -403,7 +513,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -428,7 +538,21 @@ const userData = [
           40.84792
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Piazza Centrale",
+        "time": "11:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Online - Zoom",
+        "time": "17:00",
+        "fullDate": "2026-02-26T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Claire",
@@ -459,7 +583,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -481,7 +605,21 @@ const userData = [
           45.06782
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Online - Zoom",
+        "time": "9:00",
+        "fullDate": "2026-03-21T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "11:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Mateusz",
@@ -512,7 +650,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -534,7 +672,27 @@ const userData = [
           45.47241
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Library",
+        "time": "9:00",
+        "fullDate": "2026-03-01T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Library",
+        "time": "18:00",
+        "fullDate": "2026-03-21T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Campus Cafe",
+        "time": "16:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Isabelle",
@@ -565,7 +723,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -592,7 +750,21 @@ const userData = [
           44.41258
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "13:00",
+        "fullDate": "2026-03-19T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Piazza Centrale",
+        "time": "9:00",
+        "fullDate": "2026-03-17T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Daniel",
@@ -614,7 +786,7 @@ const userData = [
     "languages": {
       "native": [
         {
-          "code": "en"
+          "code": "en-gb"
         }
       ],
       "spoken": [
@@ -646,7 +818,21 @@ const userData = [
           44.50192
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Piazza Centrale",
+        "time": "9:00",
+        "fullDate": "2026-03-21T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "19:00",
+        "fullDate": "2026-03-11T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Camila",
@@ -677,7 +863,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -699,7 +885,21 @@ const userData = [
           41.89563
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Online - Zoom",
+        "time": "13:00",
+        "fullDate": "2026-03-04T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Piazza Centrale",
+        "time": "18:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Jan",
@@ -730,7 +930,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -752,7 +952,27 @@ const userData = [
           43.76482
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Online - Zoom",
+        "time": "17:00",
+        "fullDate": "2026-03-11T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Online - Zoom",
+        "time": "16:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Campus Cafe",
+        "time": "12:00",
+        "fullDate": "2026-03-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Lucía",
@@ -783,7 +1003,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -810,7 +1030,15 @@ const userData = [
           40.84691
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "17:00",
+        "fullDate": "2026-03-17T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Maximilian",
@@ -841,7 +1069,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -863,7 +1091,27 @@ const userData = [
           45.45736
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Library",
+        "time": "9:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "20:00",
+        "fullDate": "2026-03-24T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "17:00",
+        "fullDate": "2026-03-14T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Agnieszka",
@@ -894,7 +1142,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -916,7 +1164,27 @@ const userData = [
           45.08574
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "9:00",
+        "fullDate": "2026-03-05T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "19:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "15:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Michael",
@@ -938,7 +1206,7 @@ const userData = [
     "languages": {
       "native": [
         {
-          "code": "en"
+          "code": "en-gb"
         }
       ],
       "spoken": [
@@ -970,7 +1238,15 @@ const userData = [
           38.12384
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Campus Cafe",
+        "time": "16:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Inês",
@@ -1001,7 +1277,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1023,7 +1299,15 @@ const userData = [
           45.44567
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "15:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Andrei",
@@ -1054,7 +1338,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1076,7 +1360,21 @@ const userData = [
           44.48973
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "12:00",
+        "fullDate": "2026-03-06T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "12:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Sara",
@@ -1107,7 +1405,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -1134,7 +1432,21 @@ const userData = [
           45.45287
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "12:00",
+        "fullDate": "2026-03-04T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "10:00",
+        "fullDate": "2026-03-06T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Carlos",
@@ -1165,7 +1477,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1187,7 +1499,21 @@ const userData = [
           41.88974
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "19:00",
+        "fullDate": "2026-03-22T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "16:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Elena",
@@ -1218,7 +1544,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1240,7 +1566,15 @@ const userData = [
           43.75841
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "13:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Thomas",
@@ -1271,7 +1605,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -1293,7 +1627,21 @@ const userData = [
           45.45213
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Online - Zoom",
+        "time": "19:00",
+        "fullDate": "2026-03-14T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Starbucks",
+        "time": "14:00",
+        "fullDate": "2026-03-19T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Valentina",
@@ -1324,7 +1672,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1346,7 +1694,15 @@ const userData = [
           45.08392
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Starbucks",
+        "time": "13:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Omar",
@@ -1377,7 +1733,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -1399,7 +1755,21 @@ const userData = [
           45.47816
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "20:00",
+        "fullDate": "2026-03-13T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Piazza Centrale",
+        "time": "17:00",
+        "fullDate": "2026-03-10T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Sophie",
@@ -1430,7 +1800,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -1457,7 +1827,21 @@ const userData = [
           44.50638
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "15:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Library",
+        "time": "14:00",
+        "fullDate": "2026-03-05T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Diego",
@@ -1488,7 +1872,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1510,7 +1894,21 @@ const userData = [
           38.12947
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Campus Cafe",
+        "time": "13:00",
+        "fullDate": "2026-03-08T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "15:00",
+        "fullDate": "2026-03-03T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Nora",
@@ -1541,7 +1939,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -1563,7 +1961,15 @@ const userData = [
           41.88742
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "9:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Ahmed",
@@ -1594,7 +2000,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1616,7 +2022,27 @@ const userData = [
           45.48173
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Piazza Centrale",
+        "time": "14:00",
+        "fullDate": "2026-03-06T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Library",
+        "time": "16:00",
+        "fullDate": "2026-03-17T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Starbucks",
+        "time": "19:00",
+        "fullDate": "2026-03-17T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Katarzyna",
@@ -1647,7 +2073,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -1674,7 +2100,27 @@ const userData = [
           43.75684
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "9:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "10:00",
+        "fullDate": "2026-03-24T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "13:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Alejandro",
@@ -1705,7 +2151,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1727,7 +2173,21 @@ const userData = [
           44.50317
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Starbucks",
+        "time": "17:00",
+        "fullDate": "2026-03-13T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Starbucks",
+        "time": "17:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Maja",
@@ -1758,7 +2218,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1780,7 +2240,21 @@ const userData = [
           45.08921
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Online - Zoom",
+        "time": "11:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "15:00",
+        "fullDate": "2026-03-06T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Liam",
@@ -1802,7 +2276,7 @@ const userData = [
     "languages": {
       "native": [
         {
-          "code": "en"
+          "code": "en-gb"
         }
       ],
       "spoken": [
@@ -1834,7 +2308,21 @@ const userData = [
           40.83974
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "13:00",
+        "fullDate": "2026-03-05T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "11:00",
+        "fullDate": "2026-03-22T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Anastasia",
@@ -1865,7 +2353,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -1887,7 +2375,15 @@ const userData = [
           45.43518
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "10:00",
+        "fullDate": "2026-03-09T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Noah",
@@ -1918,7 +2414,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -1940,7 +2436,27 @@ const userData = [
           45.44892
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "13:00",
+        "fullDate": "2026-03-19T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "18:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Library",
+        "time": "14:00",
+        "fullDate": "2026-03-12T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Beatriz",
@@ -1971,7 +2487,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -1998,7 +2514,15 @@ const userData = [
           41.91376
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Online - Zoom",
+        "time": "11:00",
+        "fullDate": "2026-03-04T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Victor",
@@ -2029,7 +2553,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -2042,7 +2566,7 @@ const userData = [
     "location": {
       "city": "Palermo",
       "country": "Italy",
-      "address": "Via Francesco Paolo Di Blasi, 1, 90144 Palermo, Italy",
+      "address": "Via Maqueda, 1, 90133 Palermo, Italy",
       "placeId": "ChIJmdBOgcnoGRMRgNg7IywECwo",
       "geo": {
         "type": "Point",
@@ -2051,7 +2575,21 @@ const userData = [
           38.11689
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Starbucks",
+        "time": "12:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Online - Zoom",
+        "time": "17:00",
+        "fullDate": "2026-03-17T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Fatima",
@@ -2104,7 +2642,27 @@ const userData = [
           45.07891
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "20:00",
+        "fullDate": "2026-03-16T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "19:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "14:00",
+        "fullDate": "2026-03-20T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Ethan",
@@ -2126,7 +2684,7 @@ const userData = [
     "languages": {
       "native": [
         {
-          "code": "en"
+          "code": "en-gb"
         }
       ],
       "spoken": [
@@ -2157,7 +2715,21 @@ const userData = [
           43.77234
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "12:00",
+        "fullDate": "2026-03-12T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "17:00",
+        "fullDate": "2026-03-01T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "María",
@@ -2188,7 +2760,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -2215,7 +2787,15 @@ const userData = [
           45.47021
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "11:00",
+        "fullDate": "2026-02-26T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Dimitris",
@@ -2246,7 +2826,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -2268,7 +2848,15 @@ const userData = [
           41.89512
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "9:00",
+        "fullDate": "2026-03-12T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Camille",
@@ -2299,7 +2887,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -2321,7 +2909,27 @@ const userData = [
           44.50013
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Online - Zoom",
+        "time": "19:00",
+        "fullDate": "2026-03-16T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Piazza Centrale",
+        "time": "10:00",
+        "fullDate": "2026-03-10T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "16:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Rafael",
@@ -2352,7 +2960,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -2379,7 +2987,21 @@ const userData = [
           45.44122
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "18:00",
+        "fullDate": "2026-03-03T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Campus Cafe",
+        "time": "9:00",
+        "fullDate": "2026-03-13T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Anja",
@@ -2410,7 +3032,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -2432,7 +3054,27 @@ const userData = [
           45.65284
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Library",
+        "time": "19:00",
+        "fullDate": "2026-03-05T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Piazza Centrale",
+        "time": "13:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Starbucks",
+        "time": "16:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Sebastián",
@@ -2463,7 +3105,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -2485,7 +3127,21 @@ const userData = [
           40.85812
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Piazza Centrale",
+        "time": "13:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "13:00",
+        "fullDate": "2026-03-16T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Laura",
@@ -2516,7 +3172,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -2543,7 +3199,21 @@ const userData = [
           45.46832
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "14:00",
+        "fullDate": "2026-02-25T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "20:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Nikola",
@@ -2574,7 +3244,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -2596,7 +3266,27 @@ const userData = [
           44.49857
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "9:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "9:00",
+        "fullDate": "2026-03-13T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Piazza Centrale",
+        "time": "13:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Olga",
@@ -2627,7 +3317,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -2654,7 +3344,27 @@ const userData = [
           41.90021
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "17:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "16:00",
+        "fullDate": "2026-03-10T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "17:00",
+        "fullDate": "2026-03-23T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Miguel",
@@ -2685,7 +3395,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -2707,7 +3417,27 @@ const userData = [
           38.11689
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Piazza Centrale",
+        "time": "12:00",
+        "fullDate": "2026-03-12T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Online - Zoom",
+        "time": "17:00",
+        "fullDate": "2026-02-25T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "20:00",
+        "fullDate": "2026-03-06T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Zuzana",
@@ -2738,7 +3468,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -2760,7 +3490,21 @@ const userData = [
           43.77241
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Campus Cafe",
+        "time": "12:00",
+        "fullDate": "2026-03-13T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Piazza Centrale",
+        "time": "20:00",
+        "fullDate": "2026-03-22T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Pedro",
@@ -2791,7 +3535,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -2818,7 +3562,27 @@ const userData = [
           45.46678
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "13:00",
+        "fullDate": "2026-03-20T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "15:00",
+        "fullDate": "2026-03-22T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "10:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Leyla",
@@ -2849,7 +3613,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -2871,7 +3635,27 @@ const userData = [
           41.90512
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "11:00",
+        "fullDate": "2026-03-10T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "13:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "18:00",
+        "fullDate": "2026-03-20T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Samuel",
@@ -2893,7 +3677,7 @@ const userData = [
     "languages": {
       "native": [
         {
-          "code": "en"
+          "code": "en-gb"
         }
       ],
       "spoken": [
@@ -2920,7 +3704,15 @@ const userData = [
           44.49721
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "15:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Helena",
@@ -2951,7 +3743,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -2973,7 +3765,27 @@ const userData = [
           45.44099
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "16:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "20:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Online - Zoom",
+        "time": "20:00",
+        "fullDate": "2026-03-23T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Ricardo",
@@ -3004,7 +3816,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -3026,7 +3838,21 @@ const userData = [
           45.46567
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "20:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "17:00",
+        "fullDate": "2026-03-09T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Amina",
@@ -3057,7 +3883,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3079,7 +3905,21 @@ const userData = [
           43.77321
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "17:00",
+        "fullDate": "2026-03-09T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "17:00",
+        "fullDate": "2026-03-08T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Tomáš",
@@ -3110,7 +3950,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3137,7 +3977,27 @@ const userData = [
           45.07189
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "11:00",
+        "fullDate": "2026-03-22T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "19:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "14:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Sofia",
@@ -3168,7 +4028,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3195,7 +4055,15 @@ const userData = [
           45.44075
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "12:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Lars",
@@ -3226,7 +4094,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3253,7 +4121,15 @@ const userData = [
           45.46421
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "11:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Giulia",
@@ -3280,7 +4156,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -3311,7 +4187,27 @@ const userData = [
           45.07031
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "11:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Piazza Centrale",
+        "time": "20:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "18:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Nina",
@@ -3338,7 +4234,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -3364,7 +4260,21 @@ const userData = [
           41.90281
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "10:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "16:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Oscar",
@@ -3395,7 +4305,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -3417,7 +4327,21 @@ const userData = [
           45.44082
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "9:00",
+        "fullDate": "2026-03-20T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "19:00",
+        "fullDate": "2026-03-14T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Alessandro",
@@ -3445,7 +4369,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         },
         {
@@ -3476,7 +4400,15 @@ const userData = [
           38.118441
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Starbucks",
+        "time": "13:00",
+        "fullDate": "2026-03-03T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Chiwoo",
@@ -3507,7 +4439,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3534,7 +4466,21 @@ const userData = [
           43.76961
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "15:00",
+        "fullDate": "2026-03-08T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "17:00",
+        "fullDate": "2026-03-09T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Martina",
@@ -3561,7 +4507,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -3592,7 +4538,21 @@ const userData = [
           44.49491
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "17:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "15:00",
+        "fullDate": "2026-03-03T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Elisa",
@@ -3619,7 +4579,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -3650,7 +4610,27 @@ const userData = [
           45.44081
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Piazza Centrale",
+        "time": "19:00",
+        "fullDate": "2026-03-17T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "13:00",
+        "fullDate": "2026-02-25T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "9:00",
+        "fullDate": "2026-03-06T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Nikolai",
@@ -3681,7 +4661,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3708,7 +4688,27 @@ const userData = [
           43.76963
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "17:00",
+        "fullDate": "2026-03-03T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "18:00",
+        "fullDate": "2026-03-03T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "17:00",
+        "fullDate": "2026-03-13T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Sofia",
@@ -3739,7 +4739,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3761,7 +4761,15 @@ const userData = [
           41.90282
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Starbucks",
+        "time": "11:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Beatriz",
@@ -3792,7 +4800,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3814,7 +4822,27 @@ const userData = [
           44.495
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Starbucks",
+        "time": "16:00",
+        "fullDate": "2026-03-05T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Piazza Centrale",
+        "time": "11:00",
+        "fullDate": "2026-03-24T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Piazza Centrale",
+        "time": "19:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Timo",
@@ -3845,7 +4873,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3872,7 +4900,21 @@ const userData = [
           41.903
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "10:00",
+        "fullDate": "2026-03-23T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Campus Cafe",
+        "time": "17:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Gabriela",
@@ -3903,7 +4945,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3930,7 +4972,21 @@ const userData = [
           45.4643
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Starbucks",
+        "time": "17:00",
+        "fullDate": "2026-03-05T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "17:00",
+        "fullDate": "2026-03-16T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Lucia",
@@ -3961,7 +5017,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -3983,7 +5039,15 @@ const userData = [
           40.8523
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "17:00",
+        "fullDate": "2026-03-21T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Arianna",
@@ -4014,7 +5078,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4036,7 +5100,27 @@ const userData = [
           43.7697
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Starbucks",
+        "time": "11:00",
+        "fullDate": "2026-03-04T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Campus Cafe",
+        "time": "17:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "10:00",
+        "fullDate": "2026-03-16T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Thomas",
@@ -4067,7 +5151,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4089,7 +5173,15 @@ const userData = [
           45.46535
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "10:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Sofia",
@@ -4116,7 +5208,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -4142,7 +5234,27 @@ const userData = [
           43.76965
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "16:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Library",
+        "time": "14:00",
+        "fullDate": "2026-03-05T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Campus Cafe",
+        "time": "11:00",
+        "fullDate": "2026-03-20T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Yuki",
@@ -4173,7 +5285,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4200,7 +5312,21 @@ const userData = [
           45.44085
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Starbucks",
+        "time": "16:00",
+        "fullDate": "2026-02-25T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "19:00",
+        "fullDate": "2026-02-25T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Jorge",
@@ -4231,7 +5357,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4253,7 +5379,21 @@ const userData = [
           41.90295
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "11:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "9:00",
+        "fullDate": "2026-03-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Luca",
@@ -4284,7 +5424,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4306,7 +5446,21 @@ const userData = [
           45.07035
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "10:00",
+        "fullDate": "2026-03-22T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "14:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Nina",
@@ -4337,7 +5491,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4359,7 +5513,15 @@ const userData = [
           45.46725
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "15:00",
+        "fullDate": "2026-03-10T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Katrina",
@@ -4390,7 +5552,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4412,7 +5574,15 @@ const userData = [
           43.76965
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Online - Zoom",
+        "time": "12:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Mateo",
@@ -4443,7 +5613,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4465,7 +5635,27 @@ const userData = [
           41.90285
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "18:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Online - Zoom",
+        "time": "9:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Starbucks",
+        "time": "9:00",
+        "fullDate": "2026-03-16T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Emily",
@@ -4487,7 +5677,7 @@ const userData = [
     "languages": {
       "native": [
         {
-          "code": "en"
+          "code": "en-gb"
         }
       ],
       "spoken": [
@@ -4518,7 +5708,27 @@ const userData = [
           44.495
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "17:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Online - Zoom",
+        "time": "17:00",
+        "fullDate": "2026-02-26T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Library",
+        "time": "11:00",
+        "fullDate": "2026-03-01T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Leandro",
@@ -4549,7 +5759,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4571,7 +5781,15 @@ const userData = [
           43.7697
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Online - Zoom",
+        "time": "15:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Giulia",
@@ -4598,7 +5816,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -4624,7 +5842,27 @@ const userData = [
           45.4643
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Online - Zoom",
+        "time": "17:00",
+        "fullDate": "2026-03-23T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "10:00",
+        "fullDate": "2026-02-25T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "20:00",
+        "fullDate": "2026-03-19T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Luca",
@@ -4651,7 +5889,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4673,7 +5911,27 @@ const userData = [
           40.85225
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "12:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Starbucks",
+        "time": "20:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "14:00",
+        "fullDate": "2026-03-23T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Ana",
@@ -4704,7 +5962,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4726,7 +5984,15 @@ const userData = [
           43.76975
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Library",
+        "time": "12:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Olga",
@@ -4757,7 +6023,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4779,7 +6045,21 @@ const userData = [
           45.44085
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Piazza Centrale",
+        "time": "16:00",
+        "fullDate": "2026-03-12T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "20:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Klaus",
@@ -4810,7 +6090,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         }
       ],
@@ -4837,7 +6117,21 @@ const userData = [
           46.6701
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "11:00",
+        "fullDate": "2026-02-25T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "13:00",
+        "fullDate": "2026-03-08T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Aisling",
@@ -4859,7 +6153,7 @@ const userData = [
     "languages": {
       "native": [
         {
-          "code": "en"
+          "code": "en-gb"
         }
       ],
       "spoken": [
@@ -4891,7 +6185,15 @@ const userData = [
           40.6664
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "16:00",
+        "fullDate": "2026-02-26T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Arjun",
@@ -4918,7 +6220,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C2"
         },
         {
@@ -4949,7 +6251,27 @@ const userData = [
           43.7228
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "13:00",
+        "fullDate": "2026-02-25T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Library",
+        "time": "20:00",
+        "fullDate": "2026-03-13T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Starbucks",
+        "time": "16:00",
+        "fullDate": "2026-03-25T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Saskia",
@@ -4976,7 +6298,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -5007,7 +6329,27 @@ const userData = [
           43.7262
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Exam Preparation",
+        "location": "Online - Zoom",
+        "time": "20:00",
+        "fullDate": "2026-03-20T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "17:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Library",
+        "time": "11:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Youssef",
@@ -5034,7 +6376,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         },
         {
@@ -5065,7 +6407,27 @@ const userData = [
           37.5079
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Piazza Centrale",
+        "time": "9:00",
+        "fullDate": "2026-02-26T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "18:00",
+        "fullDate": "2026-03-05T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Online - Zoom",
+        "time": "20:00",
+        "fullDate": "2026-03-08T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Marta",
@@ -5096,7 +6458,7 @@ const userData = [
           "level": "C1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -5123,7 +6485,27 @@ const userData = [
           44.4184
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "13:00",
+        "fullDate": "2026-03-20T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Campus Cafe",
+        "time": "18:00",
+        "fullDate": "2026-03-04T23:50:41.003Z"
+      },
+      {
+        "title": "Language Exchange",
+        "location": "Starbucks",
+        "time": "18:00",
+        "fullDate": "2026-03-23T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Felipe",
@@ -5154,7 +6536,7 @@ const userData = [
           "level": "B1"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B1"
         }
       ],
@@ -5181,7 +6563,15 @@ const userData = [
           43.3186
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "16:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Ingrid",
@@ -5208,7 +6598,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C2"
         },
         {
@@ -5239,7 +6629,21 @@ const userData = [
           45.737
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Library",
+        "time": "13:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Piazza Centrale",
+        "time": "20:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Santiago",
@@ -5270,7 +6674,7 @@ const userData = [
           "level": "B2"
         },
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -5297,7 +6701,27 @@ const userData = [
           38.1144
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Starbucks",
+        "time": "18:00",
+        "fullDate": "2026-03-15T23:50:41.003Z"
+      },
+      {
+        "title": "Grammar Workshop",
+        "location": "Library",
+        "time": "20:00",
+        "fullDate": "2026-03-09T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Library",
+        "time": "9:00",
+        "fullDate": "2026-03-10T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Li",
@@ -5324,7 +6748,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         },
         {
@@ -5355,7 +6779,21 @@ const userData = [
           45.6495
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Campus Cafe",
+        "time": "14:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      },
+      {
+        "title": "Exam Preparation",
+        "location": "Starbucks",
+        "time": "14:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Finn",
@@ -5382,7 +6820,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C2"
         },
         {
@@ -5413,7 +6851,15 @@ const userData = [
           45.7872
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Coffee with Tutor",
+        "location": "Campus Cafe",
+        "time": "17:00",
+        "fullDate": "2026-03-09T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Amira",
@@ -5440,7 +6886,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         },
         {
@@ -5471,7 +6917,27 @@ const userData = [
           37.0755
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "12:00",
+        "fullDate": "2026-03-06T23:50:41.003Z"
+      },
+      {
+        "title": "Coffee with Tutor",
+        "location": "Online - Zoom",
+        "time": "11:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "14:00",
+        "fullDate": "2026-02-27T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Lukas",
@@ -5498,7 +6964,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -5529,7 +6995,21 @@ const userData = [
           46.0679
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "10:00",
+        "fullDate": "2026-03-07T23:50:41.003Z"
+      },
+      {
+        "title": "Speaking Practice",
+        "location": "Starbucks",
+        "time": "20:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Gabriela",
@@ -5556,7 +7036,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -5587,7 +7067,15 @@ const userData = [
           45.1564
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Library",
+        "time": "13:00",
+        "fullDate": "2026-02-28T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Oliver",
@@ -5609,7 +7097,7 @@ const userData = [
     "languages": {
       "native": [
         {
-          "code": "en"
+          "code": "en-gb"
         }
       ],
       "spoken": [
@@ -5641,7 +7129,15 @@ const userData = [
           42.7196
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Language Exchange",
+        "location": "Online - Zoom",
+        "time": "13:00",
+        "fullDate": "2026-03-02T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Ewa",
@@ -5668,7 +7164,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         },
         {
@@ -5699,7 +7195,15 @@ const userData = [
           42.4173
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Library",
+        "time": "11:00",
+        "fullDate": "2026-03-14T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Kenji",
@@ -5726,7 +7230,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B1"
         }
       ],
@@ -5753,7 +7257,15 @@ const userData = [
           42.8533
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Speaking Practice",
+        "location": "Campus Cafe",
+        "time": "14:00",
+        "fullDate": "2026-03-06T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Mariana",
@@ -5780,7 +7292,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "B2"
         }
       ],
@@ -5807,7 +7319,15 @@ const userData = [
           44.8381
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Campus Cafe",
+        "time": "13:00",
+        "fullDate": "2026-03-18T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Olek",
@@ -5834,7 +7354,7 @@ const userData = [
       ],
       "spoken": [
         {
-          "code": "en",
+          "code": "en-gb",
           "level": "C1"
         },
         {
@@ -5865,7 +7385,15 @@ const userData = [
           45.8906
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Online - Zoom",
+        "time": "20:00",
+        "fullDate": "2026-03-21T23:50:41.003Z"
+      }
+    ]
   },
   {
     "name": "Bahiya",
@@ -5923,7 +7451,15 @@ const userData = [
           37.3111
         ]
       }
-    }
+    },
+    "meetings": [
+      {
+        "title": "Grammar Workshop",
+        "location": "Campus Cafe",
+        "time": "11:00",
+        "fullDate": "2026-02-24T23:50:41.003Z"
+      }
+    ]
   }
 ];
 

@@ -68,7 +68,7 @@ const AddComment = ({ onAdd }) => {
             <h6
               className='m-0'
             >
-              {authData?.name} {authData?.surname} (you)
+              {authData?.name} {authData?.surname}
             </h6>
             <p
               className={`${classes['author-card-job-title']} m-0 small`}

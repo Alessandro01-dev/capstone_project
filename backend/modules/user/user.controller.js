@@ -116,7 +116,8 @@ const updateUser = async (req, res, next) => {
       languages: body.languages,
       location: body.location,
       nationality: body.nationality,
-      avatar: body.avatar
+      avatar: body.avatar,
+      meetings: body.meetings
     };
 
     if (allowedUpdates.location && allowedUpdates.location.geo) {

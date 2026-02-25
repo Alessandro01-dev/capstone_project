@@ -29,14 +29,16 @@ const PublicSubhero = () => {
             xs={12}
             md={6}
             className="px-5 order-1 order-md-2">
-            <div>
+            <div
+              className="text-white"
+            >
               <h2
                 className="fw-bold display-5"
               >
                 Real life is the best classroom.
               </h2>
               <h5
-                className='lead text-secondary'
+                className='lead opacity-75'
               >
                 Connect with a local mate, meet for a coffee, and let the conversation flow. Learning a language is as natural as making a new friend.
               </h5>

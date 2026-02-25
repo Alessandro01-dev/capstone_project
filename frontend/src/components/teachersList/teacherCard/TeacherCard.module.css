@@ -6,7 +6,6 @@
   border-radius: 12px;
   border: 1px solid #ccc;
   padding: 24px;
-  transition: border-color 0.2s;
   cursor: pointer;
 }
 

@@ -36,7 +36,6 @@ const App = () => {
         language="en"
         id="google-map-script"
       >
-        <Toaster position="top-center" reverseOrder={false} />
         <Router>
           <Routes>
             <Route path="/landing" element={<LandingPage />} />
@@ -60,6 +59,10 @@ const App = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Router>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
       </LoadScript>
     </MantineProvider>
   )

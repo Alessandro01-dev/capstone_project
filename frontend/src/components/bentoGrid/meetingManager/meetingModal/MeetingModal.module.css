@@ -1,0 +1,24 @@
+.custom-input:focus {
+  border-color: green !important;
+  box-shadow: none !important;
+}
+
+.custom-input:global(.is-invalid) {
+  border-color: #dc3545 !important;
+  box-shadow: none !important;
+}
+
+.mantine-custom-input {
+  height: 38px !important;
+  border-radius: .375rem !important;
+}
+
+.mantine-custom-placeholder {
+  color: #6c757d !important;
+  font-size: 16px !important;
+}
+
+.mantine-custom-input:focus {
+  border-color: green !important;
+  box-shadow: none !important;
+}

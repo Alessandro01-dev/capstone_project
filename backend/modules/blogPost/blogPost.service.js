@@ -4,6 +4,7 @@ const CommentSchema = require('../comment/comment.schema')
 
 const getBlogPosts = async (page, pageSize) => {
   const blogPosts = await BlogPostSchema.find()
+    .sort({ createdAt: -1 })
     .limit(pageSize)
     .skip((page - 1) * pageSize)
     .populate('user', 'name surname avatar nationality isTutor')
@@ -76,8 +77,8 @@ const toggleLike = async (blogPostId, userId) => {
   if (!blogPost) throw new Error("Post non trovato");
 
   const hasLiked = blogPost.likes.includes(userId);
-  const update = hasLiked 
-    ? { $pull: { likes: userId } } 
+  const update = hasLiked
+    ? { $pull: { likes: userId } }
     : { $addToSet: { likes: userId } };
 
   return await BlogPostSchema.findByIdAndUpdate(
@@ -85,14 +86,14 @@ const toggleLike = async (blogPostId, userId) => {
     update,
     { new: true }
   )
-  .populate('user', 'name surname avatar nationality isTutor')
-  .populate({
-    path: 'comments',
-    populate: {
-      path: 'user',
-      select: 'name surname avatar nationality isTutor'
-    }
-  });
+    .populate('user', 'name surname avatar nationality isTutor')
+    .populate({
+      path: 'comments',
+      populate: {
+        path: 'user',
+        select: 'name surname avatar nationality isTutor'
+      }
+    });
 };
 
 

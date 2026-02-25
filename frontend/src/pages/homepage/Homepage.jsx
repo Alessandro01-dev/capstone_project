@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap"
+import BentoGrid from "../../components/bentoGrid/BentoGrid"
 
 const Homepage = () => {
   return (
@@ -9,11 +10,7 @@ const Homepage = () => {
           xs={12}
           md={10}
         >
-          <h3
-            className="mb-5"
-          >
-            Homepage
-          </h3>
+          <BentoGrid />
         </Col>
       </Row>
     </Container>

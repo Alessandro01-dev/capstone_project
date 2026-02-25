@@ -1,0 +1,45 @@
+.meeting-card-container {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.meeting-card-container:hover {
+  transform: scale(1.008);
+}
+
+.calendar-icon {
+  width: 55px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background: white;
+  flex-shrink: 0;
+}
+
+.calendar-header {
+  background-color: #198754;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px 0;
+  text-transform: uppercase;
+}
+
+.calendar-body {
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  padding: 4px 0;
+  line-height: 1;
+}

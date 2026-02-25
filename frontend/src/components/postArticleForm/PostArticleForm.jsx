@@ -68,15 +68,6 @@ const PostArticleForm = () => {
       onSubmit={handleSubmit}
     >
 
-      {postsError && (
-        <Alert
-          variant="danger"
-          className="text-center"
-        >
-          {postsError}
-        </Alert>
-      )}
-
       <TitleSection
         title={title}
         setTitle={setTitle}
@@ -101,6 +92,15 @@ const PostArticleForm = () => {
         content={content}
         setContent={setContent}
       />
+
+      {postsError && (
+        <Alert
+          variant="danger"
+          className="text-center"
+        >
+          {postsError}
+        </Alert>
+      )}
 
       <div className="d-flex justify-content-end gap-3 border-top pt-5 mb-5">
         <Button

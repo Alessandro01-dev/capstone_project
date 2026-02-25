@@ -64,3 +64,12 @@
   background-color: #ccc !important;
   color: rgb(50, 50, 50);
 }
+
+.no-bio-found-msg {
+  max-width: 200px;
+  text-wrap: wrap;
+}
+
+.no-bio-found-img-container {
+  width: 140px;
+}

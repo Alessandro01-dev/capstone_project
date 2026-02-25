@@ -2,7 +2,7 @@ const communityPostData = [
   {
     category: "Neurolinguistics",
     title: "The Neuroscience of Bilingualism and Cognitive Reserve",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 15, unit: "minutes" },
     content: `Learning a second language in adulthood is often perceived as a titanic effort, but modern science reveals that the benefits far outweigh the initial fatigue. When we study a foreign language, our brain undergoes a measurable physical transformation. The density of gray matter in the hippocampus and the left parietal cortex increases significantly.
 
@@ -14,7 +14,7 @@ This does not just mean speaking better, but thinking in a more elastic way. The
   {
     category: "Study Hacks",
     title: "Total Immersion Techniques in Domestic Environments",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 18, unit: "minutes" },
     content: `Many students believe that to truly learn a language it is necessary to move abroad, but the truth is that immersion is a mental and environmental state that can be recreated anywhere. The concept of Comprehensible Input suggests that we acquire language when we understand messages that are just above our current level.
 
@@ -26,7 +26,7 @@ Another pillar of domestic immersion is passive listening: leaving a podcast or 
   {
     category: "Polyglot Secrets",
     title: "The Myth of Natural Talent and the Psychology of Learning",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 20, unit: "minutes" },
     content: `There is a widespread belief that some people are born with a gene for languages, while others are destined to struggle forever. Modern learning psychology categorically disproves this idea, focusing instead on motivation and consistency. Successful polyglots do not have magic powers, but they have developed a high tolerance for ambiguity.
 
@@ -38,7 +38,7 @@ The most effective methods are those that manage to lower this filter, making le
   {
     category: "Linguistic Trends",
     title: "The Evolution of Language in the Social Media Era",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 14, unit: "minutes" },
     content: `Languages are living organisms that change at the speed of human communication. With the advent of social media and instant messaging, we are witnessing a linguistic transformation unprecedented in history. It is not just about the introduction of new technical terms or neologisms, but a structural change in the way we construct sentences.
 
@@ -50,7 +50,7 @@ This global slang, strongly influenced by internet English, is creating a sort o
   {
     category: "Methodology",
     title: "The Reverse-Learning Technique for Advanced Students",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 25, unit: "minutes" },
     content: `When reaching the upper-intermediate level, many students experience the so-called linguistic plateau: the feeling of no longer making progress despite constant study. To overcome this phase, the reverse-learning or inverted learning technique is one of the most effective strategies. Instead of studying the language passively, the student takes on the role of the creator.
 
@@ -62,7 +62,7 @@ This process transforms passive knowledge into active competence. Furthermore, a
   {
     category: "Technology",
     title: "AI and Language Learning: From Translation to Co-Creation",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 16, unit: "minutes" },
     content: `The rise of Large Language Models has sparked a debate on whether human language learning is becoming obsolete. However, for true enthusiasts, AI is not a replacement but the most powerful tutor ever created. The shift we are witnessing is from simple translation to real-time co-creation.
 
@@ -74,7 +74,7 @@ Despite these advances, the human element remains irreplaceable. AI can mimic sy
   {
     category: "Asian Languages",
     title: "The Logic of the East: Understanding High-Context Communication",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 22, unit: "minutes" },
     content: `When Westerners study languages like Chinese, Japanese, or Korean, they often struggle not just with the script, but with what is left unsaid. These are 'high-context' languages, where the meaning of a sentence heavily relies on the environment, the hierarchy, and the relationship between speakers.
 
@@ -86,7 +86,7 @@ To master these idioms, one must study the culture alongside the grammar. Unders
   {
     category: "Sociolinguistics",
     title: "Dialects and Identity: Why 'Standard' Language is a Myth",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 14, unit: "minutes" },
     content: `We are often taught the 'standard' version of a language in schools, yet the moment we step off a plane in Naples, Munich, or Quebec, we realize that real people speak differently. Dialects are not 'corrupted' versions of a language; they are rich, historical repositories of identity and local pride.
 
@@ -104,13 +104,13 @@ To overcome this, we must reframe our perspective on errors. Mistakes are not ev
 
 One effective strategy is to adopt a 'language persona.' Many polyglots report feeling like a slightly different person when speaking another language. By leaning into this new identity, you can distance your ego from the performance. It's not 'you' making a mistake; it's your 'French self' exploring new territory. Once you accept vulnerability as part of the process, your fluency will skyrocket.`,
     readTime: { value: 19, unit: "minutes" },
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     comments: []
   },
   {
     category: "Polyglot Hacks",
     title: "The Power of Bimodal Input: Reading and Listening Simultaneously",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 13, unit: "minutes" },
     content: `If you want to accelerate your comprehension, the single most effective tool in your arsenal is bimodal input—the act of reading a text while listening to the audio version of that same text. This technique bridges the gap between the written word and the spoken sound, solving one of the biggest hurdles in language learning.
 
@@ -122,7 +122,7 @@ To implement this, find audiobooks with their corresponding physical books or us
   {
     category: "Linguistic Anthropology",
     title: "The Sapir-Whorf Hypothesis: Does Language Shape Your Reality?",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 20, unit: "minutes" },
     content: `A long-standing debate in linguistics revolves around the idea that the language we speak influences the way we perceive the world around us. This concept, known as linguistic relativity, suggests that our mother tongue sets the boundaries of our cognition. If a language lacks a word for a specific color, do its speakers actually see that color differently?
 
@@ -133,7 +133,7 @@ Learning a new language is, in a sense, acquiring a new pair of glasses through 
   {
     category: "Language & Career",
     title: "The Economic Value of Multilingualism in the Global Market",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 15, unit: "minutes" },
     content: `In an increasingly interconnected world, being bilingual is no longer just a hobby; it is one of the most valuable assets in the modern job market. Beyond the obvious benefit of communication, multilingual employees bring a unique set of soft skills to the table, including cultural empathy, adaptability, and superior negotiation tactics.
 
@@ -144,7 +144,7 @@ However, the real value lies in the 'cultural intelligence' that comes with lang
   {
     category: "Phonetics",
     title: "Mastering the Accent: The Physicality of Sound Production",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 18, unit: "minutes" },
     content: `Why is it so hard to get rid of a foreign accent? The answer is more physical than mental. By the time we reach puberty, the muscles in our mouth—the tongue, lips, and jaw—become accustomed to the specific patterns of our native language. Moving them in a new way feels as awkward as trying to write with your non-dominant hand.
 
@@ -155,7 +155,7 @@ Another secret to a great accent is rhythm and stress. Many learners focus too m
   {
     category: "Motivation",
     title: "The Plateau Effect: Why You Stop Progressing and How to Fix It",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 22, unit: "minutes" },
     content: `Every language learner hits the wall eventually. In the beginning, progress is rapid and exciting. You go from knowing nothing to being able to order a coffee in a matter of weeks. But once you reach the intermediate level (B1/B2), the 'plateau effect' kicks in. You feel like you are put in a lot of effort but staying in the exact same place.
 
@@ -166,7 +166,7 @@ To break the plateau, you must move from 'learning' the language to 'living' in 
   {
     category: "Culture",
     title: "Lost in Translation: The Beauty of Untranslatable Concepts",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 12, unit: "minutes" },
     content: `One of the most rewarding aspects of learning a language is discovering words that have no direct equivalent in your own tongue. These 'untranslatable' terms are windows into the soul of a culture, capturing feelings or situations that are uniquely recognized by its speakers.
 
@@ -177,7 +177,7 @@ When you learn these words, you don't just add a tool to your vocabulary; you ad
   {
     category: "Child Development",
     title: "Raising Bilingual Children: Myths, Realities, and Strategies",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 20, unit: "minutes" },
     content: `A common concern among parents is whether introducing two languages simultaneously will confuse a child or cause a speech delay. Decades of pediatric research have debunked these fears. While a bilingual child might occasionally mix words from both languages—a process known as code-mixing—this is actually a sign of cognitive flexibility, not confusion.
 
@@ -188,7 +188,7 @@ The benefits of this effort are lifelong. Bilingual children often show better p
   {
     category: "Etymology",
     title: "The Genealogy of Words: How History is Written in Our Vocabulary",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 18, unit: "minutes" },
     content: `Every word we speak is a fossil that contains a piece of history. Etymology is the study of these origins, and it reveals how migrations, wars, and trade shaped our modern tongues. For instance, the English language is a Germanic base with a massive overlay of French and Latin, a direct result of the Norman Conquest in 1066.
 
@@ -199,7 +199,7 @@ Studying etymology makes language learning more intuitive. When you recognize th
   {
     category: "Pragmatics",
     title: "Politeness and Power: The Unwritten Rules of Social Interaction",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 16, unit: "minutes" },
     content: `You can have perfect grammar and a vast vocabulary, but if you don't understand pragmatics, you will still fail to communicate effectively. Pragmatics is the study of how context contributes to meaning. It's about knowing not just *what* to say, but *when* and *to whom* to say it.
 
@@ -210,7 +210,7 @@ Mastering a language involves learning these subtle social cues. It involves kno
   {
     category: "Pop Culture",
     title: "Learning Through Lyrics: Why Music is the Ultimate Language Hack",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 14, unit: "minutes" },
     content: `Music is one of the most powerful mnemonic devices available to the human brain. Think about how easily you can remember the lyrics to a song from ten years ago, yet you struggle to remember a list of irregular verbs you studied yesterday. This is because music engages both the emotional and the rhythmic centers of the brain.
 
@@ -221,7 +221,7 @@ To make the most of this, don't just listen passively. Look up the lyrics, analy
   {
     category: "Linguistic Philosophy",
     title: "The Future of English: Global Lingua Franca or Fragmented Dialects?",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 22, unit: "minutes" },
     content: `English has become the undisputed global lingua franca, but it is no longer 'owned' by native speakers in the UK or the US. Today, there are more non-native speakers of English than native ones. This has led to the emergence of 'World Englishes'—unique variations of the language influenced by local cultures and mother tongues.
 
@@ -232,7 +232,7 @@ For the modern learner, this means that 'Standard English' is just one version a
   {
     category: "History of Language",
     title: "Celestial Origins: The Etymology Behind the Days of the Week",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 14, unit: "minutes" },
     content: `Have you ever wondered why Saturday is named after a Roman god while Thursday belongs to a Norse one? The names of our days are a linguistic tapestry that reflects the syncretism of ancient mythologies and astronomy. In Romance languages, the connection to the classical planets is clear: Monday is the Moon's day, and Friday belongs to Venus.
 
@@ -243,7 +243,7 @@ Understanding these roots doesn't just satisfy curiosity; it helps language lear
   {
     category: "Non-Verbal Communication",
     title: "Beyond Words: The Subtle Art of Cultural Body Language",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 18, unit: "minutes" },
     content: `Communication is only 7% verbal. The rest is composed of tone, facial expressions, and, most importantly, body language. However, gestures are not universal. A sign that means 'okay' in one country could be a grave insult in another, making cross-cultural competence just as important as grammatical accuracy.
 
@@ -254,7 +254,7 @@ Eye contact is another minefield. While Western cultures view direct eye contact
   {
     category: "Constructed Languages",
     title: "ConLangs: From Esperanto to the Masterpieces of Tolkien",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 25, unit: "minutes" },
     content: `While most languages evolve naturally over millennia, some are meticulously designed by individuals. These are known as 'ConLangs' (Constructed Languages). Some, like Esperanto, were created with the noble goal of fostering world peace through a simple, neutral, and easy-to-learn grammar that anyone could master.
 
@@ -265,7 +265,7 @@ Modern pop culture has embraced this trend with Dothraki and Valyrian in Game of
   {
     category: "Translation Studies",
     title: "The Invisible Translator: The Struggle for Literary Accuracy",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 20, unit: "minutes" },
     content: `A common saying in the literary world is 'traduttore, traditore'—translator, traitor. This highlights the impossible task of moving a story from one language to another while preserving its rhythm, puns, and emotional weight. A translator must choose between being 'faithful' to the literal words or 'faithful' to the author's intent.
 
@@ -276,7 +276,7 @@ Translators are the unsung heroes of world literature. Without them, we would ha
   {
     category: "Linguistic Psychology",
     title: "The Fossilization Trap: Why We Stop Improving After a Certain Point",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 16, unit: "minutes" },
     content: `Have you ever noticed that some long-term expats still make the same basic grammatical mistakes after twenty years in a country? This is known as 'fossilization.' It occurs when a learner's interlanguage stops evolving because they have reached a level where they can communicate successfully, even if inaccurately.
 
@@ -287,7 +287,7 @@ To fight fossilization, you must move from 'automatic' mode back to 'conscious' 
   {
     category: "Digital Linguistics",
     title: "The Death of the Sentence? How Texting is Changing Syntax",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 14, unit: "minutes" },
     content: `For decades, linguists have debated whether the rise of digital communication represents a decline in literacy or a fascinating evolution of the written word. We are moving away from the rigid structure of the traditional sentence toward a more fluid, rhythmic form of 'fingered speech.' In this new medium, punctuation is no longer just a grammatical tool; it has become an emotional one.
 
@@ -298,7 +298,7 @@ This shift is particularly challenging for language learners. To be truly fluent
   {
     category: "Forensic Linguistics",
     title: "Linguistic Fingerprints: How Words Can Solve Crimes",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 22, unit: "minutes" },
     content: `Every person has an 'idiolect'—a unique way of using language that is as distinct as a fingerprint. Forensic linguistics is the application of linguistic knowledge to legal contexts, using patterns in vocabulary, grammar, and spelling to identify the authors of anonymous threats, ransom notes, or even historical documents.
 
@@ -309,7 +309,7 @@ This field proves that our choice of words is rarely random. It is shaped by our
   {
     category: "Gamification",
     title: "The Virtual Immersion: Learning Languages Through Video Games",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 18, unit: "minutes" },
     content: `While textbooks provide the skeleton of a language, video games provide the flesh and blood. For many modern polyglots, gaming has become a primary tool for achieving high-level fluency. Unlike movies, games are interactive; they force the player to make decisions, follow instructions, and communicate with other players in real-time.
 
@@ -320,7 +320,7 @@ Massively Multiplayer Online (MMO) games take this a step further by providing a
   {
     category: "Lexicology",
     title: "Linguistic Loans: Why No Language is an Island",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 15, unit: "minutes" },
     content: `The idea of a 'pure' language is a historical myth. Throughout human history, languages have constantly borrowed from one another, creating a global web of shared vocabulary. These loanwords act as a map of cultural influence, documenting centuries of trade, conquest, and scientific exchange.
 
@@ -331,7 +331,7 @@ For the learner, recognizing loanwords can be a double-edged sword. While 'cogna
   {
     category: "Cross-Cultural Communication",
     title: "The Sound of Silence: How Different Cultures Interpret the Pause",
-    cover: "https://picsum.photos/200",
+    cover: "https://picsum.photos/2000",
     readTime: { value: 17, unit: "minutes" },
     content: `In many Western cultures, a pause in conversation is seen as a 'dead' space that must be filled immediately. We often interpret silence as awkwardness, disagreement, or a lack of preparation. However, in many other parts of the world, silence is a vital part of communication, loaded with meaning and respect.
 

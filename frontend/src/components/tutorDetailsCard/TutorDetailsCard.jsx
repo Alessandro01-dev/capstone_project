@@ -7,6 +7,7 @@ import useUsers from "../../hooks/useUsers"
 import { useEffect, useState } from "react"
 import { getInterestLabel } from "../../utils/getInterestLabel"
 import ConnectionRequestModal from "../connectionRequestModal/ConnectionRequestModal"
+import nobiofound from '../../assets/no_bio_found.webp'
 
 const TutorDetailsCard = () => {
 
@@ -203,19 +204,19 @@ const TutorDetailsCard = () => {
             </p>
           ) : (
             <div
-              className="d-flex flex-column align-items-center justify-content-between"
+              className="d-flex flex-column align-items-center justify-content-between gap-2"
             >
+              <p
+                className={`${classes['no-bio-found-msg']} m-0 text-muted text-center`}
+              >It seems like no one wrote anything here...</p>
               <div
-                className="w-25"
+                className={classes['no-bio-found-img-container']}
               >
                 <img
                   className="w-100 d-block object-fit-cover"
-                  src="https://secure.meetupstatic.com/next/images/illustrations/sleepmask-purple.webp?w=384"
+                  src={nobiofound}
                   alt="no bio found" />
               </div>
-              <p
-                className="m-0 text-muted"
-              >No description found</p>
             </div>
           )}
         </>

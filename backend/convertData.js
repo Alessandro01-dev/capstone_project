@@ -142,6 +142,27 @@ const cityPlaceIdMapping = {
   "Agrigento": "ChIJh4ezdlWCEBMRs0GTCBLA8To"
 };
 
+const generateRandomMeetings = () => {
+  const titles = ["Language Exchange", "Coffee with Tutor", "Grammar Workshop", "Speaking Practice", "Exam Preparation"];
+  const locations = ["Library", "Starbucks", "Piazza Centrale", "Campus Cafe", "Online - Zoom"];
+  
+  const numMeetings = Math.floor(Math.random() * 3) + 1;
+  const meetings = [];
+
+  for (let i = 0; i < numMeetings; i++) {
+    const meetingDate = new Date();
+    meetingDate.setDate(meetingDate.getDate() + Math.floor(Math.random() * 30));
+    
+    meetings.push({
+      title: titles[Math.floor(Math.random() * titles.length)],
+      location: locations[Math.floor(Math.random() * locations.length)],
+      time: `${Math.floor(Math.random() * 12) + 9}:00`,
+      fullDate: meetingDate
+    });
+  }
+  return meetings;
+};
+
 const fs = require('fs');
 const userData = require('./userData');
 
@@ -157,6 +178,7 @@ const utentiAggiornati = userData.map(user => {
     ...user,
     password: "password123",
     avatar: "https://picsum.photos/200",
+    meetings: generateRandomMeetings(),
     location: {
       city: cityName,
       country: "Italy",
@@ -174,4 +196,4 @@ const contenutoFile = `const userData = ${JSON.stringify(utentiAggiornati, null,
 
 fs.writeFileSync('./userData_NEW.js', contenutoFile);
 
-console.log("✅ Password, Avatar e Location aggiornati con successo!");
+console.log("✅ Password, Avatar, Location e Meetings aggiornati con successo!");

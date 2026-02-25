@@ -4,9 +4,10 @@ import SearchModeSelector from './searchModeSelector/SearchModeSelector';
 import TutorMap from './tutorMap/TutorMap';
 import TutorCard from './tutorCard/TutorCard';
 import { Alert, Button, Container, Row, Spinner } from 'react-bootstrap';
-import NoTutorFoundIcon from '../../assets/NoTutorFoundIcon';
+import notutorfound from '../../assets/no_tutor_found.webp'
 import useUsers from '../../hooks/useUsers';
 import { getZoomByDistance } from '../../utils/getZoomByDistance';
+import classes from './FindTutor.module.css'
 
 const FindTutor = () => {
 
@@ -146,9 +147,21 @@ const FindTutor = () => {
                 <p className="text-muted">Select a city or enable GPS to see mates...</p>
               </div>
             ) : (
-              <div className='d-flex flex-column align-items-center gap-3'>
-                <h5 className='m-0 mx-auto'>No tutor for this position</h5>
-                <NoTutorFoundIcon />
+              <div
+                className='d-flex flex-column align-items-center justify-content-center gap-3 mt-5'
+              >
+                <hp
+                  className={`${classes['no-tutor-found-msg']} m-0 mx-auto text-center`}
+                >There doesn't seem to be anyone around here...</hp>
+                <div
+                  className={classes['no-tutor-found-img-container']}
+                >
+                  <img
+                    className='w-100 object-fit-cover d-block'
+                    src={notutorfound}
+                    alt="no tutor found image"
+                  />
+                </div>
               </div>
             )}
 

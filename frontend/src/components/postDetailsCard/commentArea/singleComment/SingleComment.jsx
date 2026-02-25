@@ -65,7 +65,7 @@ const SingleComment = ({ comment, onDelete }) => {
                 <h6
                   className='m-0'
                 >
-                  {comment.user?.name} {" "} {comment.user?.surname}
+                  {comment.user?.name} {" "} {comment.user?.surname} {isLoggedUserComment ? "(me)" : ""}
                 </h6>
                 {comment.user?.isTutor && <p
                   className={`${classes['author-card-job-title']} m-0 small`}
