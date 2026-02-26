@@ -11,7 +11,12 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     let newSocket;
     if (authData?._id) {
-      newSocket = io('http://localhost:4545');
+
+      const URL = import.meta.env.VITE_BASE_SERVER_URL;
+
+      newSocket = io(URL, {
+        transports: ['polling', 'websocket']
+      });
 
       newSocket.on('connect', () => {
         console.log('SOCKET CONNESSO CON ID:', newSocket.id);
