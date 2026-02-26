@@ -1,10 +1,28 @@
 .connection-request-img-container {
-  max-width: 45px;
-  max-height: 45px;
-  overflow: hidden;
-  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .contact-email {
   font-size: 12px;
+}
+
+.contact-profile-img-container {
+  width: 45px;
+  height: 45px;
+  position: relative
+}
+
+.contact-profile-img-container img {
+  border-radius: 50%;
+}
+
+.contact-flag-picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 18px;
+  width: 18px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
 }

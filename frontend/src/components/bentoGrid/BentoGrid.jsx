@@ -71,7 +71,7 @@ const BentoGrid = () => {
 
         <Col xs={12} lg={4}>
           <div
-            className={`${classes["custom-bento-container"]} bg-danger text-white`}
+            className={`${classes["custom-bento-container"]} ${classes["community-news-container"]} text-white`}
           >
             <CommunityNews />
           </div>

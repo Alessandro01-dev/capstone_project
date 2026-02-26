@@ -17,3 +17,7 @@
 .custom-bento-container:hover {
   transform: scale(1.008);
 }
+
+.community-news-container {
+  background-color: #e86134;
+}

@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap"
 import { useAuth } from "../../../contexts/AuthContext"
+import { Link } from "react-router-dom"
 
 const FindTutorCallToAction = () => {
 
@@ -21,12 +22,12 @@ const FindTutorCallToAction = () => {
         />
       </div>
 
-      <Button
-        variant="success"
-        className="w-100 py-2 fw-bold"
+      <Link
+        to="/findtutor"
+        className="w-100 btn btn-success py-2 fw-bold shadow-sm"
       >
         Explore Local Tutors
-      </Button>
+      </Link>
     </>
   )
 }

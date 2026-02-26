@@ -12,6 +12,7 @@ const MenuCanvas = ({ open, onClose, renderSidebarMenu }) => {
         <Offcanvas.Title
           as={Link}
           to="/"
+          onClick={onClose}
         >
           <Logo />
         </Offcanvas.Title>

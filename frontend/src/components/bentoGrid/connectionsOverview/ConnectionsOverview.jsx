@@ -62,7 +62,7 @@ const ConnectionsOverview = () => {
   };
 
   return (
-    <div className="d-flex flex-column align-items-center justify-content-between h-100">
+    <div className="d-flex flex-column align-items-center justify-content-between w-100 h-100">
       <h4 className="fw-bold text-center mb-3">Your Contacts</h4>
 
       {connectionsIsLoading && connections.length === 0 ? (
@@ -80,22 +80,34 @@ const ConnectionsOverview = () => {
               return (
                 <ListGroup.Item
                   key={request._id}
-                  className="d-flex align-items-center gap-2  px-0 py-2"
+                  className="d-flex align-items-center justify-content-center gap-2  px-0 py-2"
                 >
                   <div
                     className={classes['connection-request-img-container']}
                   >
-                    <img
+                    <div
+                      className={classes["contact-profile-img-container"]}
+                    >
+                      <img
                       src={contact.avatar}
                       alt={`${contact.name} avatar`}
-                      className="w-100 object-fit-cover d-block"
+                      className="w-100 h-100 object-fit-cover d-block"
                     />
+                    {contact.nationality && (<div className={classes["contact-flag-picture"]}>
+                      <img
+                        className="w-100 h-100 d-block object-fit-cover"
+                        src={`https://flagcdn.com/w640/${contact.nationality.code.toLowerCase()}.png`}
+                        alt="contact flag picture"
+                      />
+                    </div>)}
+                    </div>
                   </div>
-                  <div className="text-start overflow-hidden flex-grow-1">
+                  <div className="text-start overflow-hidden"
+                  >
                     <p className="mb-0 fw-bold small text-truncate">
                       {contact.name} {contact.surname}
                     </p>
-                    <p className={`${classes['contact-email']} mb-0 text-success fw-medium`} 
+                    <p className={`${classes['contact-email']} mb-0 text-success fw-medium text-truncate`}
                     >
                       {contact.email}
                     </p>
@@ -128,8 +140,8 @@ const ConnectionsOverview = () => {
       )}
 
       <Link
-        to="/findtutors"
-        className="w-100 btn btn-success py-2 fw-bold shadow-sm mt-2"
+        to="/findtutor"
+        className="w-100 btn btn-success py-2 fw-bold shadow-sm"
       >
         {connections.length > 0 ? 'Find More Partners' : 'Start Connecting'}
       </Link>
