@@ -17,6 +17,8 @@
 .details-card-profile-picture-container {
   width: 80px;
   height: 80px;
+  min-width: 80px;
+  min-height: 80px;
   position: relative;
 }
 

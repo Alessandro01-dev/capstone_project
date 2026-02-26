@@ -2,9 +2,6 @@
 
 body {
   font-family: "Ubuntu", sans-serif;
-  height: 100vh !important;
-  width: 100vw !important;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }

@@ -138,7 +138,7 @@ const FindTutor = ({ isLoaded }) => {
 
       {viewMode === 'list' && (
         <Container
-          className='vh-100'
+          className='py-5'
         >
           <Row
             className='g-4'

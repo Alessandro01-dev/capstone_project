@@ -5,6 +5,11 @@
   transition: width 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
+
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
 }
 
 .sidebar.collapsed {
