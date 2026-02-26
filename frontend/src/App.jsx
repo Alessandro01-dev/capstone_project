@@ -11,7 +11,7 @@ import TeacherDetailsPage from './pages/teacherDetailsPage/TeacherDetailsPage';
 import TutorDetailsPage from './pages/tutorDetailsPage/TutorDetailsPage';
 import PostDetailsPage from './pages/postDetailsPage/PostDetailsPage';
 import SettingsPage from './pages/settingsPage/SettingsPage';
-import { LoadScript } from '@react-google-maps/api';
+import { useJsApiLoader } from '@react-google-maps/api';
 import BecomeTeacherPage from './pages/becomeTeacherPage/BecomeTeacherPage';
 import PostArticlePage from './pages/postArticlePage/PostArticlePage';
 import '@mantine/core/styles.css';
@@ -28,42 +28,46 @@ const libraries = ['places'];
 
 const App = () => {
 
+  const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+    libraries: libraries,
+    language: "en",
+    id: "google-map-script"
+  });
+
+  if (loadError) {
+    console.error("Google Maps failed to load:", loadError);
+  }
+
   return (
     <MantineProvider>
-      <LoadScript
-        googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
-        libraries={libraries}
-        language="en"
-        id="google-map-script"
-      >
-        <Router>
-          <Routes>
-            <Route path="/landing" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/registration" element={<RegistrationPage />} />
+      <Router>
+        <Routes>
+          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/registration" element={<RegistrationPage isLoaded={isLoaded} />} />
 
-            <Route element={<ProtectedRoutes />}>
-              <Route element={<MainLayout />}>
-                <Route index path="/" element={<Homepage />} />
-                <Route path="/booklesson" element={<BookLessonPage />} />
-                <Route path="/teachers/:teacherId" element={<TeacherDetailsPage />} />
-                <Route path="/findtutor" element={<FindTutorPage />} />
-                <Route path="/tutors/:tutorId" element={<TutorDetailsPage />} />
-                <Route path="/community" element={<CommunityPage />} />
-                <Route path="/communityPosts/:postId" element={<PostDetailsPage />} />
-                <Route path="/settings" element={<SettingsPage />} />
-                <Route path="/becometeacher" element={<BecomeTeacherPage />} />
-                <Route path="/postarticle" element={<PostArticlePage />} />
-              </Route>
+          <Route element={<ProtectedRoutes />}>
+            <Route element={<MainLayout />}>
+              <Route index path="/" element={<Homepage />} />
+              <Route path="/booklesson" element={<BookLessonPage />} />
+              <Route path="/teachers/:teacherId" element={<TeacherDetailsPage />} />
+              <Route path="/findtutor" element={<FindTutorPage isLoaded={isLoaded} />} />
+              <Route path="/tutors/:tutorId" element={<TutorDetailsPage />} />
+              <Route path="/community" element={<CommunityPage />} />
+              <Route path="/communityPosts/:postId" element={<PostDetailsPage />} />
+              <Route path="/settings" element={<SettingsPage isLoaded={isLoaded} />} />
+              <Route path="/becometeacher" element={<BecomeTeacherPage />} />
+              <Route path="/postarticle" element={<PostArticlePage />} />
             </Route>
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Router>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-        />
-      </LoadScript>
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </MantineProvider>
   )
 }

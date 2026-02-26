@@ -22,8 +22,6 @@ const TutorDetailsCard = () => {
     getUserById(tutorId)
   }, [tutorId])
 
-  console.log(usersData?.interests)
-
   return (
     <div
       className={classes["details-card-main-container"]}

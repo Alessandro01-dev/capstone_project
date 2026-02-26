@@ -25,8 +25,6 @@ const AccountSettings = () => {
 
   const handleUpdate = async (field, value) => {
 
-    console.log(`Updating ${field} with:`, value);
-
     if (!authData?._id) return;
 
     const dataToSave = field === 'nationality' ? { ...value } : value;

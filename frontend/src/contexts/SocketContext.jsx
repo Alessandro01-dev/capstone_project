@@ -19,7 +19,6 @@ export const SocketProvider = ({ children }) => {
       });
 
       newSocket.on('connect', () => {
-        console.log('SOCKET CONNESSO CON ID:', newSocket.id);
         newSocket.emit('join_room', String(authData._id));
       });
 

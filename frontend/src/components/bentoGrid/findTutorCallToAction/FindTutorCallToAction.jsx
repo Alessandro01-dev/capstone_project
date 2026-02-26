@@ -6,8 +6,6 @@ const FindTutorCallToAction = () => {
 
   const { authData } = useAuth()
 
-  console.log(authData)
-
   return (
     <>
 

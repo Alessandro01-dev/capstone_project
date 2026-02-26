@@ -32,8 +32,6 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
       return;
     }
 
-    console.log("Opzione selezionata nel dropdown:", selectedOption);
-
     const geocoder = new window.google.maps.Geocoder();
     geocoder.geocode({ placeId: selectedOption.value }, (results, status) => {
       if (status === "OK" && results[0]) {
