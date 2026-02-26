@@ -1,11 +1,11 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const AuthContext = createContext();
 const URL = import.meta.env.VITE_BASE_SERVER_URL;
 
 export const AuthProvider = ({ children }) => {
-  
-  const [authIsLoading, setAuthIsLoading] = useState(false);
+
+  const [authIsLoading, setAuthIsLoading] = useState(true);
   const [authData, setAuthData] = useState(null);
   const [authError, setAuthError] = useState(null);
 
@@ -65,6 +65,18 @@ export const AuthProvider = ({ children }) => {
     setAuthData(null);
     setAuthError(null);
   };
+
+  useEffect(() => {
+    const initAuth = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        await getProfile();
+      } else {
+        setAuthIsLoading(false);
+      }
+    };
+    initAuth();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ authIsLoading, authData, authError, getProfile, loginAndGetToken, logout }}>

@@ -1,6 +1,8 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
+import { useAuth } from "../contexts/AuthContext";
 
 const isTokenExpired = (token) => {
   if (!token) return true;
@@ -14,6 +16,7 @@ const isTokenExpired = (token) => {
 };
 
 const ProtectedRoutes = () => {
+  const { authData, authIsLoading } = useAuth();
   const token = localStorage.getItem('token');
   const location = useLocation();
 
@@ -41,7 +44,17 @@ const ProtectedRoutes = () => {
     }
   }, [token]);
 
-  if (isExpired) {
+  if (authIsLoading) {
+    return (
+      <div className="vh-100 d-flex justify-content-center align-items-center">
+        <Spinner
+          className="mx-auto"
+        />
+      </div>
+    );
+  }
+
+  if (isExpired || !authData) {
     return <Navigate to="/landing" replace state={{ from: location }} />;
   }
 
