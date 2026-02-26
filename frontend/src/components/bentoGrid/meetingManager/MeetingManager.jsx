@@ -73,7 +73,6 @@ const MeetingManager = () => {
           <h4 className="fw-bold m-0 text-start">Next Meetings</h4>
           <div
             className={classes['add-meeting-btn']}
-            style={{ cursor: 'pointer' }}
             onClick={() => setShowModal(true)}
           >
             +

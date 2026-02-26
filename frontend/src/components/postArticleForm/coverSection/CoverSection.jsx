@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { Form, ButtonGroup, Button, Spinner } from 'react-bootstrap';
 import { useDropzone } from 'react-dropzone';
 import UploadFileIcon from "../../../assets/UploadFileIcon";
@@ -7,7 +7,9 @@ import SuccessIcon from '../../../assets/SuccessIcon';
 
 const CoverSection = ({ cover, setCover }) => {
 
-  const [uploadMethod, setUploadMethod] = useState('file');
+  const [uploadMethod, setUploadMethod] = useState(() =>
+    (typeof cover === 'string' && cover.startsWith('http')) ? 'url' : 'file'
+  );
   const [isUrlValid, setIsUrlValid] = useState(false);
   const [loadingUrl, setLoadingUrl] = useState(false);
 
@@ -36,7 +38,7 @@ const CoverSection = ({ cover, setCover }) => {
   });
 
   useEffect(() => {
-    if (uploadMethod === 'url' && typeof cover === 'string' && cover.startsWith('http')) {
+    if (uploadMethod === 'url' && typeof cover === 'string' && cover.trim().startsWith('http')) {
       setLoadingUrl(true);
       const img = new Image();
       img.src = cover;
@@ -53,16 +55,11 @@ const CoverSection = ({ cover, setCover }) => {
     }
   }, [cover, uploadMethod]);
 
-  const handleUrlChange = (e) => {
-    setCover(e.target.value);
-  };
-
-
-  const filePreview = cover instanceof File ? URL.createObjectURL(cover) : null;
-  const urlPreview = isUrlValid ? cover : null;
-
-  const previewUrl = filePreview || urlPreview;
-
+  const previewUrl = useMemo(() => {
+    if (cover instanceof File) return URL.createObjectURL(cover);
+    if (typeof cover === 'string' && cover.trim().startsWith('http')) return cover;
+    return null;
+  }, [cover]);
 
   useEffect(() => {
     return () => {
@@ -135,7 +132,7 @@ const CoverSection = ({ cover, setCover }) => {
               type="text"
               placeholder="https://example.com/image.jpg"
               value={typeof cover === 'string' ? cover : ''}
-              onChange={handleUrlChange}
+              onChange={e => setCover(e.target.value)}
               isInvalid={cover && !isUrlValid && !loadingUrl}
             />
             {loadingUrl && (
@@ -148,9 +145,10 @@ const CoverSection = ({ cover, setCover }) => {
           </div>
         )}
 
-        {previewUrl && (
+        {previewUrl && (isUrlValid || cover instanceof File) && (
           <div className={`${classes['preview-container']} mt-2 border rounded-3 overflow-hidden shadow-sm bg-white`}>
             <button
+              type="button"
               className={classes['remove-btn']}
               onClick={() => setCover(uploadMethod === 'file' ? null : '')}
             >

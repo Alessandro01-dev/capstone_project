@@ -22,7 +22,6 @@ const MeetingCard = ({ meeting, onDelete }) => {
 
       <div
         className="text-danger bg-transparent border-0 p-1"
-        style={{ cursor: 'pointer' }}
         onClick={onDelete}
       >
         <TrashIcon />

@@ -80,6 +80,20 @@ const getBlogPostById = async (req, res, next) => {
   }
 }
 
+const getBlogPostsByUserId = async (req, res, next) => {
+  const { userId } = req.params;
+  try {
+    const blogPosts = await blogPostService.getBlogPostsByUserId(userId);
+
+    res.status(200).send({
+      statusCode: 200,
+      blogPosts
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const createBlogPost = async (req, res, next) => {
   const { body } = req
 
@@ -185,6 +199,7 @@ module.exports = {
   getBlogPosts,
   getBlogPostsByTitle,
   getBlogPostById,
+  getBlogPostsByUserId,
   createBlogPost,
   uploadFileOnCloud,
   updateBlogPost,

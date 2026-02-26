@@ -9,20 +9,22 @@ import ReadTimeSection from "./readTimeSection/ReadTimeSection"
 import useCommunityPosts from "../../hooks/useCommunityPosts"
 import { useAuth } from "../../contexts/AuthContext"
 import useUpload from "../../hooks/useUpload"
+import toast from "react-hot-toast"
 
-const PostArticleForm = () => {
+const PostArticleForm = ({ initialData, onSuccess, onCancel }) => {
 
-  const [title, setTitle] = useState('')
-  const [category, setCategory] = useState('')
-  const [readTime, setReadTime] = useState({ value: 0, unit: 'min' });
-  const [cover, setCover] = useState(null);
-  const [content, setContent] = useState('');
-  const URL = import.meta.env.VITE_BASE_SERVER_URL;
-
-  const { createPost, postsIsLoading, postsError } = useCommunityPosts()
+  const { authData } = useAuth();
+  const { createPost, updatePost, postsIsLoading, postsError } = useCommunityPosts();
   const { uploadFile, isUploading: isFileUploading } = useUpload();
 
-  const { authData } = useAuth()
+  const URL = import.meta.env.VITE_BASE_SERVER_URL;
+  const isEditMode = !!initialData;
+
+  const [title, setTitle] = useState(initialData?.title || '');
+  const [category, setCategory] = useState(initialData?.category || '');
+  const [readTime, setReadTime] = useState(initialData?.readTime || { value: 0, unit: 'min' });
+  const [cover, setCover] = useState(initialData?.cover || null);
+  const [content, setContent] = useState(initialData?.content || '');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ const PostArticleForm = () => {
         const uploadResult = await uploadFile(`${URL}/blogPosts/upload`, cover, 'cover');
 
         if (!uploadResult.success) {
-          throw new Error("Caricamento immagine fallito");
+          throw new Error("Image upload failed");
         }
 
         finalCoverUrl = uploadResult.data.cover;
@@ -53,9 +55,13 @@ const PostArticleForm = () => {
         user: authData?._id
       };
 
-      const response = await createPost(finalData);
+      const response = isEditMode
+        ? await updatePost(initialData._id, finalData)
+        : await createPost(finalData);
+
       if (response) {
-        alert("Post created successfully!");
+        toast.success(isEditMode ? "Post updated!" : "Post created!");
+        if (onSuccess) onSuccess();
       }
     } catch (err) {
       console.error("Errore nel processo di creazione:", err);
@@ -106,6 +112,7 @@ const PostArticleForm = () => {
         <Button
           variant="outline-dark"
           className="px-3 py-2"
+          onClick={onCancel}
         >
           Cancel
         </Button>
@@ -113,14 +120,14 @@ const PostArticleForm = () => {
           type="submit"
           variant="success"
           className="px-3 py-2 shadow-sm"
-          disabled={postsIsLoading}
+          disabled={postsIsLoading || isFileUploading}
         >
           {(postsIsLoading || isFileUploading) ? (
             <Spinner
               size="sm"
               className="mx-auto"
             />
-          ) : "Submit Article"}
+          ) : isEditMode ? "Save Changes" : "Submit Article"}
         </Button>
       </div>
     </Form>

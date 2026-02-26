@@ -12,9 +12,9 @@ const initDatabaseConnection = async () => {
   }
 }
 
-const startServer = async (port, app) => {
+const startServer = async (port, server) => {
   await initDatabaseConnection()
-  app.listen(port, () => {
+  server.listen(port, () => {
     console.log(`server listening on port ${port}`)
   })
 }

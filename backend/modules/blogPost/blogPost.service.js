@@ -49,6 +49,14 @@ const getBlogPostById = async (blogPostId) => {
   return blogPost
 }
 
+const getBlogPostsByUserId = async (userId) => {
+  const blogPosts = await BlogPostSchema.find({ user: userId })
+    .sort({ createdAt: -1 })
+    .populate('user', 'name surname avatar nationality isTutor');
+
+  return blogPosts;
+};
+
 const createBlogPost = async (body) => {
   const userId = body.user
   const newBlogPost = new BlogPostSchema(body)
@@ -103,6 +111,7 @@ module.exports = {
   getBlogPosts,
   getBlogPostsByTitle,
   getBlogPostById,
+  getBlogPostsByUserId,
   createBlogPost,
   updateBlogPost,
   deleteBlogPost,

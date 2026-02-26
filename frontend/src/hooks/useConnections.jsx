@@ -127,16 +127,52 @@ const useConnections = () => {
     }
   }
 
+  const markAsRead = async (requestId) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${URL}/connections/${requestId}/read`, {
+        method: "PATCH",
+        headers: { "Authorization": `Bearer ${token}` }
+      });
+      if (!response.ok) throw new Error("Failed to mark as read");
+      return true;
+    } catch (error) {
+      setConnectionsError(error.message);
+      return false;
+    }
+  };
+
+  const deleteConnection = async (requestId) => {
+    setConnectionsIsLoading(true);
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${URL}/connections/${requestId}`, {
+        method: "DELETE",
+        headers: { "Authorization": `Bearer ${token}` }
+      });
+      if (!response.ok) {
+        throw new Error("Failed to delete");
+      }
+      return true;
+    } catch (error) {
+      setConnectionsError(error.message);
+    } finally {
+      setConnectionsIsLoading(false);
+    }
+  };
+
+
   return {
     connectionsIsLoading,
     connectionsData,
-    setConnectionsData,
     connectionsError,
     createConnectionRequest,
     getSentRequests,
     getReceivedRequests,
     acceptRequest,
-    rejectRequest
+    rejectRequest,
+    markAsRead,
+    deleteConnection
   }
 }
 

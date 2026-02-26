@@ -1,3 +1,7 @@
 .location-content {
   color: #555;
 }
+
+.input-container {
+  flex: 1;
+}

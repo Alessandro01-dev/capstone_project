@@ -17,7 +17,7 @@ const ReadTimeSection = ({ readTime, setReadTime }) => {
           name="value"
           type="number"
           min="0"
-          value={readTime.value || ''}
+          value={readTime.value}
           onChange={handleReadTimeChange}
         />
         <Form.Select

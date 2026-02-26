@@ -4,6 +4,7 @@ import InterestsSettings from './interestsSettings/InterestsSettings'
 import LanguagesSettings from './languagesSettings/LanguagesSettings'
 import AccountSettings from './accountSettings/AccountSettings'
 import { Col, Container, Row } from 'react-bootstrap'
+import CommunitySettings from './communitySettings/CommunitySettings'
 
 const Settings = () => {
 
@@ -21,7 +22,7 @@ const Settings = () => {
       case 'Account': return <AccountSettings />;
       case 'Languages': return <LanguagesSettings />;
       case 'Interests': return <InterestsSettings />;
-      case 'Community': return <h4>Community</h4>;
+      case 'Community': return <CommunitySettings />;
     }
   }
 

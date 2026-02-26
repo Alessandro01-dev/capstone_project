@@ -5,13 +5,15 @@ import classes from './ConnectionRequestDetailsModal.module.css';
 import { getLanguageName } from '../../../../utils/getLanguageName'
 
 const ConnectionRequestDetailsModal = ({ show, handleClose, request, refreshList }) => {
-
   const { acceptRequest, rejectRequest, connectionsIsLoading } = useConnections();
 
-  const handleAction = async (action) => {
-    const result = action === 'accept' ? await acceptRequest(request._id) : await rejectRequest(request._id);
+  const processRequest = async (type) => {
+    const action = type === 'accept' ? acceptRequest : rejectRequest;
+    const result = await action(request._id);
+
     if (result) {
-      toast.success(`Request ${action}ed successfully!`);
+      toast.success(`Request ${type}ed successfully!`);
+
       refreshList();
       handleClose();
     }
@@ -19,90 +21,70 @@ const ConnectionRequestDetailsModal = ({ show, handleClose, request, refreshList
 
   if (!request) return null;
 
+  const { from, type, language, message } = request;
+
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton className="border-0 pb-0">
-        <Modal.Title className="fw-bold">
-          Connection Request
-        </Modal.Title>
+        <Modal.Title className="fw-bold">Connection Request</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body
-        className={classes['modal-body-container']}
-      >
-        <div
-          className={classes['profile-info']}
-        >
-          <div
-            className={classes['request-from-avatar-container']}
-          >
+      <Modal.Body className="pt-3">
+        <div className="d-flex align-items-center gap-3 mb-4">
+          <div className={classes['avatar-container']}>
             <img
-              className='w-100 h-100 object-fit-cover d-block'
-              src={request.from.avatar}
-              alt="request from avatar"
+              className="object-fit-cover w-100 h-100 d-block"
+              src={from.avatar}
+              alt={`${from.name} avatar`}
             />
-            {request.from?.nationality?.code && (<div className={classes["request-from-flag-picture"]}>
+            {from.nationality?.code && (
               <img
-                className="w-100 h-100 d-block object-fit-cover"
-                src={`https://flagcdn.com/w640/${request.from.nationality.code.toLowerCase()}.png`}
-                alt="request from flag picture"
+                className={classes['flag-picture']}
+                src={`https://flagcdn.com/w640/${from.nationality.code?.toLowerCase()}.png`}
+                alt="flag"
               />
-            </div>)}
+            )}
           </div>
+
           <div>
-            <p
-              className="m-0 fs-5 fw-bold"
-            >
-              {request.from?.name} {request.from?.surname}
-            </p>
-            <div className="d-flex gap-2 align-items-center mt-1">
-              <Badge
-                className='rounded-pill'
-                bg={request.type === 'tutoring' ? 'danger' : 'success'}
-              >
-                {request.type}
+            <h5 className="mb-1 fw-bold">{from.name} {from.surname}</h5>
+            <div className="d-flex gap-2 align-items-center">
+              <Badge pill bg={type === 'tutoring' ? 'danger' : 'success'} className="text-uppercase">
+                {type}
               </Badge>
               <span className="text-muted small fw-bold">
-                {getLanguageName(request.language?.code)} ({request.language?.level})
+                {getLanguageName(language?.code)} ({language?.level})
               </span>
             </div>
           </div>
         </div>
 
-        <div>
-          <p
-            className={classes['message-label']}
-          >
-            Message:
-          </p>
-          <div
-            className={classes['message-box']}
-          >
-            "{request.message}"
-          </div>
+        <div className="bg-light p-3 rounded-3">
+          <p className="small text-muted fw-bold mb-2 uppercase-label">Message</p>
+          <p className="mb-0 fst-italic text-dark">"{message}"</p>
         </div>
       </Modal.Body>
 
-      <Modal.Footer className="border-0 pt-0 mt-2">
+      <Modal.Footer className="border-0 pt-0">
         <Button
-          variant="outline-danger"
-          className="px-4"
-          onClick={() => handleAction('reject')}
+          variant='danger'
+          className="px-4 fw-bold"
+          onClick={() => processRequest('reject')}
           disabled={connectionsIsLoading}
         >
           Decline
         </Button>
         <Button
           variant="success"
-          className="px-4 shadow-sm"
-          onClick={() => handleAction('accept')}
+          className="px-4 fw-bold"
+          onClick={() => processRequest('accept')}
           disabled={connectionsIsLoading}
         >
-          Accept Connection
+          Accept
         </Button>
       </Modal.Footer>
     </Modal>
   );
 };
 
-export default ConnectionRequestDetailsModal;
+export default ConnectionRequestDetailsModal

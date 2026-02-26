@@ -1,16 +1,4 @@
-.modal-body-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.profile-info {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-}
-
-.request-from-avatar-container {
+.avatar-container {
     position: relative;
     min-width: 36px;
     min-height: 36px;
@@ -18,11 +6,11 @@
     height: 64px;
 }
 
-.request-from-avatar-container img {
+.avatar-container img {
     border-radius: 50%;
 }
 
-.request-from-flag-picture {
+.flag-picture {
     position: absolute;
     bottom: 0;
     right: 0;

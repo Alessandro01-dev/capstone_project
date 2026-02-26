@@ -1,0 +1,39 @@
+.post-management-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.post-management-card:hover {
+  transform: scale(1.008);
+}
+
+.post-thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.edit-icon-container,
+.delete-icon-container {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-icon-container:hover,
+.delete-icon-container:hover {
+  background-color: rgba(206, 206, 206, 0.4);
+}

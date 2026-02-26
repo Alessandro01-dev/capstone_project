@@ -37,7 +37,8 @@ const ConnectionRequest = new mongoose.Schema(
       type: String,
       enum: ["pending", "accepted", "rejected"],
       default: "pending"
-    }
+    },
+    readBySender: { type: Boolean, default: false }
   },
   { timestamps: true }
 )

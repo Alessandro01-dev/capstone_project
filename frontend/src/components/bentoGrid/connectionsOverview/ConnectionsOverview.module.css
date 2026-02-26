@@ -1,4 +1,10 @@
 .connection-request-img-container {
-  max-width: 80px;
-  max-height: 80px;
+  max-width: 45px;
+  max-height: 45px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.contact-email {
+  font-size: 12px;
 }

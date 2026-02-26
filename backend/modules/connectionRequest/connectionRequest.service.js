@@ -36,24 +36,25 @@ const createConnectionRequest = async (fromUserId, body) => {
   })
   return await newRequest.populate(
     'from to',
-    'name surname avatar'
+    'name surname avatar nationality isTutor email'
   )
 }
 
 const getSentRequests = async (userId) => {
   return await ConnectionRequestSchema.find({ from: userId })
-    .populate('from to', 'name surname avatar nationality isTutor')
+    .populate('from to', 'name surname avatar nationality isTutor email')
     .sort({ createdAt: -1 })
 }
 
 const getReceivedRequests = async (userId) => {
   return await ConnectionRequestSchema.find({ to: userId })
-    .populate('from to', 'name surname avatar nationality isTutor')
+    .populate('from to', 'name surname avatar nationality isTutor email')
     .sort({ createdAt: -1 })
 }
 
 const acceptRequest = async (requestId, userId) => {
   const request = await ConnectionRequestSchema.findById(requestId)
+
   if (!request) {
     throw new Error('Connection request not found')
   }
@@ -62,11 +63,12 @@ const acceptRequest = async (requestId, userId) => {
   }
   request.status = 'accepted'
   await request.save()
-  return await request.populate('from to', 'name surname avatar')
+  return await request.populate('from to', 'name surname avatar nationality isTutor email')
 }
 
 const rejectRequest = async (requestId, userId) => {
   const request = await ConnectionRequestSchema.findById(requestId)
+
   if (!request) {
     throw new Error('Connection request not found')
   }
@@ -75,13 +77,40 @@ const rejectRequest = async (requestId, userId) => {
   }
   request.status = 'rejected'
   await request.save()
-  return await request.populate('from to', 'name surname avatar')
+  return await request.populate('from to', 'name surname avatar nationality isTutor email')
 }
+
+const markAsRead = async (requestId, userId) => {
+  const request = await ConnectionRequestSchema.findOneAndUpdate(
+    { _id: requestId, from: userId },
+    { readBySender: true },
+    { new: true }
+  );
+  if (!request) {
+    throw new Error('Request not found or unauthorized');
+  }
+  return request;
+};
+
+
+const deleteRequest = async (requestId, userId) => {
+  const request = await ConnectionRequestSchema.findOneAndDelete({
+    _id: requestId,
+    $or: [{ from: userId }, { to: userId }]
+  });
+
+  if (!request) {
+    throw new Error('Connection request not found or not authorized');
+  }
+  return request;
+};
 
 module.exports = {
   createConnectionRequest,
   getSentRequests,
   getReceivedRequests,
   acceptRequest,
-  rejectRequest
+  rejectRequest,
+  markAsRead,
+  deleteRequest
 }

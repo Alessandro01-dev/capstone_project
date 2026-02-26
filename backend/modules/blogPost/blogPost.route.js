@@ -14,4 +14,6 @@ router.delete('/blogPosts/:blogPostId', blogPostController.deleteBlogPost)
 
 router.patch('/blogPosts/:blogPostId/like', blogPostController.toggleBlogPostLike)
 
+router.get('/blogPosts/user/:userId', blogPostController.getBlogPostsByUserId);
+
 module.exports = router

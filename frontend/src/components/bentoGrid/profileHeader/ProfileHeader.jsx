@@ -12,6 +12,7 @@ const ProfileHeader = () => {
 
   const getMissingStep = (user) => {
     if (!user?.bio) return "Add a bio to your profile";
+    if (!user?.nationality) return "Tell us where you are from";
     if (user?.languages?.native.length === 0) return "Share your native languages";
     if (user?.languages?.spoken.length === 0) return "Share your spoken languages";
     if (user?.languages?.learning.length === 0) return "Share your learning languages";
@@ -19,7 +20,17 @@ const ProfileHeader = () => {
     return "Just practice. Your profile looks great!";
   };
 
+  const getProgressColor = (value) => {
+    if (value < 25) return 'red.7';
+    if (value < 50) return 'orange.6';
+    if (value < 75) return 'yellow.5';
+    if (value < 100) return 'lime.6';
+    return 'green.9';
+  };
+
   const nextStep = getMissingStep(authData);
+
+  const dynamicColor = getProgressColor(profilePercentage);
 
   return (
     <div
@@ -38,14 +49,18 @@ const ProfileHeader = () => {
             <span className="badge rounded-pill bg-secondary small">LEARNER</span>
           )}
         </div>
-        <p
-          className="text-muted m-0 small"
-        >
-          Your language journey continues here.
-          Complete your profile to get found!
+        <p className="text-muted m-0 small">
+          {profilePercentage === 100
+            ? "Get ready to practice and enjoy language journey!"
+            : "Your language journey continues here. Complete your profile to get found!"
+          }
         </p>
-        <p className="text-success small fw-bold m-0">
-          Next step: {nextStep}
+
+        <p className="text-dark small fw-bold m-0">
+          {profilePercentage === 100
+            ? "Your profile is complete and looks great!"
+            : `Next step: ${nextStep}`
+          }
         </p>
       </div>
       <div
@@ -57,18 +72,19 @@ const ProfileHeader = () => {
           <SemiCircleProgress
             fillDirection="left-to-right"
             orientation="up"
-            filledSegmentColor="green.9"
+            filledSegmentColor={dynamicColor}
             size={240}
             thickness={34}
             value={profilePercentage}
             label={
               <Text
                 component="span"
-                className={`${classes['progress-bar-label']} text-success fw-bold`}
+                className={`${classes['progress-bar-label']} fw-bold`}
                 size="xs"
                 ta="center"
+                c={dynamicColor}
               >
-                {`Profile at ${profilePercentage}%`}
+                {`Profile ${profilePercentage}%`}
               </Text>
             }
           />
@@ -76,7 +92,7 @@ const ProfileHeader = () => {
         {profilePercentage < 100 && (
           <Link
             to="/settings"
-            className="btn btn-link p-0 text-success fw-bold small text-decoration-none"
+            className="btn btn-link p-0 text-dark fw-bold small text-decoration-none"
           >
             + Add missing info
           </Link>

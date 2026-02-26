@@ -52,7 +52,6 @@ const getUsersNear = async (req, res, next) => {
       users
     });
   } catch (error) {
-    console.error("ERRORE NEL CONTROLLER:", error);
     next(error);
   }
 };
@@ -74,7 +73,6 @@ const createUser = async (req, res, next) => {
       newUser
     })
   } catch (error) {
-    console.log("ERRORE CREAZIONE UTENTE:", error);
     next(error)
   }
 }
@@ -140,7 +138,6 @@ const updateUser = async (req, res, next) => {
       updatedUser
     })
   } catch (error) {
-    console.error("ERRORE UPDATE USER:", error);
     next(error)
   }
 }

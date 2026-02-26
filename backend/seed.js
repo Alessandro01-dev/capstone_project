@@ -3,6 +3,7 @@ const User = require('./modules/user/user.schema');
 const Tutor = require('./modules/tutor/tutor.schema');
 const Blog = require('./modules/blogPost/blogPost.schema')
 const Comment = require('./modules/comment/comment.schema')
+const ConnectionRequest = require('./modules/connectionRequest/connectionRequest.schema')
 require('dotenv').config();
 const userData = require('./userData');
 const tutorData = require('./tutorData');
@@ -18,6 +19,7 @@ async function runSeed() {
     await Tutor.deleteMany({});
     await Blog.deleteMany({});
     await Comment.deleteMany({})
+    await ConnectionRequest.deleteMany({});
     console.log("Database pulito.");
 
     const createdUsers = await User.create(userData);

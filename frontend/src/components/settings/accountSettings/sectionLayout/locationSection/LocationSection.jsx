@@ -6,7 +6,7 @@ import classes from './LocationSection.module.css';
 import LocationPin from '../../../../../assets/LocationPin';
 
 const LocationSection = ({ initialLocation, onSave, isLoading }) => {
-  
+
   const [location, setLocation] = useState(initialLocation || {});
   const [selectedValue, setSelectedValue] = useState(null);
   const [isLocating, setIsLocating] = useState(false);
@@ -14,10 +14,10 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
 
 
   const hasChanged =
-  location?.address !== initialLocation?.address ||
-  location?.city !== initialLocation?.city ||
-  (location?.geo?.coordinates?.length !== initialLocation?.geo?.coordinates?.length) ||
-  (location?.geo?.coordinates?.[0] !== initialLocation?.geo?.coordinates?.[0]);
+    location?.address !== initialLocation?.address ||
+    location?.city !== initialLocation?.city ||
+    (location?.geo?.coordinates?.length !== initialLocation?.geo?.coordinates?.length) ||
+    (location?.geo?.coordinates?.[0] !== initialLocation?.geo?.coordinates?.[0]);
 
 
   useEffect(() => {
@@ -150,7 +150,9 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
         isEditing ? (
           <div className="d-flex flex-column gap-2 w-100">
             <InputGroup>
-              <div style={{ flex: 1 }}>
+              <div
+                className={classes['input-container']}
+              >
                 <AsyncSelect
                   cacheOptions
                   loadOptions={loadLocationOptions}

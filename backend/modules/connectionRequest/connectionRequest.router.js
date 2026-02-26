@@ -9,5 +9,10 @@ router.get('/connections/received', connectionRequestController.getReceivedReque
 
 router.patch('/connections/:requestId/accept', connectionRequestController.acceptRequest)
 router.patch('/connections/:requestId/reject', connectionRequestController.rejectRequest)
+router.patch('/connections/:requestId/read', connectionRequestController.markAsRead);
+
+
+router.delete('/connections/:requestId', connectionRequestController.deleteRequest);
+
 
 module.exports = router

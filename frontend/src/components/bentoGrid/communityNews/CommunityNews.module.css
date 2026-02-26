@@ -6,7 +6,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   word-break: break-word;
-  color: #4a4a4a;
+  color: #333;
+  line-height: 1.6;
 }
 
 .community-post-cover-container {
