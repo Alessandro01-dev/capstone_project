@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, Spinner, Alert } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import classes from './LoginForm.module.css'
@@ -12,10 +12,20 @@ const LoginForm = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const { loginAndGetToken, getProfile, authIsLoading, authError } = useAuth()
+  const { loginAndGetToken, getProfile, clearError, authIsLoading, authError } = useAuth()
+
+  useEffect(() => {
+
+    clearError();
+
+    return () => clearError();
+  }, [clearError]);
 
 
   const handleInputChange = (e) => {
+
+    if (authError) clearError();
+
     const { name, value } = e.target
     setForm({
       ...form,

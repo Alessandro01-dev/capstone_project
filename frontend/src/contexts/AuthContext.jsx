@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext, useEffect, useCallback } from "react";
 
 const AuthContext = createContext();
 const URL = import.meta.env.VITE_BASE_SERVER_URL;
@@ -9,8 +9,9 @@ export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState(null);
   const [authError, setAuthError] = useState(null);
 
+  const clearError = useCallback(() => setAuthError(null), []);
+
   const getProfile = async () => {
-    setAuthIsLoading(true);
     try {
       const token = localStorage.getItem('token');
       if (!token) return;
@@ -18,20 +19,21 @@ export const AuthProvider = ({ children }) => {
         headers: { "Authorization": `Bearer ${token}` }
       });
       if (!response.ok) {
-        const errorResponse = await response.json()
-        throw new Error(errorResponse.message)
+        localStorage.removeItem('token');
+        return;
       }
       const data = await response.json();
       setAuthData(data);
       return data;
     } catch (error) {
-      setAuthError(error.message);
+      console.error("Profile fetch failed", error.message);
     } finally {
       setAuthIsLoading(false);
     }
   };
 
   const loginAndGetToken = async (body) => {
+    setAuthError(null);
     setAuthIsLoading(true)
     try {
       const response = await fetch(`${URL}/login`, {
@@ -79,7 +81,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authIsLoading, authData, authError, getProfile, loginAndGetToken, logout }}>
+    <AuthContext.Provider value={{ authIsLoading, authData, authError, clearError, getProfile, loginAndGetToken, logout }}>
       {children}
     </AuthContext.Provider>
   );
