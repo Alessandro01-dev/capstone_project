@@ -11,7 +11,7 @@ import useUpload from '../../../hooks/useUpload';
 import { useAuth } from '../../../contexts/AuthContext';
 import toast from 'react-hot-toast';
 
-const AccountSettings = () => {
+const AccountSettings = ({ isLoaded }) => {
 
   const { authData, authIsLoading, getProfile } = useAuth();
   const { updateUser, usersIsLoading } = useUsers();
@@ -94,6 +94,7 @@ const AccountSettings = () => {
           />
 
           <LocationSection
+            isLoaded={isLoaded}
             initialLocation={authData.location}
             onSave={(newLocation) => handleUpdate('location', newLocation)}
             isLoading={usersIsLoading || authIsLoading}

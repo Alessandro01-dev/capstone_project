@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap"
 import FindTutor from "../../components/findTutor/FindTutor"
 
-const FindTutorPage = () => {
+const FindTutorPage = ({ isLoaded }) => {
   return (
     <Container>
       <Row>
@@ -15,7 +15,9 @@ const FindTutorPage = () => {
           >
             Find your talkmate
           </h3>
-          <FindTutor />
+          <FindTutor
+            isLoaded={isLoaded}
+          />
         </Col>
       </Row>
     </Container>

@@ -6,7 +6,7 @@ import useUsers from "../../hooks/useUsers";
 import AsyncSelect from "react-select/async";
 import toast from "react-hot-toast";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ isLoaded }) => {
 
   const [form, setForm] = useState({});
   const [selectedCity, setSelectedCity] = useState(null);
@@ -16,7 +16,8 @@ const RegistrationForm = () => {
   const { usersError, usersIsLoading, createUser } = useUsers()
 
   const loadLocationOptions = (inputValue, callback) => {
-    if (!inputValue || inputValue.length < 3) return callback([]);
+    if (!isLoaded || !window.google) return callback([]);
+    if (!window.google?.maps || inputValue.length < 3) return callback([]);
 
     const service = new window.google.maps.places.AutocompleteService();
     service.getPlacePredictions(
@@ -140,7 +141,7 @@ const RegistrationForm = () => {
             cacheOptions
             loadOptions={loadLocationOptions}
             onChange={handleCitySelect}
-            placeholder="Search your city..."
+            placeholder={isLoaded ? "Search your city..." : "Loading Maps..."}
             isClearable
             required
             classNamePrefix="react-select"

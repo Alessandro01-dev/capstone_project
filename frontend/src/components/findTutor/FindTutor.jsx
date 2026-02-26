@@ -9,7 +9,7 @@ import useUsers from '../../hooks/useUsers';
 import { getZoomByDistance } from '../../utils/getZoomByDistance';
 import classes from './FindTutor.module.css'
 
-const FindTutor = () => {
+const FindTutor = ({ isLoaded }) => {
 
   const [userLocation, setUserLocation] = useState(null);
   const [locationError, setLocationError] = useState(false);
@@ -77,9 +77,16 @@ const FindTutor = () => {
     ? 12
     : getZoomByDistance(distance);
 
+  if (!isLoaded) return (
+    <Spinner
+      className='mx-auto'
+    />
+  )
+
   return (
     <>
       <SearchModeSelector
+        isLoaded={isLoaded}
         searchMode={searchMode}
         setSearchMode={setSearchMode}
         setCity={setSelectedPlace}

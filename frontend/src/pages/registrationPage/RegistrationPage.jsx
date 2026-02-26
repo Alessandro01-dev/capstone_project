@@ -4,10 +4,10 @@ import registration from '../../assets/registration.avif'
 import PublicNavbar from "../../components/publicNavbar/PublicNavbar";
 import PublicFooter from "../../components/publicFooter/PublicFooter";
 
-const RegistrationPage = () => {
+const RegistrationPage = ({ isLoaded }) => {
 
   return (
-   <div
+    <div
       className='vh-100 d-flex flex-column overflow-y-auto'
     >
       <PublicNavbar />
@@ -23,7 +23,9 @@ const RegistrationPage = () => {
             md={6}
             xl={4}
           >
-            <RegistrationForm />
+            <RegistrationForm
+              isLoaded={isLoaded}
+            />
           </Col>
           <Col
             className="mx-auto"

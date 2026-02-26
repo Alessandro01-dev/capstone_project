@@ -5,11 +5,14 @@ import LocationIcon from '../../../assets/LocationIcon';
 import CityIcon from '../../../assets/CityIcon';
 import classes from './SearchModeSelector.module.css';
 
-const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setDistance }) => {
+const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setDistance, isLoaded }) => {
 
   const [selectedValue, setSelectedValue] = useState(null);
 
   const loadLocationOptions = (inputValue, callback) => {
+
+    if (!isLoaded || !window.google) return callback([]);
+
     if (!inputValue || inputValue.length < 3) return callback([]);
 
     const service = new window.google.maps.places.AutocompleteService();
@@ -27,6 +30,9 @@ const SearchModeSelector = ({ searchMode, setSearchMode, setCity, distance, setD
   };
 
   const handleSelect = (selectedOption) => {
+
+    if (!isLoaded || !window.google) return;
+
     if (!selectedOption) {
       setSelectedValue(null);
       return;

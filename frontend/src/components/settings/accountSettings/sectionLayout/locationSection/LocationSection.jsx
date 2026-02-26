@@ -5,7 +5,7 @@ import SectionLayout from '../SectionLayout';
 import classes from './LocationSection.module.css';
 import LocationPin from '../../../../../assets/LocationPin';
 
-const LocationSection = ({ initialLocation, onSave, isLoading }) => {
+const LocationSection = ({ initialLocation, onSave, isLoading, isLoaded }) => {
 
   const [location, setLocation] = useState(initialLocation || {});
   const [selectedValue, setSelectedValue] = useState(null);
@@ -30,6 +30,9 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
   }, [initialLocation]);
 
   const handleGPSLocation = () => {
+
+    if (!isLoaded || !window.google) return;
+
     if (!navigator.geolocation) return alert("Your browser does not support geolocation");
     setIsLocating(true);
 
@@ -117,6 +120,7 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
 
 
   const loadLocationOptions = (inputValue, callback) => {
+    if (!isLoaded || !window.google) return callback([]);
     if (!window.google?.maps || inputValue.length < 3) return callback([]);
     const service = new window.google.maps.places.AutocompleteService();
     service.getPlacePredictions(
@@ -158,8 +162,9 @@ const LocationSection = ({ initialLocation, onSave, isLoading }) => {
                   loadOptions={loadLocationOptions}
                   value={selectedValue}
                   onChange={handleSelect}
-                  placeholder="Enter address or city..."
+                  placeholder={isLoaded ? "Enter address or city..." : "Loading Maps..."}
                   isClearable
+                  isDisabled={!isLoaded}
                 />
               </div>
               <Button

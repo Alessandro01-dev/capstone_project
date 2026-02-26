@@ -6,7 +6,7 @@ import AccountSettings from './accountSettings/AccountSettings'
 import { Col, Container, Row } from 'react-bootstrap'
 import CommunitySettings from './communitySettings/CommunitySettings'
 
-const Settings = () => {
+const Settings = ({ isLoaded }) => {
 
   const [activeTab, setActiveTab] = useState('Account')
 
@@ -19,7 +19,7 @@ const Settings = () => {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'Account': return <AccountSettings />;
+      case 'Account': return <AccountSettings isLoaded={isLoaded} />;
       case 'Languages': return <LanguagesSettings />;
       case 'Interests': return <InterestsSettings />;
       case 'Community': return <CommunitySettings />;

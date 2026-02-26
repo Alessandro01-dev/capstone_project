@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap"
 import Settings from "../../components/settings/Settings"
 
-const SettingsPage = () => {
+const SettingsPage = ({ isLoaded }) => {
   return (
     <Container>
       <Row>
@@ -10,7 +10,9 @@ const SettingsPage = () => {
           xs={12}
           md={10}
         >
-          <Settings />
+          <Settings 
+            isLoaded={isLoaded}
+          />
         </Col>
       </Row>
     </Container>
