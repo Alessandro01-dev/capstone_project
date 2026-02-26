@@ -1,5 +1,5 @@
 import Select from "react-select";
-import { categoriesMock } from "../CategoriesMock";
+import { categoriesMock } from "../categoriesMock";
 
 const CategorySection = ({ category, setCategory }) => {
 
