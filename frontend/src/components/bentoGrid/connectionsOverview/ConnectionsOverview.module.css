@@ -1,5 +1,6 @@
 .connection-request-img-container {
   flex-shrink: 0;
+  max-width: 100px;
 }
 
 .contact-email {
