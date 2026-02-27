@@ -5,3 +5,20 @@
 .no-tutor-found-img-container {
   width: 200px;
 }
+
+.map-container {
+  width: 100%;
+  min-height: 400px;
+  height: 70dvh;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.empty-state-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100dvh - 200px); 
+  text-align: center;
+}

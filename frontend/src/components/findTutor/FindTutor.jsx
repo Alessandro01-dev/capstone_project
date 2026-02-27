@@ -150,16 +150,16 @@ const FindTutor = ({ isLoaded }) => {
             ) : usersData?.length > 0 ? (
               usersData.map(tutor => <TutorCard key={tutor._id} tutor={tutor} />)
             ) : usersData === null ? (
-              <div className="d-flex justify-content-center my-5">
+              <div className={classes["empty-state-container"]}>
                 <p className="text-muted">Select a city or enable GPS to see mates...</p>
               </div>
             ) : (
               <div
-                className='d-flex flex-column align-items-center justify-content-center gap-3 mt-5'
+                className={`${classes['empty-state-container']} d-flex flex-column gap-3`}
               >
-                <hp
+                <p
                   className={`${classes['no-tutor-found-msg']} m-0 mx-auto text-center`}
-                >There doesn't seem to be anyone around here...</hp>
+                >There doesn't seem to be anyone around here...</p>
                 <div
                   className={classes['no-tutor-found-img-container']}
                 >
@@ -177,10 +177,10 @@ const FindTutor = ({ isLoaded }) => {
       )}
 
       {viewMode === 'map' && (
-        <div className="h-100">
+        <div className={classes["map-container"]}>
           {isLocationDisabled ? (
-            <div className="h-50 d-flex align-items-center justify-content-center bg-light rounded-5">
-              <p className="text-muted">Map unavailable without location permissions</p>
+            <div className="h-100 d-flex align-items-center justify-content-center bg-light rounded-5">
+              <p className="text-muted text-center m-0">Map unavailable without location permissions</p>
             </div>
           ) : (userLocation || selectedPlace) ? (
             <TutorMap
@@ -189,7 +189,7 @@ const FindTutor = ({ isLoaded }) => {
               zoom={mapZoom}
             />
           ) : (
-            <div className="d-flex justify-content-center my-5">
+            <div className={classes["empty-state-container"]}>
               <p className="text-muted">Select a city to see mates...</p>
             </div>
           )}
