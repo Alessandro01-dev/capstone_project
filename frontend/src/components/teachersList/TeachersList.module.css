@@ -2,8 +2,15 @@
   display: flex;
   gap: 24px;
   width: 100%;
-  padding: 40px 0px;
+  padding: 20px 15px;
   position: relative;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .teachers-page-layout {
+    padding: 40px 0px;
+  }
 }
 
 .teachers-list-container {
@@ -43,8 +50,3 @@
   white-space: pre-line;
   margin: 0;
 }
-
-
-
-
-

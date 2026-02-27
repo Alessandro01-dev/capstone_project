@@ -5,12 +5,18 @@
   background-color: white;
   border-radius: 12px;
   border: 1px solid #ccc;
-  padding: 24px;
+  padding: 16px;
   cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.teacher-card-main-container.active {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+@media (min-width: 768px) {
+  .teacher-card-main-container {
+    padding: 24px;
+    gap: 24px;
+  }
 }
 
 .teacher-profile-card {
@@ -81,7 +87,7 @@
 
 .teacher-card-taught-languages-container {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -92,5 +98,6 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  white-space: pre-line;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
