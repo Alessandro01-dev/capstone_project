@@ -13,7 +13,7 @@ const RegistrationForm = ({ isLoaded }) => {
   const [localError, setLocalError] = useState("");
   const navigate = useNavigate();
 
-  const { usersError, usersIsLoading, createUser } = useUsers()
+  const { usersError, setUsersError, usersIsLoading, createUser } = useUsers()
 
   const loadLocationOptions = (inputValue, callback) => {
     if (!isLoaded || !window.google) return callback([]);
@@ -66,6 +66,7 @@ const RegistrationForm = ({ isLoaded }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value })
+    if (usersError) setUsersError(null);
     if (localError) setLocalError("")
   };
 

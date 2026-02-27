@@ -90,21 +90,23 @@ const NotificationsDropdown = () => {
   }, [socket]);
 
   return (
-    <div className={classes["notification-container"]}
-      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-    >
-      <div
-        className={`${classes["notification-icon-container"]} ${allNotifications.length > 0 ? classes.animate : ''}`}
-      >
-        <NotificationsIcon />
-        {allNotifications.length > 0 && (
-          <Badge pill bg="danger" className={classes["notification-badge"]}>
-            {allNotifications.length}
-          </Badge>
-        )}
-      </div>
+    <div>
+      <Dropdown
+      className={classes["notification-container"]} 
+      align="end" show={isDropdownOpen} onToggle={() => setIsDropdownOpen(!isDropdownOpen)}>
+        <Dropdown.Toggle
+          as="div"
+          className={`${classes["notification-icon-container"]} ${allNotifications.length > 0 ? classes.animate : ''} ${classes['remove-dropdown-toggle']}`}
+        >
+          <NotificationsIcon />
+          {allNotifications.length > 0 && (
+            <Badge pill bg="danger" className={classes["notification-badge"]}>
+              {allNotifications.length}
+            </Badge>
+          )}
+        </Dropdown.Toggle>
 
-      <Dropdown align="end" show={isDropdownOpen} onToggle={() => setIsDropdownOpen(!isDropdownOpen)}>
+
         <Dropdown.Menu className={classes["notification-menu"]}>
           <div className="px-3 py-2 border-bottom fw-bold">Notifications</div>
 

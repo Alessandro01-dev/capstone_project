@@ -8,6 +8,7 @@ const useUsers = () => {
   const URL = import.meta.env.VITE_BASE_SERVER_URL
 
   const getUsers = async () => {
+    setUsersError(null);
     setUsersIsLoading(true)
     try {
       const token = localStorage.getItem('token')
@@ -33,6 +34,7 @@ const useUsers = () => {
   }
 
   const getUserById = async (userId) => {
+    setUsersError(null);
     setUsersIsLoading(true);
     try {
       const token = localStorage.getItem('token');
@@ -58,6 +60,7 @@ const useUsers = () => {
   };
 
   const getUsersNear = async (lat, lng, distance = 60, city = null, placeId = null) => {
+    setUsersError(null);
     setUsersIsLoading(true);
     setUsersData([]);
     try {
@@ -96,6 +99,7 @@ const useUsers = () => {
 
 
   const updateUser = async (userId, updatedData) => {
+    setUsersError(null);
     setUsersIsLoading(true)
     try {
       const token = localStorage.getItem('token');
@@ -124,6 +128,7 @@ const useUsers = () => {
   }
 
   const createUser = async (newUser) => {
+    setUsersError(null); 
     setUsersIsLoading(true)
     try {
       const response = await fetch(`${URL}/users`, {
@@ -154,6 +159,7 @@ const useUsers = () => {
     usersData,
     setUsersData,
     usersError,
+    setUsersError,
     getUsers,
     getUserById,
     getUsersNear,

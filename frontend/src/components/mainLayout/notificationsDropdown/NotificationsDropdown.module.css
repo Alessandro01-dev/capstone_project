@@ -14,6 +14,10 @@
   background-color: rgba(0, 0, 0, 0.04);
 }
 
+.remove-dropdown-toggle::after {
+  display: none !important;
+}
+
 .notification-icon-container svg {
   width: 24px;
   height: 24px;
