@@ -17,7 +17,7 @@ L'applicazione è distribuita su Vercel: https://talkmate-flame.vercel.app
 - **Connessioni Real-Time**: Richieste di connessione istantanee gestite tramite **Socket.io** per un'esperienza fluida e immediata.
 - **Meeting Manager**: Strumento dedicato per organizzare e memorizzare i propri incontri e lezioni di persona.
 - **Smart Matching**: Trova persone in linea con i tuoi interessi personali per rendere l'apprendimento più stimolante e naturale.
-- **Community & Blog**: Spazio dedicato alla pubblicazione di articoli e commenti per condividere conoscenze linguistiche e culturali. Include un sistema di **ricerca** per filtrare i contenuti per **titolo, autore e categoria**.
+- **Community & Blog**: Spazio dedicato alla pubblicazione di articoli e commenti per condividere conoscenze linguistiche e culturali. Include un **sistema di ricerca** per filtrare i contenuti per **titolo, autore e categoria**.
 
 ---
 
@@ -27,7 +27,7 @@ L'applicazione è distribuita su Vercel: https://talkmate-flame.vercel.app
 - **Backend**: Node.js, Express, MongoDB.
 - **Real-time Notifications**: **Socket.io** per la gestione istantanea delle richieste di connessione (accettazione/rifiuto).
 - **Maps**: Google Maps JavaScript API, Places API, Geocoding API.
-- **Utility**: JWT (Auth), **React Hot Toast** (notifiche), JWT-Decode.
+- **Utility**: JWT (Auth), **React Hot Toast** (notifiche), JWT-Decode, **React Select & Async** (gestione opzioni dinamiche e ricerca). 
 
 ---
 
@@ -38,11 +38,12 @@ By integrating Google Maps APIs, users can find native teachers or other users f
 
 ### ✨ Key Features
 - **Interactive Map & Geo-Search**: View and choose tutors based on pricing and hourly availability. Discover users available for language exchange around you and filter them by distance (km) or in a specific city (Google Maps API).
+- **Advanced Tutor Search**: Find the perfect tutor by filtering **professionals** based on **city** and **languages taught**.
 - **Become a Tutor**: Integrated application system. Users can upgrade their profile to "Tutor" and upload certifications to request professional teacher verification.
 - **Real-Time Connections**: Instant connection requests powered by **Socket.io** for a seamless and immediate experience.
 - **Meeting Manager**: A dedicated tool to organize and keep track of your in-person meetings and lessons.
 - **Interest-Based Matching**: Find people who share your personal interests to make learning more engaging and natural.
-- **Community & Blog**: A dedicated space to publish articles, post comments and share cultural insights.
+- **Community & Blog**: A dedicated space to publish articles, post comments and share cultural insights. It features a **search engine** to filter posts by **title, author, and category**.
 
 ---
 
