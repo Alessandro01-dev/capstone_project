@@ -12,11 +12,12 @@ L'applicazione è distribuita su Vercel: https://talkmate-flame.vercel.app
 ## ✨ Funzionalità Principali
 
 - **Mappa Interattiva & Ricerca Geo**: Visualizza e scegli i tutor in base a prezzo e disponibilità oraria. Scopri gli utenti disponibili per uno scambio linguistico intorno a te e filtrali per distanza (km) o in una città specifica (Google Maps API).
+- **Ricerca Tutor Avanzata**: Trova il tutor ideale filtrando i professionisti in base alla città e alle lingue insegnate.
 - **Diventa Tutor**: Sistema di candidatura integrato. Gli utenti possono effettuare l'upgrade del profilo a "Tutor" e caricare certificazioni per richiedere la verifica di insegnante professionista.
 - **Connessioni Real-Time**: Richieste di connessione istantanee gestite tramite **Socket.io** per un'esperienza fluida e immediata.
 - **Meeting Manager**: Strumento dedicato per organizzare e memorizzare i propri incontri e lezioni di persona.
 - **Smart Matching**: Trova persone in linea con i tuoi interessi personali per rendere l'apprendimento più stimolante e naturale.
-- **Community & Blog**: Spazio dedicato alla pubblicazione di articoli e commenti per condividere conoscenze linguistiche e culturali.
+- **Community & Blog**: Spazio dedicato alla pubblicazione di articoli e commenti per condividere conoscenze linguistiche e culturali. Include un sistema di **ricerca** per filtrare i contenuti per **titolo, autore e categoria**.
 
 ---
 
