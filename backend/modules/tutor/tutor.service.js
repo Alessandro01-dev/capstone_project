@@ -2,12 +2,31 @@ const UserSchema = require('../user/user.schema')
 const TutorSchema = require('./tutor.schema')
 const UserNotFoundException = require('../../exceptions/user/UserNotFoundException')
 
-const getTutors = async (page, pageSize) => {
-  const tutors = await TutorSchema.find()
+const getTutors = async (page, pageSize, placeId, languageCode) => {
+  let query = {};
+
+  if (placeId) {
+    const usersInLocation = await UserSchema.find({
+      "location.placeId": placeId
+    }).select('_id');
+
+    const userIds = usersInLocation.map(user => user._id);
+    query.user = { $in: userIds };
+  }
+
+  if (languageCode) {
+    query.$or = [
+      { "languagesTaught.natives.code": languageCode },
+      { "languagesTaught.others.code": languageCode }
+    ];
+  }
+
+
+  const tutors = await TutorSchema.find(query)
     .limit(pageSize)
     .skip((page - 1) * pageSize)
     .populate('user', 'name surname avatar nationality location')
-  const totalTutors = await TutorSchema.countDocuments()
+  const totalTutors = await TutorSchema.countDocuments(query)
   const totalPages = Math.ceil(totalTutors / pageSize)
   return {
     page,

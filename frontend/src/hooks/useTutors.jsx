@@ -7,11 +7,20 @@ const useTutors = () => {
 
   const URL = import.meta.env.VITE_BASE_SERVER_URL
 
-  const getTutors = async (page = 1, pageSize = 4) => {
+  const getTutors = async (page = 1, pageSize = 4, placeId = "", languageCode = "") => {
     setTutorsIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${URL}/tutors?page=${page}&pageSize=${pageSize}`, {
+      let url = `${URL}/tutors?page=${page}&pageSize=${pageSize}`;
+      if (placeId) {
+        url += `&placeId=${placeId}`;
+      }
+
+      if (languageCode) {
+        url += `&language=${languageCode}`;
+      }
+
+      const response = await fetch(url, {
         headers: {
           "Authorization": `Bearer ${token}`
         }

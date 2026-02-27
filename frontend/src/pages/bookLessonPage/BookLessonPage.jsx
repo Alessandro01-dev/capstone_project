@@ -3,7 +3,7 @@ import TeachersList from "../../components/teachersList/TeachersList"
 import useTutors from "../../hooks/useTutors"
 import { useEffect } from "react"
 
-const BookLessonPage = () => {
+const BookLessonPage = ({ isLoaded }) => {
 
   const { tutorsData, getTutors, tutorsIsLoading } = useTutors()
 
@@ -18,7 +18,9 @@ const BookLessonPage = () => {
           <h3>
             Choose from {tutorsIsLoading && '...'} {tutorsData?.totalTutors} teachers!
           </h3>
-          <TeachersList />
+          <TeachersList
+            isLoaded={isLoaded}
+          />
         </Col>
       </Row>
     </Container>

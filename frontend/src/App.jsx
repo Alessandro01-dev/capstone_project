@@ -50,7 +50,7 @@ const App = () => {
           <Route element={<ProtectedRoutes />}>
             <Route element={<MainLayout />}>
               <Route index path="/" element={<Homepage />} />
-              <Route path="/booklesson" element={<BookLessonPage />} />
+              <Route path="/booklesson" element={<BookLessonPage isLoaded={isLoaded} />} />
               <Route path="/teachers/:teacherId" element={<TeacherDetailsPage />} />
               <Route path="/findtutor" element={<FindTutorPage isLoaded={isLoaded} />} />
               <Route path="/tutors/:tutorId" element={<TutorDetailsPage />} />

@@ -1,11 +1,13 @@
 const tutorService = require('./tutor.service')
 
 const getTutors = async (req, res, next) => {
-  const { page = 1, pageSize = 4 } = req.query
+  const { page = 1, pageSize = 4, placeId, language } = req.query
   try {
     const { tutors, totalPages, totalTutors, page: currentPage } = await tutorService.getTutors(
       Number(page),
-      Number(pageSize)
+      Number(pageSize),
+      placeId,
+      language
     )
     res.status(200).send({
       statusCode: 200,

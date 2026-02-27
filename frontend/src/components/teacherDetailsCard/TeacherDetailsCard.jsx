@@ -115,7 +115,7 @@ const TeacherDetailsCard = () => {
                     <p
                       className="m-0"
                     >
-                      {language.level}
+                      ({language.level})
                     </p>
                   </div>
                 ))}

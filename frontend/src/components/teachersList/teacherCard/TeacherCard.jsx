@@ -63,7 +63,7 @@ const TeacherCard = ({ isActive, onHover, tutor }) => {
         <div className={classes["teacher-card-languages-container"]}>
           <p
             className={`${classes['teacher-card-languages-section-title']} m-0`}>
-            Languages
+            Taught Languages
           </p>
           <div className={classes["teacher-card-taught-languages-container"]}>
 
