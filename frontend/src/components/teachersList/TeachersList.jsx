@@ -59,7 +59,7 @@ const TeachersList = () => {
         ref={listRef}
       >
         {tutorsError && (
-          <div className="alert alert-danger w-100">{tutorsError}</div>
+          <div className="alert alert-danger text-center w-100">{tutorsError}</div>
         )}
 
         {tutors.length === 0 && !tutorsIsLoading && (

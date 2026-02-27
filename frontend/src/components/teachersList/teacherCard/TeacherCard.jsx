@@ -89,9 +89,17 @@ const TeacherCard = ({ isActive, onHover, tutor }) => {
           {tutor.bio}
         </p>
         <div
-          className='d-flex align-items-center justify-content-center gap-1 align-self-end'
+          className='d-flex align-items-center justify-content-between gap-1'
         >
           <p
+            className='text-success fw-bold m-0'
+          >
+             Location: {tutor.user?.location?.city}, {" "}{tutor.user?.location?.country}
+          </p>
+          <div
+            className='d-flex align-items-center'
+          >
+            <p
             className='m-0 fs-5'
           >
             {tutor.hourlyRate}€
@@ -101,6 +109,7 @@ const TeacherCard = ({ isActive, onHover, tutor }) => {
           >
             / hour
           </p>
+          </div>
         </div>
       </div>
     </div>

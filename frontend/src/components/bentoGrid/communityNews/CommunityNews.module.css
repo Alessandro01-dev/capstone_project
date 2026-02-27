@@ -1,12 +1,19 @@
 .community-news-post-content {
   font-weight: 300;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
-  line-clamp: 6;
+  -webkit-line-clamp: 14;
+  line-clamp: 14;
   -webkit-box-orient: vertical;
   overflow: hidden;
   word-break: break-word;
   line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+  .community-news-post-content {
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+  }
 }
 
 .community-post-cover-container {
