@@ -6,7 +6,7 @@ const getTutors = async (req, res, next) => {
     const { tutors, totalPages, totalTutors, page: currentPage } = await tutorService.getTutors(
       Number(page),
       Number(pageSize)
-    );
+    )
     res.status(200).send({
       statusCode: 200,
       tutors,

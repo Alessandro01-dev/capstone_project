@@ -6,7 +6,7 @@ const getTutors = async (page, pageSize) => {
   const tutors = await TutorSchema.find()
     .limit(pageSize)
     .skip((page - 1) * pageSize)
-    .populate('user', 'name surname avatar nationality')
+    .populate('user', 'name surname avatar nationality location')
   const totalTutors = await TutorSchema.countDocuments()
   const totalPages = Math.ceil(totalTutors / pageSize)
   return {
