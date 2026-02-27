@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Spinner, Alert, Button, Modal, Form, Badge } from 'react-bootstrap';
+import { Spinner, Alert, Button, Modal, Badge } from 'react-bootstrap';
 import useCommunityPosts from '../../../hooks/useCommunityPosts';
 import { useAuth } from '../../../contexts/AuthContext';
 import TrashIcon from '../../../assets/TrashIcon';

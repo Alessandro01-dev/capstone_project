@@ -6,10 +6,13 @@ import { Badge, Spinner, Button } from "react-bootstrap"
 import useTutors from "../../hooks/useTutors"
 import { useEffect, useState } from "react"
 import ConnectionRequestModal from "../connectionRequestModal/ConnectionRequestModal"
+import { useAuth } from "../../contexts/AuthContext"
 
 const TeacherDetailsCard = () => {
 
   const { teacherId } = useParams()
+
+  const { authData } = useAuth()
 
   const { getTutorById, tutorsIsLoading, tutorsData, tutorsError } = useTutors()
 
@@ -20,6 +23,8 @@ const TeacherDetailsCard = () => {
     getTutorById(teacherId)
 
   }, [teacherId])
+
+  const isLoggedUser = authData?._id === tutorsData?.user._id
 
   return (
     <div
@@ -56,7 +61,7 @@ const TeacherDetailsCard = () => {
               className="d-flex flex-column"
             >
               <h3>
-                {tutorsData.user?.name} {tutorsData.user?.surname}
+                {tutorsData.user?.name} {tutorsData.user?.surname} {isLoggedUser ? "(me)" : ""}
               </h3>
               <div
                 className="d-flex align-items-center gap-2"
@@ -243,6 +248,7 @@ const TeacherDetailsCard = () => {
             variant="success"
             className="align-self-end"
             onClick={() => setShowModal(true)}
+            disabled={isLoggedUser}
           >
             Book a lesson with {tutorsData.user?.name}
           </Button>

@@ -4,14 +4,18 @@ import classes from './TeacherCard.module.css'
 import { useNavigate } from 'react-router-dom'
 import { getLanguageName } from "../../../utils/getLanguageName"
 import VerifiedIcon from '../../../assets/VerifiedIcon'
+import { useAuth } from '../../../contexts/AuthContext'
 
 const TeacherCard = ({ isActive, onHover, tutor }) => {
 
   const navigate = useNavigate()
+  const { authData } = useAuth()
 
   const handleTeacherProfileDetailsRedirect = () => {
     navigate(`/teachers/${tutor._id}`)
   }
+
+  const isLoggedUser = authData?._id === tutor?.user._id
 
   return (
     <div
@@ -36,7 +40,7 @@ const TeacherCard = ({ isActive, onHover, tutor }) => {
             </div>)}
           </div>
           <div className="d-flex flex-column">
-            <p className="m-0">{tutor.user?.name} {tutor.user?.surname}</p>
+            <p className="m-0">{tutor.user?.name} {tutor.user?.surname} {isLoggedUser ? "(me)" : ""}</p>
             <div
               className={classes["teacher-card-profile-job-title"]}
             >
@@ -94,21 +98,21 @@ const TeacherCard = ({ isActive, onHover, tutor }) => {
           <p
             className='text-success fw-bold m-0'
           >
-             Location: {tutor.user?.location?.city}, {" "}{tutor.user?.location?.country}
+            Location: {tutor.user?.location?.city}, {" "}{tutor.user?.location?.country}
           </p>
           <div
             className='d-flex align-items-center'
           >
             <p
-            className='m-0 fs-5'
-          >
-            {tutor.hourlyRate}€
-          </p>
-          <p
-            className='m-0 text-secondary'
-          >
-            / hour
-          </p>
+              className='m-0 fs-5'
+            >
+              {tutor.hourlyRate}€
+            </p>
+            <p
+              className='m-0 text-secondary'
+            >
+              / hour
+            </p>
           </div>
         </div>
       </div>

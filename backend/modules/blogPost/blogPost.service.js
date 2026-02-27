@@ -2,31 +2,70 @@ const UserSchema = require('../user/user.schema')
 const BlogPostSchema = require('./blogPost.schema')
 const CommentSchema = require('../comment/comment.schema')
 
-const getBlogPosts = async (page, pageSize) => {
-  const blogPosts = await BlogPostSchema.find()
+const getBlogPosts = async (page, pageSize, search = "", searchMode = "all") => {
+
+  let query = {};
+
+  if (search) {
+    switch (searchMode) {
+      case "title":
+        query = { title: { $regex: search, $options: 'i' } };
+        break;
+
+      case "author":
+        const users = await UserSchema.find({
+          $or: [
+            { name: { $regex: search, $options: 'i' } },
+            { surname: { $regex: search, $options: 'i' } },
+            {
+              $expr: {
+                $regexMatch: {
+                  input: { $concat: ["$name", " ", "$surname"] },
+                  regex: search, options: "i"
+                }
+              }
+            }
+          ]
+        }).select('_id');
+        query = { user: { $in: users.map(user => user._id) } };
+        break;
+
+      case "category":
+        query = { category: { $regex: search, $options: 'i' } };
+        break;
+
+      default:
+        const allUsers = await UserSchema.find({
+          $or: [
+            { name: { $regex: search, $options: 'i' } },
+            { surname: { $regex: search, $options: 'i' } },
+            {
+              $expr: {
+                $regexMatch: {
+                  input: { $concat: ["$name", " ", "$surname"] },
+                  regex: search, options: "i"
+                }
+              }
+            }
+          ]
+        }).select('_id');
+        query = {
+          $or: [
+            { title: { $regex: search, $options: 'i' } },
+            { category: { $regex: search, $options: 'i' } },
+            { user: { $in: allUsers.map(user => user._id) } }
+          ]
+        };
+    }
+  }
+
+  const blogPosts = await BlogPostSchema.find(query)
     .sort({ createdAt: -1 })
     .limit(pageSize)
     .skip((page - 1) * pageSize)
     .populate('user', 'name surname avatar nationality isTutor')
     .populate('comments')
-  const totalBlogPosts = await BlogPostSchema.countDocuments()
-  const totalPages = Math.ceil(totalBlogPosts / pageSize)
-  return {
-    page,
-    pageSize,
-    totalBlogPosts,
-    totalPages,
-    blogPosts
-  }
-}
-
-const getBlogPostsByTitle = async (searchedTitle, page, pageSize) => {
-  const searchQuery = { title: { $regex: searchedTitle, $options: 'i' } }
-  const blogPosts = await BlogPostSchema.find(searchQuery)
-    .limit(pageSize)
-    .skip((page - 1) * pageSize)
-    .populate('user', 'name surname avatar nationality isTutor')
-  const totalBlogPosts = await BlogPostSchema.find(searchQuery).countDocuments()
+  const totalBlogPosts = await BlogPostSchema.countDocuments(query)
   const totalPages = Math.ceil(totalBlogPosts / pageSize)
   return {
     page,
@@ -109,7 +148,6 @@ const toggleLike = async (blogPostId, userId) => {
 
 module.exports = {
   getBlogPosts,
-  getBlogPostsByTitle,
   getBlogPostById,
   getBlogPostsByUserId,
   createBlogPost,

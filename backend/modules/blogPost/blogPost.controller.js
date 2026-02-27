@@ -2,53 +2,21 @@ const blogPostService = require('./blogPost.service')
 const UserNotFoundException = require('../../exceptions/user/UserNotFoundException');
 
 const getBlogPosts = async (req, res, next) => {
-  const { page = 1, pageSize = 4 } = req.query
+  const { page = 1, pageSize = 4, search = "", searchMode = "all" } = req.query
   try {
     const {
       totalBlogPosts,
       totalPages,
       blogPosts,
       page: currentPage
-    } = await blogPostService.getBlogPosts(page, pageSize)
-    if (blogPosts.length === 0) {
-      return res.status(404).send({
-        statusCode: 404,
-        message: "Blog posts not found"
-      })
-    }
+    } = await blogPostService.getBlogPosts(page, pageSize, search, searchMode)
+    
     res.status(200).send({
       statusCode: 200,
       totalBlogPosts: Number(totalBlogPosts),
       totalPages: Number(totalPages),
       blogPosts,
       currentPage
-    })
-  } catch (error) {
-    next(error)
-  }
-}
-
-const getBlogPostsByTitle = async (req, res) => {
-  const { title, page = 1, pageSize = 4 } = req.query
-  try {
-    const {
-      totalBlogPosts,
-      totalPages,
-      blogPosts
-    } = await blogPostService.getBlogPostsByTitle(title, page, pageSize)
-    if (blogPosts.length === 0) {
-      return res.status(404).send({
-        statusCode: 404,
-        message: "Blog posts not found"
-      })
-    }
-    res.status(200).send({
-      statusCode: 200,
-      page: Number(page),
-      pageSize: Number(pageSize),
-      totalBlogPosts: Number(totalBlogPosts),
-      totalPages: Number(totalPages),
-      blogPosts
     })
   } catch (error) {
     next(error)
@@ -197,7 +165,6 @@ const toggleBlogPostLike = async (req, res, next) => {
 
 module.exports = {
   getBlogPosts,
-  getBlogPostsByTitle,
   getBlogPostById,
   getBlogPostsByUserId,
   createBlogPost,

@@ -4,7 +4,6 @@ const blogPostController = require('./blogPost.controller')
 const { cloudUpload } = require('../../middlewares/upload')
 
 router.get('/blogPosts', blogPostController.getBlogPosts)
-router.get('/search/blogPosts', blogPostController.getBlogPostsByTitle)
 router.get('/blogPosts/:blogPostId', blogPostController.getBlogPostById)
 
 router.post('/blogPosts/upload', cloudUpload.single('cover'), blogPostController.uploadFileOnCloud)

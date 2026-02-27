@@ -44,16 +44,16 @@ const TeachersSearch = ({ setCity, isLoaded, setLanguage }) => {
       className={classes["teachers-search-main-container"]}
     >
       <div
-        className="d-flex align-items-center gap-3"
+        className="d-flex align-items-center gap-3 fw-bold"
       >
         <FilterIcon />
-        Apply filters
+        Filter by
       </div>
       <div
         className={classes["teachers-search-inputs-container"]}
       >
         <InputGroup>
-          <Form.Label className="small fw-bold text-muted">Filter by City</Form.Label>
+          <Form.Label className="small fw-bold text-muted">City</Form.Label>
           <AsyncSelect
             cacheOptions
             loadOptions={loadLocationOptions}
@@ -66,7 +66,7 @@ const TeachersSearch = ({ setCity, isLoaded, setLanguage }) => {
           />
         </InputGroup>
         <InputGroup>
-          <Form.Label className="small fw-bold text-muted">Filter by Taught Language</Form.Label>
+          <Form.Label className="small fw-bold text-muted">Taught Language</Form.Label>
           <Select
             options={languagesMock}
             value={selectedLang}

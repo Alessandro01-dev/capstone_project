@@ -5,13 +5,36 @@ import LikesIcon from '../../../assets/LikesIcon'
 import { useNavigate } from 'react-router-dom'
 import { formatDate } from '../../../utils/formatDate'
 
-const CommunityPostCard = ({ post }) => {
+const CommunityPostCard = ({ post, highlight }) => {
 
   const navigate = useNavigate()
 
   const handleCommunityPostNavigate = () => {
     navigate(`/communityPosts/${post._id}`)
   }
+
+  const getHighlightedText = (text, query) => {
+    if (!query || !text) return text;
+
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+
+    return (
+      <span>
+        {parts.map((part, i) =>
+          part.toLowerCase() === query.toLowerCase() ? (
+            <mark
+              key={i}
+              className='bg-warning p-0 rounded-1'
+            >
+              {part}
+            </mark>
+          ) : (
+            part
+          )
+        )}
+      </span>
+    );
+  };
 
   return (
     <Col
@@ -50,7 +73,7 @@ const CommunityPostCard = ({ post }) => {
                 <h5
                   className='m-0'
                 >
-                  {post?.user?.name} {" "} {post?.user?.surname}
+                  {getHighlightedText(`${post?.user?.name} ${post?.user?.surname}`, highlight)}
                 </h5>
                 {post?.user?.isTutor && <p
                   className={`${classes['author-card-job-title']} m-0`}
@@ -59,7 +82,7 @@ const CommunityPostCard = ({ post }) => {
                 </p>}
               </div>
             </div>
-            <h5>{post.title}</h5>
+            <h5>{getHighlightedText(post.title, highlight)}</h5>
             <div
               className={classes["post-content"]}
               dangerouslySetInnerHTML={{ __html: post?.content }}
@@ -71,7 +94,7 @@ const CommunityPostCard = ({ post }) => {
             <Badge
               className='align-self-end bg-secondary'
             >
-              {post?.category}
+              {getHighlightedText(post?.category, highlight)}
             </Badge>
             <div
               className={classes['community-post-card-cover-container']}

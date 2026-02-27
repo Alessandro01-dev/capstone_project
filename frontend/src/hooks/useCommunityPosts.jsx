@@ -7,12 +7,22 @@ const useCommunityPosts = () => {
 
   const URL = import.meta.env.VITE_BASE_SERVER_URL
 
-  const getPosts = async (page = 1, pageSize = 4) => {
+  const getPosts = async (page = 1, pageSize = 4, search = "", searchMode = "all") => {
     setPostsIsLoading(true)
     setPostsError(null)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${URL}/blogPosts?page=${page}&pageSize=${pageSize}`, {
+      let url = `${URL}/blogPosts?page=${page}&pageSize=${pageSize}`
+
+      if (search) {
+        url += `&search=${encodeURIComponent(search)}`
+      }
+
+      if (searchMode) {
+        url += `&searchMode=${searchMode}`
+      }
+
+      const response = await fetch(url, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -87,33 +97,6 @@ const useCommunityPosts = () => {
       setPostsIsLoading(false);
     }
   };
-
-  const searchPostsByTitle = async (title, page = 1, pageSize = 4) => {
-    setPostsIsLoading(true)
-    setPostsError(null)
-    try {
-      const token = localStorage.getItem('token')
-      const response = await fetch(`${URL}/search/blogPosts?title=${title}&page=${page}&pageSize=${pageSize}`, {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        const errorResponse = await response.json()
-        throw new Error(errorResponse.message)
-      }
-
-      setPostsData(data)
-      return data
-    } catch (error) {
-      setPostsError(error.message)
-    } finally {
-      setPostsIsLoading(false)
-    }
-  }
 
   const createPost = async (newPost) => {
     setPostsIsLoading(true)
@@ -218,7 +201,6 @@ const useCommunityPosts = () => {
     getPosts,
     getPostById,
     getUserPosts,
-    searchPostsByTitle,
     createPost,
     updatePost,
     deletePost,
