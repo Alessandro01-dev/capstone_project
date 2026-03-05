@@ -78,31 +78,38 @@
 }
 
 .notification-container :global(.dropdown-menu) {
-  transform: translate(20px, 30px);
+  transform: translateY(5px);
+}
+
+@media (max-width: 425px) {
+  .notification-container :global(.dropdown-menu) {
+    min-width: 180px;
+    transform: translate(80px, 5px);
+  }
 }
 
 .avatar-container {
-    position: relative;
-    min-width: 40px;
-    min-height: 40px;
-    width: 40px;
-    height: 40px;
+  position: relative;
+  min-width: 40px;
+  min-height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .avatar-container img {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .flag-picture {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 16px;
-    width: 16px;
-    border: 2px solid white;
-    background: white;
-    border-radius: 50%;
-    overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 16px;
+  width: 16px;
+  border: 2px solid white;
+  background: white;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 @keyframes jump-and-shake {
