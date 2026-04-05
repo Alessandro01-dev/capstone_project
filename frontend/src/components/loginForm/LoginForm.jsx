@@ -44,6 +44,19 @@ const LoginForm = () => {
     }
   };
 
+  const handleGuestLogin = async () => {
+    const guestData = {
+      email: 'giulia.rinaldi@example.com',
+      password: 'password123'
+    };
+
+    const data = await loginAndGetToken(guestData);
+    if (data && data.token) {
+      await getProfile();
+      navigate(from, { replace: true });
+    }
+  };
+
   return (
     <>
       <h2 className="text-center mb-4">Login</h2>
@@ -99,6 +112,23 @@ const LoginForm = () => {
           }
         </Button>
       </Form>
+
+      <div className="text-center mt-3">
+        <div className="d-flex align-items-center mb-3">
+          <hr className="flex-grow-1 text-muted" />
+          <span className="mx-2 small text-muted text-uppercase">Or</span>
+          <hr className="flex-grow-1 text-muted" />
+        </div>
+
+        <Button
+          variant="outline-dark"
+          className="w-100 py-2 fw-bold"
+          onClick={handleGuestLogin}
+          disabled={authIsLoading}
+        >
+          Login as Guest (Tutor Demo)
+        </Button>
+      </div>
 
       <div
         className="d-flex align-items-center justify-content-center gap-1 mt-3"
