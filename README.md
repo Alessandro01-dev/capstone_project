@@ -7,7 +7,7 @@ Grazie all'integrazione con le API di Google Maps, gli utenti possono trovare in
 ---
 
 ## 🚀 Demo
-L'applicazione è distribuita su Vercel: https://talkmate-flame.vercel.app
+L'applicazione è distribuita su Vercel: [https://talkmate-flame.vercel.app] (https://talkmate-flame.vercel.app)
 
 ## ✨ Funzionalità Principali
 
@@ -49,5 +49,5 @@ By integrating Google Maps APIs, users can find native teachers or other users f
 
 ## 👤 Author
 **Alessandro Aronica**
-- GitHub: https://github.com/Alessandro01-dev/capstone_project
-- Live Demo: https://talkmate-flame.vercel.app
+- GitHub: [https://github.com/Alessandro01-dev/capstone_project] (https://github.com/Alessandro01-dev/capstone_project)
+- Live Demo: [https://talkmate-flame.vercel.app] (https://talkmate-flame.vercel.app)
